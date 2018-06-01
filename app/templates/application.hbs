@@ -1,3 +1,30 @@
-<h1 class="text-5xl">Hello world</h1>
+<!-- Two columns -->
+<div class="flex mb-4 container mx-auto">
+  <div class="w-1/4 bg-grey-light h-screen">
+    <div class="logo text-center py-8">
+      DAVOS
+    </div>
+    <div class="menu text-left">
+      <ul class="list-reset pl-8 ml-8">
+        <li class="py-2">
+          <span>  {{fa-icon "clipboard"}} </span>
+          Dashboard
+        </li>
+        <li class="py-2">
+          <span>  {{fa-icon "usd"}} </span>
+          Account
+        </li>
+        <li class="py-2">
+          <span>  {{fa-icon "download"}} </span>
+          Receipts
+        </li>
+        <li class="py-2">
+          <span>  {{fa-icon "plane"}} </span>
 
-{{outlet}}
+          Discover
+        </li>
+      </ul>
+    </div>
+  </div>
+  {{outlet}}
+</div>

@@ -1,0 +1,163 @@
+export default function(server) {
+
+  window.server = server;
+
+  // Setting up User
+  let donor = server.create('donor', {
+    first: "Ian",
+    last: "Knauer",
+  });
+
+  let visa = server.create('card', {
+    donor: donor,
+    primary: 'true',
+  });
+
+  let mastercard = server.create('card', {
+    donor: donor,
+    type: 'mastercard',
+    number: '5555-5555-5555-4444',
+    expiry: '10/21'
+  });
+
+  let home = server.create('address', {
+    donor: donor,
+    name: "Home",
+    address1: "1120 thomson road",
+    postalCode: "V3H 4X9",
+    city: "Anmore",
+    country: "Canada",
+    province: "BC",
+    primary: 'true',
+  });
+
+  let school = server.create('address', {
+    donor: donor,
+    name: "School",
+    address1: "685 Great Northern Way",
+    postalCode: "V5T 0C6",
+    city: "Vancouver",
+    country: "Canada",
+    province: "BC",
+  });
+
+  // Set up organizations
+  let spca = server.create('organization', {
+    name: 'BC SPCA',
+  });
+
+  let vgh = server.create('organization', {
+    name: 'the VGH & UBC Hospital Foundation',
+  });
+
+  // Set up donor-organization-relationships
+
+  let spcaRelationship = server.create('relationship', {
+    donor: donor,
+    organization: spca,
+  });
+
+  let vghRelationship = server.create('relationship', {
+    donor: donor,
+    organization: vgh,
+  })
+
+
+  // Set up campaigns
+
+  let coats = server.create('campaign', {
+    description: "Warm coats for a cold winter",
+    organization: spca,
+  });
+
+  let beds = server.create('campaign', {
+    description: "New chairs for the Emergency waiting room",
+    organization: vgh,
+  });
+
+  // setting up gifts
+
+  let vghRecurringGift = server.create('recurring', {
+    amount: "500",
+    frequency: "monthly",
+    startDate: '2018-15-01',
+    campaign: beds,
+    card: visa,
+    relationship: vghRelationship,
+  });
+
+  server.create('payment', {
+    date: "2018/15/01",
+    amount: "500",
+    recurring: vghRecurringGift,
+  });
+
+  server.create('payment', {
+    date: "2018/15/02",
+    amount: "500",
+    recurring: vghRecurringGift,
+  });
+
+  server.create('payment', {
+    date: "2018/15/03",
+    amount: "500",
+    recurring: vghRecurringGift,
+  });
+
+  server.create('payment', {
+    date: "2018/15/04",
+    amount: "500",
+    recurring: vghRecurringGift,
+  });
+
+  server.create('payment', {
+    date: "2018/15/05",
+    amount: "500",
+    recurring: vghRecurringGift,
+  });
+
+  let spcaRecurringGift = server.create('recurring', {
+    amount: "1000",
+    frequency: "monthly",
+    startDate: '2018-15-03',
+    campaign: coats,
+    card: visa,
+    relationship: spcaRelationship,
+  });
+
+  server.create('recurring', {
+    amount: "1000",
+    frequency: "monthly",
+    startDate: '2018-15-03',
+    campaign: beds,
+    card: visa,
+    relationship: vghRelationship,
+  });
+
+  server.create('recurring', {
+    amount: "1000",
+    frequency: "monthly",
+    startDate: '2018-15-03',
+    campaign: coats,
+    card: visa,
+    relationship: spcaRelationship,
+  });
+
+  server.create('payment', {
+    date: "2018/15/03",
+    amount: "500",
+    recurring: spcaRecurringGift,
+  });
+
+  server.create('payment', {
+    date: "2018/15/04",
+    amount: "500",
+    recurring: spcaRecurringGift,
+  });
+
+  server.create('payment', {
+    date: "2018/15/05",
+    amount: "500",
+    recurring: spcaRecurringGift,
+  });
+}
