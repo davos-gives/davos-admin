@@ -1,2 +1,5 @@
 @import 'tailwind.css';
 
+table.payments-table tr:nth-child(even) td{
+  background-color: #dae1e7;
+}

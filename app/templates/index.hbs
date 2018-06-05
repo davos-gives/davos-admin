@@ -38,29 +38,30 @@
 
     {{#each model.relationships as |relationship|}}
       {{#each relationship.recurrings as |gift|}}
-
-        <div class="w-96 rounded-lg overflow-hidden shadow-md -mt-4 mx-2 mb-8 cursor-pointer">
-          <div class="image w-full h-32 bg-grey-lightest">
-          </div>
-          <div class="px-6 py-4">
-            <div class="pb-8 border-grey-light border-solid border-b-2">
-              <p class="font-bold mt-4 mb-2 capitalize">
-                {{gift.campaign.organization.name}}
-              </p>
-              <p class="font-light">
-                {{gift.campaign.description}}
-              </p>
+        {{#link-to 'relationship' relationship.id class='no-underline text-black'}}
+          <div class="w-96 rounded-lg overflow-hidden shadow-md -mt-4 mx-2 mb-8 cursor-pointer">
+            <div class="image w-full h-32 bg-grey-lightest">
             </div>
-            <div class="mt-4 flex">
-              <p class="text-lg font-bold w-1/2">
-                {{format-currency gift.amount}}
-              </p>
-              <span class="w-1/2 text-right capitalize">
-                {{gift.frequency}}
-              </span>
+            <div class="px-6 py-4">
+              <div class="pb-8 border-grey-light border-solid border-b-2">
+                <p class="font-bold mt-4 mb-2 capitalize">
+                  {{gift.campaign.organization.name}}
+                </p>
+                <p class="font-light">
+                  {{gift.campaign.description}}
+                </p>
+              </div>
+              <div class="mt-4 flex">
+                <p class="text-lg font-bold w-1/2">
+                  {{format-currency gift.amount}}
+                </p>
+                <span class="w-1/2 text-right capitalize">
+                  {{gift.frequency}}
+                </span>
+              </div>
             </div>
           </div>
-        </div>
+      {{/link-to}}
       {{/each}}
     {{/each}}
   </section>

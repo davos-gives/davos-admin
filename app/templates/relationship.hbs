@@ -1,0 +1,119 @@
+<div class="w-3/4">
+  <section class="flex bg-grey-darkest h-64">
+    <div class="flex-1 p-8 ml-8">
+      {{#link-to 'index'}}
+        <p class="p-1 text-lg text-white font-bold">{{fa-icon "angle-left"}} {{fa-icon "home"}}</p>
+      {{/link-to}}
+      <p class="text-xl py-4 text-white">This month you're donating <strong>$35.23</strong> <span class="uppercase text-xs">cad</span></p>
+    </div>
+    <div class="flex-1 text-right">
+      <nav class="flex items-center justify-between flex-wrap p-6">
+        <div class="w-full block flex-grow text-white">
+          <div>
+            <a class="inline-block mt-4 mr-4 text-white no-underline" href="">
+              {{fa-icon "search"}}
+            </a>
+            <a class="inline-block mt-4 mr-4 text-white no-underline" href="">
+              {{fa-icon "bell"}}
+            </a>
+            <a class="inline-block mt-4 mr-1 text-white no-underline" href="">
+              <span class="rounded-full h-6 w-6 flex items-center justify-center bg-white">a</span>
+            </a>
+            <a class="inline-block mt-4 text-white no-underline" href="">
+              {{model.donor.first}}
+            </a>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </section>
+  <section class="flex flex-wrap w-3/4 px-8 ml-8 mt-8">
+    <p class="text-xl">
+    <span class="font-bold pr-2 capitalize">{{model.organization.name}}</span>| My Active Donations
+  </p>
+    {{#each model.recurrings as |recurring|}}
+      <div class="w-full mt-4">
+        <div class="w-full rounded-lg overflow-hidden shadow-md mx-2 mb-4 cursor-pointer">
+          <div class="image w-full bg-grey-lightest px-8 py-6 text-sm flex">
+            <p class="flex-1">
+              {{recurring.campaign.description}}
+            </p>
+            <p class="flex-1 text-right">
+              Last donation: 01/05/18
+            </p>
+          </div>
+          <div class="px-6 py-2 pb-6">
+            <div class="mt-4 flex">
+              <p class="text-lg font-bold w-1/4 text-center">
+                {{format-currency recurring.amount}} {{fa-icon "angle-down"}}
+              </p>
+              <p class="w-1/4 text-center text-sm capitalize">
+                 {{recurring.frequency}} {{fa-icon "angle-down"}}
+              </p>
+              <p class="text-sm w-1/4 text-center text-grey-dark">
+                since {{recurring.startDate}}
+              </p>
+              <p class="text-sm w-1/4 text-center">
+                {{fa-icon "credit-card"}} ending in 4876 {{fa-icon "angle-down"}}
+              </p>
+
+            </div>
+          </div>
+        </div>
+        {{!-- <p class='text-lg'>{{model.organization.name}}</p> --}}
+      </div>
+    {{/each}}
+  </section>
+
+  <section class="flex flex-wrap content-start w-3/4 px-2 ml-8 pt-8 mb-8">
+  </section>
+
+  <section class="flex flex-wrap w-3/4 px-8 ml-8 mt-8">
+    <div class="w-1/2">
+      <p class='text-lg'>My History</p>
+    </div>
+    <div class="w-1/2 text-right mb-8">
+      <button class="">2018 {{fa-icon "angle-down"}}</button>
+    </div>
+  </section>
+  <section class="flex w-3/4 px-8 ml-8 w-1">
+    <table class="mb-4 flex-1 payments-table">
+      <thead class="flex flex-wrap w-full bg-grey-darkest text-white py-2 text-sm rounded-t-lg">
+        <th class="w-1/6">Date</th>
+        <th class="w-1/6">Amount</th>
+        <th class="w-1/2">Campaign</th>
+        <th class="w-1/6">Receipt</th>
+      </thead>
+
+        {{#each model.recurrings as |recurring|}}
+          {{#each recurring.payments as |payment|}}
+            <tr class="flex flex-wrap w-full">
+              <td class="w-1/6 py-2 text-sm"><p class="text-center">{{payment.date}}</p></td>
+              <td class="w-1/6 py-2 text-sm"><p class="text-center">{{format-currency payment.amount}}</p></td>
+              <td class="w-1/2 item-center py-2 text-sm"><p class="text-center ">{{recurring.campaign.description}}</p></td>
+              <td class='w-1/6 text-center py-2'>{{fa-icon "download"}}</td>
+          </tr>
+          {{/each}}
+        {{/each}}
+
+    </table>
+
+  </section>
+
+  <section class="flex flex-wrap w-3/4 text-xs text-grey-dark ml-8 border-grey-light border-solid border-t-2 pt-8 pb-8">
+    <div class="w-1/2">
+      <p>©2018 Davos.gives - All rights reserved.</p>
+    </div>
+    <div class="w-1/2 text-right flex">
+      <p class="w-1/3">
+        Terms of Use
+      </p>
+      <p class="w-1/3">
+        Privacy Policy
+      </p>
+      <p class="w-1/3">
+        Cookie Policy
+      </p>
+    </div>
+  </section>
+</div>

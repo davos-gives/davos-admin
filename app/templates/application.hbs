@@ -7,8 +7,10 @@
     <div class="menu text-left">
       <ul class="list-reset pl-8 ml-8">
         <li class="py-2">
-          <span>  {{fa-icon "clipboard"}} </span>
-          Dashboard
+          {{#link-to "index" class="no-underline text-black"}}
+            <span>  {{fa-icon "clipboard"}} </span>
+            Dashboard
+          {{/link-to}}
         </li>
         <li class="py-2">
           <span>  {{fa-icon "usd"}} </span>

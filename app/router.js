@@ -9,7 +9,7 @@ const Router = EmberRouter.extend({
 Router.map(function() {
   this.route('recurring-payment');
   this.route('account');
-  this.route('donor-organization-relationship', {path: "/organization/:id"});
+  this.route('relationship', {path: "/organization/:id"});
 });
 
 export default Router;
