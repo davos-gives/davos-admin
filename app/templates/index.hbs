@@ -2,7 +2,7 @@
   <section class="flex bg-grey-darkest h-64">
     <div class="flex-1 p-8 ml-8">
       <p class="p-1 text-lg text-white">Welcome back, {{model.first}}!</p>
-      <p class="text-xl py-4 text-white">This month you're donating <strong>$35.23</strong> <span class="uppercase text-xs">cad</span></p>
+      <p class="text-xl py-4 text-white">This month you're donating <strong>{{format-currency model.donorRecurringTotal}}</strong> <span class="uppercase text-xs">cad</span></p>
     </div>
     <div class="flex-1 text-right">
       <nav class="flex items-center justify-between flex-wrap p-6">

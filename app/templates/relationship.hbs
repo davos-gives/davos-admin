@@ -40,7 +40,7 @@
           Donated this year
         </p>
         <p class="text-white font-semibold text-2xl mb-2 text-center">
-          $65
+          {{format-currency model.totalDonations}}
         </p>
         <p class="text-white font-hairline text-center text-sm">
           CAD
@@ -48,13 +48,10 @@
       </div>
       <div class="flex-1 border-white border-r my-3">
         <p class="text-white -mt-2 mb-2 font-thin text-center text-sm">
-          A supporter for
+          You've supported for
         </p>
         <p class="text-white font-semibold text-2xl mb-2 text-center">
-          515
-        </p>
-        <p class="text-white font-hairline text-center text-sm">
-          DAYS
+          {{moment-from-now (moment-format model.formattedPaymentDate 'MM-DD-YYYY') hideAffix=true}}
         </p>
       </div>
       <div class="flex-1 my-3">
@@ -62,7 +59,7 @@
           Donated overall
         </p>
         <p class="text-white font-semibold text-2xl mb-2 text-center">
-          $221
+          {{format-currency model.totalDonations}}
         </p>
         <p class="text-white font-hairline text-center text-sm">
           CAD
@@ -95,7 +92,7 @@
                  {{recurring.frequency}} {{fa-icon "angle-down"}}
               </p>
               <p class="text-sm w-1/4 text-center text-grey-dark">
-                since {{recurring.startDate}}
+                since {{moment-format recurring.startDate 'MM/DD/YYYY'}}
               </p>
               <p class="text-sm w-1/4 text-center">
                 {{fa-icon "credit-card"}} ending in 4876 {{fa-icon "angle-down"}}
@@ -137,7 +134,7 @@
         {{#each model.recurrings as |recurring|}}
           {{#each recurring.payments as |payment|}}
             <tr class="flex flex-wrap w-full">
-              <td class="w-1/6 py-2 text-sm"><p class="text-center">{{payment.date}}</p></td>
+              <td class="w-1/6 py-2 text-sm"><p class="text-center">{{moment-format payment.date 'MM/DD/YYYY'}}</p></td>
               <td class="w-1/6 py-2 text-sm"><p class="text-center">{{format-currency payment.amount}}</p></td>
               <td class="w-1/2 item-center py-2 text-sm"><p class="text-center ">{{recurring.campaign.description}}</p></td>
               <td class='w-1/6 text-center py-2'>{{fa-icon "download"}}</td>

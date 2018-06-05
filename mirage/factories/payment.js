@@ -5,6 +5,6 @@ export default Factory.extend({
     return "2018/15/01";
   },
   amount() {
-    return "500";
+    return 500;
   },
 });

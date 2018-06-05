@@ -78,86 +78,86 @@ export default function(server) {
   // setting up gifts
 
   let vghRecurringGift = server.create('recurring', {
-    amount: "500",
+    amount: 500,
     frequency: "monthly",
-    startDate: '2018-15-01',
+    startDate: new Date(2018, 1, 15),
     campaign: beds,
     card: visa,
     relationship: vghRelationship,
   });
 
   server.create('payment', {
-    date: "2018/15/01",
-    amount: "500",
+    date: new Date(2018, 1, 15),
+    amount: 500,
     recurring: vghRecurringGift,
   });
 
   server.create('payment', {
-    date: "2018/15/02",
-    amount: "500",
+    date: new Date(2018, 2, 15),
+    amount: 500,
     recurring: vghRecurringGift,
   });
 
   server.create('payment', {
-    date: "2018/15/03",
-    amount: "500",
+    date: new Date(2018, 3, 15),
+    amount: 500,
     recurring: vghRecurringGift,
   });
 
   server.create('payment', {
-    date: "2018/15/04",
-    amount: "500",
+    date: new Date(2018, 4, 15),
+    amount: 500,
     recurring: vghRecurringGift,
   });
 
   server.create('payment', {
-    date: "2018/15/05",
-    amount: "500",
+    date: new Date(2018, 5, 15),
+    amount: 500,
     recurring: vghRecurringGift,
   });
 
   let spcaRecurringGift = server.create('recurring', {
-    amount: "1000",
+    amount: 1000,
     frequency: "monthly",
-    startDate: '2018-15-03',
+    startDate: new Date(2018, 3, 15),
     campaign: coats,
     card: visa,
     relationship: spcaRelationship,
   });
 
-  server.create('recurring', {
-    amount: "1000",
+  let vghRecurringGift2 = server.create('recurring', {
+    amount: 1000,
     frequency: "monthly",
-    startDate: '2018-15-03',
+    startDate: new Date(2018, 3, 15),
     campaign: beds,
     card: visa,
     relationship: vghRelationship,
   });
 
   server.create('recurring', {
-    amount: "1000",
+    amount: 1000,
     frequency: "monthly",
-    startDate: '2018-15-03',
+    startDate: new Date(2018, 4, 15),
     campaign: coats,
     card: visa,
     relationship: spcaRelationship,
   });
 
   server.create('payment', {
-    date: "2018/15/03",
-    amount: "500",
+    date: new Date(2017, 9, 15),
+    amount: 500,
     recurring: spcaRecurringGift,
   });
 
   server.create('payment', {
-    date: "2018/15/04",
-    amount: "500",
+    date: new Date(2017, 10, 15),
+    amount: 500,
     recurring: spcaRecurringGift,
   });
 
   server.create('payment', {
-    date: "2018/15/05",
-    amount: "500",
+    date: new Date(2018, 11, 15),
+    amount: 500,
     recurring: spcaRecurringGift,
   });
 }

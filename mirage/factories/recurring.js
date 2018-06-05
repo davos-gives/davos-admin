@@ -2,7 +2,7 @@ import { Factory, faker } from 'ember-cli-mirage';
 
 export default Factory.extend({
   amount() {
-    return "3000";
+    return 3000;
   },
 
   frequency() {
