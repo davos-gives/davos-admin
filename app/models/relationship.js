@@ -18,6 +18,10 @@ export default DS.Model.extend(LoadableModel,{
     return this.get('recurrings').mapBy('totalPayments').reduce((a, b) => a + b, 0);
   }),
 
+  totalYearlyPayments: computed('recurrings.@each.totalYearlyPayments', function() {
+    return this.get('recurrings').mapBy('totalYearlyPayments').reduce((a, b) => a + b, 0);
+  }),
+
   allPaymentDates: computed('recurrings.@each.paymentDates', function() {
     return this.get('recurrings').mapBy('paymentDates').reduce((a, b) => a.concat(b));
   }),
@@ -28,7 +32,9 @@ export default DS.Model.extend(LoadableModel,{
     let time = this.get('earliestPaymentDate');
     time = (time-(time%1000))/1000;
     return moment.unix(time).format();
-  })
+  }),
+
+
 
   // computed
   // FirstSupportedDate

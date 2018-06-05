@@ -40,7 +40,7 @@
           Donated this year
         </p>
         <p class="text-white font-semibold text-2xl mb-2 text-center">
-          {{format-currency model.totalDonations}}
+          {{format-currency model.totalYearlyPayments}}
         </p>
         <p class="text-white font-hairline text-center text-sm">
           CAD
@@ -51,7 +51,7 @@
           You've supported for
         </p>
         <p class="text-white font-semibold text-2xl mb-2 text-center">
-          {{moment-from-now (moment-format model.formattedPaymentDate 'MM-DD-YYYY') hideAffix=true}}
+          {{moment-from-now (moment-format model.formattedPaymentDate) hideAffix=true}}
         </p>
       </div>
       <div class="flex-1 my-3">
@@ -92,7 +92,7 @@
                  {{recurring.frequency}} {{fa-icon "angle-down"}}
               </p>
               <p class="text-sm w-1/4 text-center text-grey-dark">
-                since {{moment-format recurring.startDate 'MM/DD/YYYY'}}
+                since {{moment-format recurring.startDate 'YYYY/MM/DD'}}
               </p>
               <p class="text-sm w-1/4 text-center">
                 {{fa-icon "credit-card"}} ending in 4876 {{fa-icon "angle-down"}}
@@ -134,7 +134,7 @@
         {{#each model.recurrings as |recurring|}}
           {{#each recurring.payments as |payment|}}
             <tr class="flex flex-wrap w-full">
-              <td class="w-1/6 py-2 text-sm"><p class="text-center">{{moment-format payment.date 'MM/DD/YYYY'}}</p></td>
+              <td class="w-1/6 py-2 text-sm"><p class="text-center">{{moment-format payment.date 'YYYY/MM/DD'}}</p></td>
               <td class="w-1/6 py-2 text-sm"><p class="text-center">{{format-currency payment.amount}}</p></td>
               <td class="w-1/2 item-center py-2 text-sm"><p class="text-center ">{{recurring.campaign.description}}</p></td>
               <td class='w-1/6 text-center py-2'>{{fa-icon "download"}}</td>
