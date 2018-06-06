@@ -109,40 +109,9 @@
   <section class="flex flex-wrap content-start w-3/4 px-2 ml-8 pt-8 mb-8">
   </section>
 
-  <section class="flex flex-wrap w-3/4 px-8 ml-8 mt-8">
-    <div class="w-1/2">
-      <p class='text-lg'>My History</p>
-    </div>
-    <div class="w-1/2 text-right mb-8">
-      <button class="">2018 {{fa-icon "angle-down"}}</button>
-    </div>
-  </section>
-  <section class="flex w-3/4 px-8 ml-8 w-1">
-    <table class="mb-4 flex-1 payments-table">
-
-      {{#power-select options=names onchange=(action "foo") as |name|}}
-        {{name}}
-      {{/power-select}}
-
-      <thead class="flex flex-wrap w-full bg-grey-darkest text-white py-2 text-sm rounded-t-lg">
-        <th class="w-1/6 text-left pl-4">Date</th>
-        <th class="w-1/6">Amount</th>
-        <th class="w-1/2 text-left pl-4">Campaign</th>
-        <th class="w-1/6">Receipt</th>
-      </thead>
 
 
-      {{#each model.payments as |payment|}}
-        <tr class="flex flex-wrap w-full">
-          <td class="w-1/6 py-2 text-sm"><p class="text-center">{{moment-format payment.date 'YYYY/MM/DD'}}</p></td>
-          <td class="w-1/6 py-2 text-sm"><p class="text-center">{{format-currency payment.amount}}</p></td>
-          <td class="w-1/2 item-center py-2 text-sm"><p class="text-center ">{{recurring.campaign.description}}</p></td>
-          <td class='w-1/6 text-center py-2'>{{fa-icon "download"}}</td>
-        </tr>
-      {{/each}}
-
-    </table>
-  </section>
+  {{donation-history payments=model.payments}}
 
   <section class="flex flex-wrap w-3/4 text-xs text-grey-dark ml-8 border-grey-light border-solid border-t-2 pt-8 pb-8">
     <div class="w-1/2">
