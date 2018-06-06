@@ -6,4 +6,5 @@ export default DS.Model.extend(LoadableModel,{
   date: DS.attr('date'),
   amount: DS.attr(),
   recurring: DS.belongsTo('recurring'),
+  relationship: DS.belongsTo('relationship'),
 });

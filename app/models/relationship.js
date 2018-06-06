@@ -9,6 +9,7 @@ export default DS.Model.extend(LoadableModel,{
   donor: DS.belongsTo('donor'),
   organization: DS.belongsTo('organization'),
   recurrings: DS.hasMany('recurring'),
+  payments: DS.hasMany('payments'),
 
   relationshipRecurringMonthlyTotal: computed('recurrings.@each.amount', function() {
     return this.get('recurrings').mapBy('amount').reduce((a, b) => a + b, 0);

@@ -131,16 +131,16 @@
         <th class="w-1/6">Receipt</th>
       </thead>
 
-        {{#each model.recurrings as |recurring|}}
-          {{#each recurring.payments as |payment|}}
-            <tr class="flex flex-wrap w-full">
-              <td class="w-1/6 py-2 text-sm"><p class="text-center">{{moment-format payment.date 'YYYY/MM/DD'}}</p></td>
-              <td class="w-1/6 py-2 text-sm"><p class="text-center">{{format-currency payment.amount}}</p></td>
-              <td class="w-1/2 item-center py-2 text-sm"><p class="text-center ">{{recurring.campaign.description}}</p></td>
-              <td class='w-1/6 text-center py-2'>{{fa-icon "download"}}</td>
-          </tr>
-          {{/each}}
-        {{/each}}
+
+      {{#each model.payments as |payment|}}
+        <tr class="flex flex-wrap w-full">
+          <td class="w-1/6 py-2 text-sm"><p class="text-center">{{moment-format payment.date 'YYYY/MM/DD'}}</p></td>
+          <td class="w-1/6 py-2 text-sm"><p class="text-center">{{format-currency payment.amount}}</p></td>
+          <td class="w-1/2 item-center py-2 text-sm"><p class="text-center ">{{recurring.campaign.description}}</p></td>
+          <td class='w-1/6 text-center py-2'>{{fa-icon "download"}}</td>
+        </tr>
+      {{/each}}
+
     </table>
   </section>
 

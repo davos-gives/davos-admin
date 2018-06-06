@@ -90,30 +90,35 @@ export default function(server) {
     date: new Date(2018, 1, 15),
     amount: 500,
     recurring: vghRecurringGift,
+    relationship: vghRelationship,
   });
 
   server.create('payment', {
     date: new Date(2018, 2, 15),
     amount: 500,
     recurring: vghRecurringGift,
+    relationship: vghRelationship,
   });
 
   server.create('payment', {
     date: new Date(2018, 3, 15),
     amount: 500,
     recurring: vghRecurringGift,
+    relationship: vghRelationship,
   });
 
   server.create('payment', {
     date: new Date(2018, 4, 15),
     amount: 500,
     recurring: vghRecurringGift,
+    relationship: vghRelationship,
   });
 
   server.create('payment', {
     date: new Date(2018, 5, 15),
     amount: 500,
     recurring: vghRecurringGift,
+    relationship: vghRelationship,
   });
 
   let spcaRecurringGift = server.create('recurring', {
@@ -147,17 +152,20 @@ export default function(server) {
     date: new Date(2017, 9, 15),
     amount: 500,
     recurring: spcaRecurringGift,
+    relationship: spcaRelationship,
   });
 
   server.create('payment', {
     date: new Date(2017, 10, 15),
     amount: 500,
     recurring: spcaRecurringGift,
+    relationship: spcaRelationship,
   });
 
   server.create('payment', {
     date: new Date(2018, 11, 15),
     amount: 500,
     recurring: spcaRecurringGift,
+    relationship: spcaRelationship,
   });
 }

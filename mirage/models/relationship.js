@@ -4,4 +4,5 @@ export default Model.extend({
   donor: belongsTo(),
   organization: belongsTo(),
   recurrings: hasMany(),
+  payments: hasMany(),
 });
