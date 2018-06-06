@@ -34,11 +34,4 @@ export default DS.Model.extend(LoadableModel,{
     time = (time-(time%1000))/1000;
     return moment.unix(time).format();
   }),
-
-
-
-  // computed
-  // FirstSupportedDate
-  // Yearly Total
-  // Lifetime Total
 });

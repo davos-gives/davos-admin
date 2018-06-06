@@ -73,36 +73,7 @@
     <span class="font-bold pr-2 capitalize">{{model.organization.name}}</span>| My Active Donations
   </p>
     {{#each model.recurrings as |recurring|}}
-      <div class="w-full mt-4">
-        <div class="w-full rounded-lg overflow-hidden shadow-md mx-2 mb-4 cursor-pointer">
-          <div class="image w-full bg-grey-lightest px-8 py-6 text-sm flex">
-            <p class="flex-1">
-              {{recurring.campaign.description}}
-            </p>
-            <p class="flex-1 text-right">
-              Last donation: 01/05/18
-            </p>
-          </div>
-          <div class="px-6 py-2 pb-6">
-            <div class="mt-4 flex">
-              <p class="text-lg font-bold w-1/4 text-center">
-                {{format-currency recurring.amount}} {{fa-icon "angle-down"}}
-              </p>
-              <p class="w-1/4 text-center text-sm capitalize">
-                 {{recurring.frequency}} {{fa-icon "angle-down"}}
-              </p>
-              <p class="text-sm w-1/4 text-center text-grey-dark">
-                since {{moment-format recurring.startDate 'YYYY/MM/DD'}}
-              </p>
-              <p class="text-sm w-1/4 text-center">
-                {{fa-icon "credit-card"}} ending in 4876 {{fa-icon "angle-down"}}
-              </p>
-
-            </div>
-          </div>
-        </div>
-        {{!-- <p class='text-lg'>{{model.organization.name}}</p> --}}
-      </div>
+      {{recurring-payment recurring=recurring}}
     {{/each}}
   </section>
 
