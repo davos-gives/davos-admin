@@ -6,7 +6,7 @@ export default Factory.extend({
   },
 
   number() {
-    return `4242-4242-4242-4242`;
+    return `4242`;
   },
 
   expiry() {

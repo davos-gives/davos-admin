@@ -73,7 +73,7 @@
     <span class="font-bold pr-2 capitalize">{{model.organization.name}}</span>| My Active Donations
   </p>
     {{#each model.recurrings as |recurring|}}
-      {{recurring-payment recurring=recurring}}
+      {{recurring-payment recurring=recurring cards=model.donor.cards}}
     {{/each}}
   </section>
 

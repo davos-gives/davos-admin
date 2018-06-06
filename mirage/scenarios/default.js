@@ -16,7 +16,7 @@ export default function(server) {
   let mastercard = server.create('card', {
     donor: donor,
     type: 'mastercard',
-    number: '5555-5555-5555-4444',
+    number: '4444',
     expiry: '10/21'
   });
 

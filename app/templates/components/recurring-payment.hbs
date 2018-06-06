@@ -12,10 +12,9 @@
       <div class="mt-4 flex">
         <p class="text-lg font-bold w-1/4 text-center">
           {{#power-select-with-create
-            options=paymentOptions
-            searchField="name"
-            selected=selectedPayment
-            onchange=(action 'updatePayment')
+            options=paymentAmountOptions
+            selected=recurring.amount
+            onchange=(action (mut recurring.amount))
             oncreate=(action "createPayment")
             buildSuggestion=(action "customSuggestion") as |amount|
           }}
@@ -23,13 +22,17 @@
           {{/power-select-with-create}}
         </p>
         <p class="w-1/4 text-center text-sm capitalize">
-           {{recurring.frequency}} {{fa-icon "angle-down"}}
+          {{#power-select options=paymentFrequencyOptions selected=recurring.frequency searchEnabled=false onchange=(action (mut recurring.frequency)) as |year|}}
+            {{year}}
+          {{/power-select}}
         </p>
         <p class="text-sm w-1/4 text-center text-grey-dark">
           since {{moment-format recurring.startDate 'YYYY/MM/DD'}}
         </p>
         <p class="text-sm w-1/4 text-center">
-          {{fa-icon "credit-card"}} ending in 4876 {{fa-icon "angle-down"}}
+          {{#power-select options=cards selected=recurring.card searchEnabled=false onchange=(action (mut recurring.card)) as |card|}}
+            {{fa-icon "credit-card"}} {{card.type}} ends with {{card.number}}
+          {{/power-select}}
         </p>
       </div>
     </div>

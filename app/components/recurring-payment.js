@@ -4,12 +4,13 @@ export default Component.extend({
 
   classNames: ["w-full"],
 
-  paymentOptions:  [1000, 2000, 3500, 5000, 10000],
-  selectedPayment: 0,
+  paymentAmountOptions:  [1000, 2000, 3500, 5000, 10000],
+  paymentFrequencyOptions: ["Daily", "Weekly", "Bi-Weekly", "Monthly"],
+
 
   actions: {
     createPayment(payment) {
-      this.set('selectedPayment', payment*100);
+      this.set('recurring.amount', payment*100);
     },
 
     updatePayment(payment) {
@@ -18,6 +19,11 @@ export default Component.extend({
 
     customSuggestion(term) {
       return `Change to ${term} dollars`;
+    },
+
+    updateCard(card) {
+      let recurring = this.get('recurring');
+      recurring.set('cards', card)
     },
   }
 });
