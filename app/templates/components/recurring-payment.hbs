@@ -1,6 +1,13 @@
 <div class="w-full mt-4">
-  <div class="w-full rounded-lg overflow-hidden shadow-md mx-2 mb-4 cursor-pointer">
-    <div class="image w-full bg-grey-lightest px-8 py-6 text-sm flex">
+  <div class='w-full flex justify-end' {{action "toggleSave"}}>
+    {{#if isEditing}}
+      <button class="rounded-full bg-indigo uppercase px-2 py-1 text-xs font-bold mt-5" {{action "saveRecurring"}}>Save</button>
+    {{else}}
+      <button class="rounded-full bg-grey-dark uppercase px-2 py-1 text-xs font-bold mt-5">Edit</button>
+    {{/if}}
+  </div>
+  <div class="w-full rounded-lg overflow-hidden shadow-md mx-2 mb-4 -mt-3">
+    <div class="image w-full bg-grey-lighter px-8 py-6 text-sm flex">
       <p class="flex-1">
         {{recurring.campaign.description}}
       </p>
@@ -13,8 +20,8 @@
         <p class="text-lg font-bold w-1/4 text-center">
           {{#power-select-with-create
             options=paymentAmountOptions
-            selected=recurring.amount
-            onchange=(action (mut recurring.amount))
+            selected=paymentAmount
+            onchange=(action "updatePayment")
             oncreate=(action "createPayment")
             buildSuggestion=(action "customSuggestion") as |amount|
           }}
@@ -22,7 +29,7 @@
           {{/power-select-with-create}}
         </p>
         <p class="w-1/4 text-center text-sm capitalize">
-          {{#power-select options=paymentFrequencyOptions selected=recurring.frequency searchEnabled=false onchange=(action (mut recurring.frequency)) as |year|}}
+          {{#power-select options=paymentFrequencyOptions selected=paymentFrequency searchEnabled=false onchange=(action "updateFrequency") as |year|}}
             {{year}}
           {{/power-select}}
         </p>
@@ -30,7 +37,7 @@
           since {{moment-format recurring.startDate 'YYYY/MM/DD'}}
         </p>
         <p class="text-sm w-1/4 text-center">
-          {{#power-select options=cards selected=recurring.card searchEnabled=false onchange=(action (mut recurring.card)) as |card|}}
+          {{#power-select options=cards selected=card searchEnabled=false onchange=(action "updateCard") as |card|}}
             {{fa-icon "credit-card"}} {{card.type}} ends with {{card.number}}
           {{/power-select}}
         </p>

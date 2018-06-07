@@ -70,17 +70,15 @@
 
   <section class="flex flex-wrap w-3/4 px-8 ml-8 mt-8">
     <p class="text-xl">
-    <span class="font-bold pr-2 capitalize">{{model.organization.name}}</span>| My Active Donations
-  </p>
+      <span class="font-bold pr-2 capitalize">{{model.organization.name}}</span>| My Active Donations
+    </p>
     {{#each model.recurrings as |recurring|}}
-      {{recurring-payment recurring=recurring cards=model.donor.cards}}
+      {{recurring-payment recurring=recurring cards=model.donor.cards on-save=(action "saveRecurring")}}
     {{/each}}
   </section>
 
   <section class="flex flex-wrap content-start w-3/4 px-2 ml-8 pt-8 mb-8">
   </section>
-
-
 
   {{donation-history payments=model.payments}}
 
