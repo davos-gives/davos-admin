@@ -11,16 +11,16 @@
         <nav class="flex items-center justify-between flex-wrap p-6">
           <div class="w-full block flex-grow text-white">
             <div>
-              <a class="inline-block mt-4 mr-4 text-white no-underline" href="">
+              <a class="inline-block mr-6 text-white no-underline align-middle" href="">
                 {{fa-icon "search"}}
               </a>
-              <a class="inline-block mt-4 mr-4 text-white no-underline" href="">
+              <a class="inline-block mr-6 text-white no-underline pt-1 align-middle" href="">
                 {{fa-icon "bell"}}
               </a>
-              <a class="inline-block mt-4 mr-1 text-white no-underline" href="">
-                <span class="rounded-full h-6 w-6 flex items-center justify-center bg-white">a</span>
+              <a class="inline-block mr-1  no-underline" href="">
+                <img src="/img/icons/account-white.svg" class="w-4 align-middle" />
               </a>
-              <a class="inline-block mt-4 text-white no-underline" href="">
+              <a class="inline-block no-underline text-grey font-hairline text-sm align-middle" href="">
                 {{model.first}}
               </a>
             </div>
@@ -49,7 +49,8 @@
       {{#each relationship.recurrings as |gift|}}
         {{#link-to 'relationship' relationship.id class='no-underline text-black'}}
           <div class="w-100 rounded-lg overflow-hidden shadow-md -mt-4 mx-2 mb-8 cursor-pointer">
-            <div class="image w-full h-40 bg-purple-lightest">
+            <div class="image w-full h-48 bg-purple-card-background overflow-hidden">
+              <img src={{gift.campaign.image}} class="opacity-80" />
             </div>
             <div class="px-10 py-4">
               <div class="pb-8 border-grey-light border-solid border-b">
@@ -121,8 +122,8 @@
     <div class="w-1/4 text-grey-dark border-grey-light border-solid border-t text-purple-footer py-8">
       <p><span class='font-bold'>©2018 Davos.gives</span> - All rights reserved.</p>
     </div>
-    <div class="w-1/4 text-grey-dark text-center border-grey-light border-solid border-t py-7 text-red-footer -py-1">
-      <span class="text-base">give</span> <span class="text-xl font-bold">meaning</span>
+    <div class="w-1/4 text-grey-dark text-center border-grey-light border-solid border-t py-7 -py-1">
+      <img src="img/Davos_slogan.svg" class="w-40"/>
     </div>
 
     <div class="w-1/4 text-right flex text-grey-dark border-grey-light border-solid border-t py-8 text-xs">

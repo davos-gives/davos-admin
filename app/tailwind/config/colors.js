@@ -92,7 +92,7 @@ export default {
   'indigo-lighter': '#b2b7ff',
   'indigo-lightest': '#e6e8ff',
 
-  'purple-darkest': '#21183c',
+  'purple-darkest': '#3C2F54',
   'purple-darker': '#382b5f',
   'purple-dark': '#3A3152',
   'purple': '#6D3EFF',
@@ -101,6 +101,7 @@ export default {
   'purple-lightest': '#6F6582',
   'purple-buttons': '#6B40F0',
   'purple-footer': '#3C2F54',
+  'purple-card-background': '#634AB2',
 
   'pink-darkest': '#451225',
   'pink-darker': '#6f213f',
