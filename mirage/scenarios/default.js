@@ -44,10 +44,12 @@ export default function(server) {
   // Set up organizations
   let spca = server.create('organization', {
     name: 'BC SPCA',
+    logo: '/img/spca.jpg',
   });
 
   let vgh = server.create('organization', {
     name: 'the VGH & UBC Hospital Foundation',
+      logo: '/img/VGH.svg',
   });
 
   // Set up donor-organization-relationships
