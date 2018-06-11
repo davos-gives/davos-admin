@@ -4,3 +4,8 @@
 .btn-blue:hover {
   @apply .bg-blue-dark;
 }
+
+.no-logo {
+   background-image: url('/img/inactive_org_no_logo.svg');
+   background-size: cover;
+}

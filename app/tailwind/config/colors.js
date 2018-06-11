@@ -102,6 +102,8 @@ export default {
   'purple-buttons': '#6B40F0',
   'purple-footer': '#3C2F54',
   'purple-card-background': '#634AB2',
+  'purple-history-header': '#6E52C5',
+
 
   'pink-darkest': '#451225',
   'pink-darker': '#6f213f',
