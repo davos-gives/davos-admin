@@ -1,23 +1,23 @@
 <div class="w-3/4 pt-8 container">
   <div class='w-full flex justify-end' {{action "toggleSave"}}>
     {{#if isEditing}}
-      <button class="rounded-full bg-indigo uppercase px-2 py-1 text-xs font-bold mt-5" {{action "saveRecurring"}}>Save</button>
+      <button class="rounded-full bg-indigo px-8 py-1 text-xs font-bold mt-5" {{action "saveRecurring"}}>Save</button>
     {{else}}
-      <button class="rounded-full bg-grey-dark uppercase px-2 py-1 text-xs font-bold mt-5">Edit</button>
+      <button class="rounded-full bg-purple-buttons text-white px-8 py-1 text-xs font-thin mt-5">Edit</button>
     {{/if}}
   </div>
-  <div class="w-full rounded-lg overflow-hidden shadow-md mx-2 mb-4 -mt-3">
-    <div class="image w-full bg-grey-lighter px-8 py-6 text-sm flex">
-      <p class="flex-1">
+  <div class="w-full rounded-lg overflow-hidden shadow-md mb-4 -mt-3">
+    <div class="image w-full bg-grey-campaign px-8 py-6 text-sm flex">
+      <p class="flex-1 pl-4">
         {{recurring.campaign.description}}
       </p>
-      <p class="flex-1 text-right">
-        Last donation: 01/05/18
+      <p class="flex-1 text-right pr-4 text-grey-card">
+        Next donation: 01/05/18
       </p>
     </div>
     <div class="px-6 py-2 pb-6">
       <div class="mt-4 flex">
-        <p class="text-lg font-bold w-1/4 text-center">
+        <p class="text-2xl font-bold w-1/4 text-center text-grey-card align-top -mt-2">
           {{#power-select-with-create
             options=paymentAmountOptions
             selected=paymentAmount
@@ -26,11 +26,13 @@
             buildSuggestion=(action "customSuggestion") as |amount|
           }}
             {{format-currency amount}}
+            <img class="w-4 ml-4 align-middle" src="/img/icons/ChevronDown.svg" />
           {{/power-select-with-create}}
         </p>
-        <p class="w-1/4 text-center text-sm capitalize">
+        <p class="w-1/4 text-center text-grey-card capitalize">
           {{#power-select options=paymentFrequencyOptions selected=paymentFrequency searchEnabled=false onchange=(action "updateFrequency") as |year|}}
             {{year}}
+            <img class="w-4 ml-4" src="/img/icons/ChevronDown.svg" />
           {{/power-select}}
         </p>
         <p class="text-sm w-1/4 text-center text-grey-dark">
@@ -39,6 +41,7 @@
         <p class="text-sm w-1/4 text-center">
           {{#power-select options=cards selected=card searchEnabled=false onchange=(action "updateCard") as |card|}}
             {{fa-icon "credit-card"}} {{card.type}} ends with {{card.number}}
+            <img class="w-4 ml-4 align-middle" src="/img/icons/ChevronDown.svg" />
           {{/power-select}}
         </p>
       </div>

@@ -34,7 +34,8 @@ export default {
   'grey-card': '#5B6B77',
   'grey-card-2': '#869CAB',
   'white': 'white',
-
+  'grey-campaign': '#EEF0F1',
+  
   'red-darkest': '#3b0d0c',
   'red-darker': '#621b18',
   'red-dark': '#cc1f1a',
@@ -103,7 +104,6 @@ export default {
   'purple-footer': '#3C2F54',
   'purple-card-background': '#634AB2',
   'purple-history-header': '#6E52C5',
-
 
   'pink-darkest': '#451225',
   'pink-darker': '#6f213f',

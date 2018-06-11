@@ -6,7 +6,11 @@ module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
     'ember-cli-tailwind': {
      buildTarget: 'app'
-   }
+   },
+
+   'ember-power-select': {
+     theme: false
+   },
   });
 
   // Use `app.import` to add additional libraries to the generated

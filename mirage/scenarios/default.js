@@ -140,14 +140,6 @@ export default function(server) {
     relationship: vghRelationship,
   });
 
-  server.create('recurring', {
-    amount: 1000,
-    frequency: "monthly",
-    startDate: new Date(2018, 4, 15),
-    campaign: coats,
-    card: visa,
-    relationship: spcaRelationship,
-  });
 
   server.create('payment', {
     date: new Date(2017, 9, 15),

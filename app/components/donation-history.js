@@ -10,7 +10,7 @@ export default Component.extend({
   },
 
   store: inject('store'),
-  years: ["All", "2014", "2015", "2016", "2017", "2018"],
+  years: ["2018", "2017", "2016", "2015", "2014", "All"],
   filter: 'All',
   filteredPayments: [],
 
