@@ -49,7 +49,7 @@ export default function(server) {
 
   let vgh = server.create('organization', {
     name: 'the VGH & UBC Hospital Foundation',
-      logo: '/img/VGH.svg',
+    logo: '/img/VGH.svg',
   });
 
   // Set up donor-organization-relationships

@@ -9,3 +9,92 @@
    background-image: url('/img/inactive_org_no_logo.svg');
    background-size: cover;
 }
+
+.ember-power-select-status-icon {
+  position: absolute;
+  display: inline-block;
+  width: 18px;
+  height: 12px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  background-image: url('/img/icons/ChevronDown.svg');
+  background-size: cover;
+  border: none;
+}
+
+.ember-power-select-trigger {
+  border-bottom: none;
+}
+
+.ember-power-select-selected-item {
+  margin-right: 20px;
+}
+
+.ember-basic-dropdown-trigger[aria-expanded="true"] .ember-power-select-selected-item {
+  color: #E5AD23;
+  font-style:italic;
+}
+
+.ember-power-select-trigger:focus, .ember-power-select-trigger--active {
+  border-bottom: none;
+}
+
+.ember-basic-dropdown-trigger[aria-expanded="true"] {
+    border-bottom: 1px solid #E5AD23!important;
+}
+
+.ember-basic-dropdown-trigger[aria-expanded="true"] .ember-power-select-status-icon {
+  background-image: url('/img/icons/ChevronDownYellow.svg');
+}
+
+.ember-power-select-option[aria-current="true"] {
+  background-color: #fff;
+}
+
+.ember-power-select-options li:nth-child(even) {
+  background-color: #EEF0F1!important;
+}
+
+.ember-power-select-options {
+  color: #6E52C5;
+}
+
+.ember-power-select-options li {
+  color: #6E52C5;
+  text-align: center;
+}
+
+.ember-power-select-options li:hover{
+  color: #6E52C5;
+}
+
+.ember-power-select-option[aria-selected="true"] {
+    background: none;
+    color: none;
+}
+
+.ember-power-select-search-input {
+  background-color: #6E52C5;
+  color: #fff;
+  padding: 8px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.ember-power-select-search {
+  padding: 0px;
+}
+
+.amount-dropdown, .frequency-dropdown {
+  width: 100px!important;
+  margin-left:13px;
+}
+
+.frequency .ember-power-select-trigger, .card .ember-power-select-trigger {
+  padding-bottom: 13px;
+}
+
+.frequency .ember-power-select-status-icon, .card .ember-power-select-status-icon {
+  margin-top: 15px;
+}

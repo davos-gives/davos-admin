@@ -9,7 +9,7 @@ module.exports = function(defaults) {
    },
 
    'ember-power-select': {
-     theme: false
+     theme: 'material'
    },
   });
 

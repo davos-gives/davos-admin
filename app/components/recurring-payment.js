@@ -4,7 +4,7 @@ export default Component.extend({
 
   classNames: ["w-full"],
 
-  paymentAmountOptions:  [1000, 2000, 3500, 5000, 10000],
+  paymentAmountOptions:  [1000, 2000, 3000],
   paymentFrequencyOptions: ["Daily", "Weekly", "Bi-Weekly", "Monthly"],
 
   paymentAmount: 0,
