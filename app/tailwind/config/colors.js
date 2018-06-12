@@ -35,7 +35,7 @@ export default {
   'grey-card-2': '#869CAB',
   'white': 'white',
   'grey-campaign': '#EEF0F1',
-  
+
   'red-darkest': '#3b0d0c',
   'red-darker': '#621b18',
   'red-dark': '#cc1f1a',
