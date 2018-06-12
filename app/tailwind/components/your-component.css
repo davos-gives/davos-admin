@@ -36,6 +36,11 @@
   font-style:italic;
 }
 
+.history-dropdown .ember-basic-dropdown-trigger[aria-expanded="true"] .ember-power-select-selected-item {
+  color: rgb(109, 62, 255);
+  font-style:normal;
+}
+
 .ember-power-select-trigger:focus, .ember-power-select-trigger--active {
   border-bottom: none;
 }
@@ -44,8 +49,20 @@
     border-bottom: 1px solid #E5AD23!important;
 }
 
+.history-dropdown .ember-basic-dropdown-trigger[aria-expanded="true"] {
+  border-bottom: none!important;
+}
+
 .ember-basic-dropdown-trigger[aria-expanded="true"] .ember-power-select-status-icon {
   background-image: url('/img/icons/ChevronDownYellow.svg');
+}
+
+.history-dropdown .ember-basic-dropdown-trigger[aria-expanded="true"] .ember-power-select-status-icon {
+  background-image: url('/img/icons/ChevronDownPurple.svg');
+}
+
+.history-dropdown .ember-power-select-status-icon {
+  background-image: url('/img/icons/ChevronDownPurple.svg');
 }
 
 .ember-power-select-option[aria-current="true"] {
@@ -89,6 +106,11 @@
 .amount-dropdown, .frequency-dropdown {
   width: 100px!important;
   margin-left:13px;
+}
+
+.history-dropdown {
+  width: 75px!important;
+  margin-left: 13px;
 }
 
 .frequency .ember-power-select-trigger, .card .ember-power-select-trigger {
