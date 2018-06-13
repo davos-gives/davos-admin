@@ -138,3 +138,12 @@
 .rotate-90 {
   transform: rotate(90deg);
 }
+
+.border-bottom-green {
+  border-bottom: 7px solid #36C972;
+  margin-bottom: 0px!important;
+}
+
+.mb-7px {
+  margin-bottom: 7px;
+}

@@ -16,6 +16,7 @@ export default Component.extend({
   amountEdited: false,
   frequencyEdited: false,
   cardEdited: false,
+  updated: false,
 
   didReceiveAttrs() {
     this._super(...arguments);
@@ -33,6 +34,14 @@ export default Component.extend({
     this.set('amountEdited', false);
     this.set('frequencyEdited', false);
     this.set('cardEdited', false);
+    this.set('updated', false);
+  },
+
+  showUpdated() {
+    this.set('updated', true);
+    setTimeout( () => {
+      this.set('updated', false);
+    }, 3000);
   },
 
   actions: {
@@ -64,6 +73,9 @@ export default Component.extend({
       this.set('amountEdited', false);
       this.set('frequencyEdited', false);
       this.set('cardEdited', false);
+      this.set('isEditing', false);
+      this.showUpdated();
+
       let recurring = this.get('recurring');
       recurring.setProperties({
         amount: this.get('paymentAmount'),
@@ -85,6 +97,6 @@ export default Component.extend({
     focusOff() {
       this.resetRecurring();
       this.set('isEditing', false);
-    }
+    },
   }
 });
