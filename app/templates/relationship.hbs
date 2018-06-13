@@ -1,9 +1,10 @@
 <div class="w-6/7 min-h-screen">
   <section class="bg-purple-dark h-44">
     <div class="w-4/5 m-auto flex px-8 container">
-      <div class="flex-1 py-8">
-        {{#link-to 'index'}}
-          <p class="p-1 text-lg text-white font-bold">{{fa-icon "angle-left"}} {{fa-icon "home"}}</p>
+
+      <div class="flex-1 pt-6">
+        {{#link-to 'index' class="no-underline"}}
+          <img src="/img/icons/ChevronWhite.svg" class="w-2 rotate-90 align-middle mr-1"/> <img src="/img/icons/HomeWhite.svg" class="w-4 align-middle"/>
         {{/link-to}}
       </div>
 
@@ -12,10 +13,10 @@
           <div class="w-full block flex-grow text-white">
             <div>
               <a class="inline-block mr-6 text-white no-underline align-middle" href="">
-                {{fa-icon "search"}}
+                <img src="/img/icons/Search.svg" class="w-4 align-middle" />
               </a>
-              <a class="inline-block mr-6 text-white no-underline pt-1 align-middle" href="">
-                {{fa-icon "bell"}}
+              <a class="inline-block mr-6 text-white no-underline align-middle" href="">
+                <img src="/img/icons/Bell.svg" class="w-4 align-middle" />
               </a>
               <a class="inline-block mr-1  no-underline" href="">
                 <img src="/img/icons/account-white.svg" class="w-4 align-middle" />
@@ -82,9 +83,9 @@
   </section>
 
   <section class="flex flex-wrap w-4/5 mx-auto mt-8 px-8 container">
-        <p class="text-xl mt-8 pt-8 text-grey-card">
-      <span class="font-bold pr-2 capitalize text-grey-card">{{model.organization.name}}</span>| My Active Donations
-    </p>
+        <p class="text-xl mt-8 pt-8 text-grey-card mb-6">
+          <span class="font-bold pr-2 capitalize text-grey-card">{{model.organization.name}}</span>| My Active Donations
+        </p>
     {{#each model.recurrings as |recurring|}}
       {{recurring-payment recurring=recurring cards=model.donor.cards on-save=(action "saveRecurring")}}
     {{/each}}

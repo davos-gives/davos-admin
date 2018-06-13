@@ -8,7 +8,8 @@
 <div class="w-3/4 mt-8 container z-20 {{if isEditing 'relative'}}">
   <div class='w-full flex justify-end z-20 {{if isEditing 'relative'}}' {{action "toggleSave"}}>
     {{#if isEditing}}
-      <button class="rounded-full bg-yellow px-8 py-1 text-xs mt-5" {{action "saveRecurring"}}>Save</button>
+      <button class="rounded-full bg-red-buttons px-6 py-1 mr-3 text-white text-xs mt-5" {{action "saveRecurring"}}>Cancel Donation</button>
+      <button class="rounded-full bg-yellow px-8 py-1 text-white text-xs mt-5" {{action "saveRecurring"}}>Save</button>
     {{else}}
       <button class="rounded-full bg-purple-buttons text-white px-8 py-1 text-xs font-thin mt-5">Edit</button>
     {{/if}}
@@ -41,7 +42,7 @@
         <p class="w-20">
 
         </p>
-        <p class="w-1/6 text-center text-grey-card capitalize frequency">
+        <p class="w-1/6 text-center {{if frequencyEdited 'text-yellow' 'text-grey-card'}} capitalize frequency">
           {{#power-select
             options=paymentFrequencyOptions
             selected=paymentFrequency
@@ -57,7 +58,7 @@
         <p class="text-sm w-1/4 text-center mt-3 text-grey-dark">
           since {{moment-format recurring.startDate 'YYYY/MM/DD'}}
         </p>
-        <p class="text-sm w-1/4 text-center text-grey-dark card">
+        <p class="text-sm w-1/4 text-center {{if cardEdited 'text-yellow' 'text-grey-card'}} card">
           {{#power-select
             options=cards
             selected=card

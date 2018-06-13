@@ -30,17 +30,18 @@ export default Component.extend({
     this.set('paymentAmount', amount);
     this.set('paymentFrequency', frequency);
     this.set('card', card);
+    this.set('amountEdited', false);
+    this.set('frequencyEdited', false);
+    this.set('cardEdited', false);
   },
 
   actions: {
     createPayment(payment) {
-      this.set('isEditing', true);
       this.set('paymentAmount', payment*100);
       this.set('amountEdited', true);
     },
 
     updatePayment(payment) {
-      this.set('isEditing', true);
       this.set('paymentAmount', payment);
       this.set('amountEdited', true);
     },
@@ -50,17 +51,19 @@ export default Component.extend({
     },
 
     updateFrequency(frequency) {
-      this.set('isEditing', true);
       this.set('paymentFrequency', frequency);
+      this.set('frequencyEdited', true);
     },
 
     updateCard(card) {
-      this.set('isEditing', true);
       this.set('card', card);
+      this.set('cardEdited', true);
     },
 
     saveRecurring() {
       this.set('amountEdited', false);
+      this.set('frequencyEdited', false);
+      this.set('cardEdited', false);
       let recurring = this.get('recurring');
       recurring.setProperties({
         amount: this.get('paymentAmount'),
@@ -80,6 +83,7 @@ export default Component.extend({
     },
 
     focusOff() {
+      this.resetRecurring();
       this.set('isEditing', false);
     }
   }

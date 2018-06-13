@@ -44,6 +44,7 @@ export default {
   'red-lighter': '#f9acaa',
   'red-lightest': '#fcebea',
   'red-footer': '#D30F22',
+  'red-buttons': '#BE1E2D',
 
   'orange-darkest': '#462a16',
   'orange-darker': '#613b1f',
