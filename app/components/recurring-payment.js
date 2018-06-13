@@ -12,8 +12,10 @@ export default Component.extend({
   card: null,
   "on-save": null,
 
-
   isEditing: false,
+  amountEdited: false,
+  frequencyEdited: false,
+  cardEdited: false,
 
   didReceiveAttrs() {
     this._super(...arguments);
@@ -34,11 +36,13 @@ export default Component.extend({
     createPayment(payment) {
       this.set('isEditing', true);
       this.set('paymentAmount', payment*100);
+      this.set('amountEdited', true);
     },
 
     updatePayment(payment) {
       this.set('isEditing', true);
       this.set('paymentAmount', payment);
+      this.set('amountEdited', true);
     },
 
     customSuggestion(term) {
@@ -56,6 +60,7 @@ export default Component.extend({
     },
 
     saveRecurring() {
+      this.set('amountEdited', false);
       let recurring = this.get('recurring');
       recurring.setProperties({
         amount: this.get('paymentAmount'),
@@ -69,5 +74,13 @@ export default Component.extend({
       let previous = this.get('isEditing')
       this.set('isEditing', !previous);
     },
+
+    toggleFocus() {
+      this.set('isEditing', true);
+    },
+
+    focusOff() {
+      this.set('isEditing', false);
+    }
   }
 });

@@ -1,12 +1,19 @@
-<div class="w-3/4 pt-8 container">
-  <div class='w-full flex justify-end' {{action "toggleSave"}}>
+<div class="{{if isEditing 'editing-overlay'}}"></div>
+{{#if isEditing}}
+  <p class="absolute text-white z-20 ml-8 pl-4 cursor-pointer block" {{action 'focusOff'}}>
+    <img src="/img/icons/ChevronWhite.svg" class="w-4 rotate-90"/>
+    Go Back
+  </p>
+{{/if}}
+<div class="w-3/4 mt-8 container z-20 {{if isEditing 'relative'}}">
+  <div class='w-full flex justify-end z-20 {{if isEditing 'relative'}}' {{action "toggleSave"}}>
     {{#if isEditing}}
-      <button class="rounded-full bg-indigo px-8 py-1 text-xs font-bold mt-5" {{action "saveRecurring"}}>Save</button>
+      <button class="rounded-full bg-yellow px-8 py-1 text-xs mt-5" {{action "saveRecurring"}}>Save</button>
     {{else}}
       <button class="rounded-full bg-purple-buttons text-white px-8 py-1 text-xs font-thin mt-5">Edit</button>
     {{/if}}
   </div>
-  <div class="w-full rounded-lg overflow-hidden shadow-md mb-4 -mt-3">
+  <div class="w-full rounded-lg overflow-hidden shadow-md mb-4 -mt-3 bg-white">
     <div class="image w-full bg-grey-campaign px-8 py-6 text-sm flex">
       <p class="flex-1 pl-4">
         {{recurring.campaign.description}}
@@ -15,15 +22,16 @@
         Next donation: 01/05/18
       </p>
     </div>
-    <div class="px-8 py-2 pb-6">
-      <div class="mt-4 flex">
-        <p class="text-2xl font-bold w-1/6 text-center text-grey-card align-top -mt-2 amount">
+    <div class="px-8 py-2 pb-6 z-15 {{if isEditing 'relative'}}">
+      <div class="mt-4 flex z-15 {{if isEditing 'relative'}}">
+        <p class="text-2xl font-bold w-1/6 text-center {{if amountEdited 'text-yellow' 'text-grey-card'}} align-top -mt-2 amount">
           {{#power-select-with-create
             options=paymentAmountOptions
             selected=paymentAmount
             dropdownClass="amount-dropdown"
             onchange=(action "updatePayment")
             oncreate=(action "createPayment")
+            onopen=(action "toggleFocus")
             searchPlaceholder='Custom'
             buildSuggestion=(action "customSuggestion") as |amount|
           }}
@@ -38,6 +46,7 @@
             options=paymentFrequencyOptions
             selected=paymentFrequency
             searchEnabled=false
+            onopen=(action "toggleFocus")
             dropdownClass="frequency-dropdown"
             onchange=(action "updateFrequency") as |year|}}
             {{year}}
@@ -53,6 +62,7 @@
             options=cards
             selected=card
             searchEnabled=false
+            onopen=(action "toggleFocus")
             dropdownClass="card-dropdown"
             afterOptionsComponent=(component "new-card")
             onchange=(action "updateCard") as |card|}}

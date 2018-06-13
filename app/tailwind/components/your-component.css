@@ -57,6 +57,10 @@
   background-image: url('/img/icons/ChevronDownYellow.svg');
 }
 
+.text-yellow .ember-power-select-status-icon {
+  background-image: url('/img/icons/ChevronDownYellow.svg');
+}
+
 .history-dropdown .ember-basic-dropdown-trigger[aria-expanded="true"] .ember-power-select-status-icon {
   background-image: url('/img/icons/ChevronDownPurple.svg');
 }
@@ -119,4 +123,18 @@
 
 .frequency .ember-power-select-status-icon, .card .ember-power-select-status-icon {
   margin-top: 15px;
+}
+
+.editing-overlay {
+   position: fixed;
+   top: 0;
+   left: 0;
+   height: 100%;
+   width: 100%;
+   background-color: rgba(41,35,53,0.91);
+   z-index: 10;
+}
+
+.rotate-90 {
+  transform: rotate(90deg);
 }
