@@ -135,6 +135,16 @@
    z-index: 10;
 }
 
+.cancel-overlay {
+   position: fixed;
+   top: 0;
+   left: 0;
+   height: 100%;
+   width: 100%;
+   background-color: rgba(41,35,53,100);
+   z-index: 30;
+}
+
 .rotate-90 {
   transform: rotate(90deg);
 }
@@ -144,6 +154,15 @@
   margin-bottom: 0px!important;
 }
 
+.border-bottom-red {
+  border-bottom: 7px solid #BE1E2D;
+  margin-bottom: 0px!important;
+}
+
 .mb-7px {
   margin-bottom: 7px;
+}
+
+.z-40 {
+  z-index: 40;
 }

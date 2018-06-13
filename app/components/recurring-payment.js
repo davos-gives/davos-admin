@@ -17,6 +17,8 @@ export default Component.extend({
   frequencyEdited: false,
   cardEdited: false,
   updated: false,
+  confirmCancel: false,
+  doubleConfirmCancel: false,
 
   didReceiveAttrs() {
     this._super(...arguments);
@@ -35,6 +37,8 @@ export default Component.extend({
     this.set('frequencyEdited', false);
     this.set('cardEdited', false);
     this.set('updated', false);
+    this.set('confirmCancel', false);
+    this.set('doubleConfirmCancel', false);
   },
 
   showUpdated() {
@@ -86,12 +90,28 @@ export default Component.extend({
     },
 
     toggleSave() {
-      let previous = this.get('isEditing')
+      let previous = this.get('isEditing');
       this.set('isEditing', !previous);
+      this.set('updated', false);
+    },
+
+    confirmCancel() {
+      this.set('confirmCancel', true);
+    },
+
+    doubleConfirmCancel() {
+      this.set('doubleConfirmCancel', true);
+    },
+
+    cancelRecurring() {
+      this.get('recurring').destroyRecord().then(() => {
+        this.set('isEditing', false);
+      });
     },
 
     toggleFocus() {
       this.set('isEditing', true);
+      this.set('updated', false);
     },
 
     focusOff() {
