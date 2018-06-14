@@ -49,7 +49,7 @@
             Donated this year
           </p>
           <p class="text-white font-semibold text-2xl mb-2 text-center text-purple-light">
-            {{format-currency model.totalYearlyPayments}}
+          {{format-currency model.totalYearlyPayments}}
           </p>
           <p class="text-white font-hairline text-center text-hairline text-sm">
             CAD
@@ -84,10 +84,15 @@
 
   <section class="flex flex-wrap w-4/5 mx-auto mt-8 px-8 container">
         <p class="text-xl mt-8 pt-8 text-grey-card mb-6">
-          <span class="font-bold pr-2 capitalize text-grey-card">{{model.organization.name}}</span>| My Active Donations
+          <span class="font-bold pr-2 capitalize text-grey-card">{{model.organization.name}}</span>
+          {{#if model.recurrings.length}}
+            | My Active Donations
+          {{else}}
+            | No Active Donations
+          {{/if}}
         </p>
     {{#each model.recurrings as |recurring|}}
-      {{recurring-payment recurring=recurring cards=model.donor.cards on-save=(action "saveRecurring")}}
+      {{recurring-payment recurring=recurring cards=model.donor.cards on-save=(action "saveRecurring") organization=model.organization}}
     {{/each}}
   </section>
 

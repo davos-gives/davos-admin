@@ -33,5 +33,7 @@ export default {
   '64': '16rem',
   '88': '20rem',
   'full': '100%',
-  'screen': '100vh'
+  'screen': '100vh',
+  'goodbye': '285px',
+
 };

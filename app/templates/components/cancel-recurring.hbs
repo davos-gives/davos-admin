@@ -1,12 +1,29 @@
-<div class="w-110 mx-auto rounded-lg shadow-md -mt-3 bg-white border-bottom-red flex container" style="position: fixed; left: 33%; top: 40%;">
-  <div class="w-2/3 bg-grey-campaign bg-white rounded-tl-lg p-10">
-    <p>Thank you for the good times!</p>
-    <p>You just cancelled your recurring donation</p>
-    <h3>Organization</h3>
-    <p>Campaign name</p>
-
+<div class="w-110 mx-auto rounded-lg shadow-md -mt-3 bg-white border-bottom-red flex container" style="position: fixed; left: 28%; top: 40%; height: 290px;">
+  <p class="absolute text-white z-20 ml-8 pl-4 cursor-pointer block -mt-8" {{action cancelRecurring}}>
+    <img src="/img/icons/ChevronWhite.svg" class="w-4 rotate-90"/>
+    Go Back
+  </p>
+  <div class=" bg-grey-campaign bg-white rounded-tl-lg p-10 w-2/3">
+    <div class="pb-8 border-grey-light border-solid border-b">
+      <p class="text-purple font-bold">Thank you for the good times!</p>
+      <p class="text-purple text-xs pt-1 leading-normal">You just cancelled your recurring <br/> donation</p>
+      <h3 class="pt-4 text-large text-grey-card">{{organization.name}}</h3>
+      <p class="pt-2 text-grey-card">{{gift.campaign.description}}</p>
+    </div>
+    <div class="mt-4 flex">
+      <p class="text-2xl font-bold w-1/2 text-grey-card">
+        {{format-currency gift.amount}}
+      </p>
+      <span class="w-1/2 text-right font-sm capitalize text-grey-card-2 pt-1">
+        {{gift.frequency}}
+      </span>
+    </div>
   </div>
   <div class="w-1/3">
     <img src="/img/Cancellation_confirm.svg" class="w-goodbye -mt-3.5 rounded-tr-lg" />
   </div>
+
+  <p class="absolute text-white z-20 mt-8 pt-8 pl-4 ml-8 cursor-pointer block text-xs" style="bottom: -40px;">
+    If this was a mistake, <a class="text-purple-undo" {{action undoCancellation}}>undo here</a>.
+  </p>
 </div>

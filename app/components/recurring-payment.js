@@ -109,6 +109,11 @@ export default Component.extend({
       });
     },
 
+    undoCancellation() {
+      this.set('confirmCancel', false);
+      this.set('doubleConfirmCancel', false);
+    },
+
     toggleFocus() {
       this.set('isEditing', true);
       this.set('updated', false);

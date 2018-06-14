@@ -117,6 +117,10 @@
   margin-left: 13px;
 }
 
+.history-dropdown .ember-power-select-selected-item {
+  margin-right: 0px;
+}
+
 .frequency .ember-power-select-trigger, .card .ember-power-select-trigger {
   padding-bottom: 13px;
 }

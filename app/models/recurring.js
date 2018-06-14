@@ -17,17 +17,4 @@ export default DS.Model.extend(LoadableModel,{
   totalPayments: computed('payments.@each.amount', function() {
     return this.get('payments').mapBy('amount').reduce((a, b) => a + b, 0);
   }),
-
-  yearlyPayments: computed('payments.@each.date', function() {
-    let year = new Date().getFullYear();
-    return this.get('payments').filter(payment => payment.get('date') > new Date(2018, 1, 1));
-  }),
-
-  totalYearlyPayments: computed('yearlyPayments', function() {
-    return this.get('yearlyPayments').mapBy('amount').reduce((a, b) => a + b, 0);
-  }),
-
-  paymentDates: computed('payments.@each.date', function() {
-    return this.get('payments').mapBy('date');
-  }),
 });

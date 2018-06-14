@@ -8,10 +8,14 @@
 
 {{#if doubleConfirmCancel}}
   <section class="absolute z-40">
-    {{cancel-recurring}}
+    {{cancel-recurring
+      gift=recurring
+      organization=organization
+      cancelRecurring=(action "cancelRecurring")
+      undoCancellation=(action "undoCancellation")
+      }}
   </section>
 {{/if}}
-
 
 <div class="w-3/4 mt-8 container z-20 {{if isEditing 'relative'}}">
   <div class='w-full flex justify-end z-20 {{if isEditing 'relative'}}'>

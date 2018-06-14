@@ -15,16 +15,21 @@ export default DS.Model.extend(LoadableModel,{
     return this.get('recurrings').mapBy('amount').reduce((a, b) => a + b, 0);
   }),
 
-  totalDonations: computed('reccurings.@each.totalPayments', function() {
-    return this.get('recurrings').mapBy('totalPayments').reduce((a, b) => a + b, 0);
+  totalDonations: computed('payments.@each.amount', function() {
+    return this.get('payments').mapBy('amount').reduce((a, b) => a + b, 0);
   }),
 
-  totalYearlyPayments: computed('recurrings.@each.totalYearlyPayments', function() {
-    return this.get('recurrings').mapBy('totalYearlyPayments').reduce((a, b) => a + b, 0);
+  yearlyPayments: computed('payments.@each.date', function() {
+    let year = new Date().getFullYear();
+    return this.get('payments').filter(payment => payment.get('date') > new Date(2018, 1, 1));
   }),
 
-  allPaymentDates: computed('recurrings.@each.paymentDates', function() {
-    return this.get('recurrings').mapBy('paymentDates').reduce((a, b) => a.concat(b));
+  totalYearlyPayments: computed('yearlyPayments', function() {
+    return this.get('yearlyPayments').mapBy('amount').reduce((a, b) => a + b, 0);
+  }),
+
+  allPaymentDates: computed('payments.@each.date', function() {
+    return this.get('payments').mapBy('date');
   }),
 
   earliestPaymentDate: computed.min('allPaymentDates'),
