@@ -43,12 +43,12 @@ export default function(server) {
 
   // Set up organizations
   let spca = server.create('organization', {
-    name: 'BC SPCA',
-    logo: '/img/spca.jpg',
+    name: 'Barks & Meows Shelter',
+    logo: '/img/barks.png',
   });
 
   let vgh = server.create('organization', {
-    name: 'the VGH & UBC Hospital Foundation',
+    name: 'Your local hospital Foundation',
     logo: '/img/VGH.svg',
   });
 
@@ -68,7 +68,7 @@ export default function(server) {
   // Set up campaigns
 
   let coats = server.create('campaign', {
-    description: "Warm coats for a cold winter",
+    description: "Warm beds for a cold winter",
     image: 'img/dogs.jpg',
     organization: spca,
   });
@@ -78,7 +78,12 @@ export default function(server) {
     organization: vgh,
   });
 
-  // setting up gifts
+  let beds2 = server.create('campaign', {
+    description: "10 new beds for the Maternity ward",
+    organization: vgh,
+  });
+
+  //setting up gifts
 
   let vghRecurringGift = server.create('recurring', {
     amount: 500,
@@ -137,7 +142,7 @@ export default function(server) {
     amount: 1000,
     frequency: "monthly",
     startDate: new Date(2018, 3, 15),
-    campaign: beds,
+    campaign: beds2,
     card: visa,
     relationship: vghRelationship,
   });

@@ -36,7 +36,6 @@ export default Component.extend({
     this.set('amountEdited', false);
     this.set('frequencyEdited', false);
     this.set('cardEdited', false);
-    this.set('updated', false);
     this.set('confirmCancel', false);
     this.set('doubleConfirmCancel', false);
   },
@@ -74,10 +73,10 @@ export default Component.extend({
     },
 
     saveRecurring() {
+      this.set('isEditing', false);
       this.set('amountEdited', false);
       this.set('frequencyEdited', false);
       this.set('cardEdited', false);
-      this.set('isEditing', false);
       this.showUpdated();
 
       let recurring = this.get('recurring');
@@ -92,7 +91,6 @@ export default Component.extend({
     toggleSave() {
       let previous = this.get('isEditing');
       this.set('isEditing', !previous);
-      this.set('updated', false);
     },
 
     confirmCancel() {
@@ -117,6 +115,7 @@ export default Component.extend({
     toggleFocus() {
       this.set('isEditing', true);
       this.set('updated', false);
+
     },
 
     focusOff() {

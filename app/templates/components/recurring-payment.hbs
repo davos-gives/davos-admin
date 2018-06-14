@@ -1,3 +1,4 @@
+
 <div class="{{if isEditing 'editing-overlay'}} {{if doubleConfirmCancel 'cancel-overlay'}}"></div>
 {{#if isEditing}}
   <p class="absolute text-white z-20 ml-8 pl-4 cursor-pointer block" {{action 'focusOff'}}>
@@ -21,16 +22,16 @@
   <div class='w-full flex justify-end z-20 {{if isEditing 'relative'}}'>
     {{#if isEditing}}
       {{#if confirmCancel}}
-      <button class="rounded-full bg-red-buttons px-6 py-1 mr-3 text-white text-xs mt-5" {{action "doubleConfirmCancel"}}>Confirm Cancellation</button>
+        <button class="rounded-full bg-red-buttons px-6 py-1 mr-3 text-white text-xs mt-5" {{action "doubleConfirmCancel"}}>Confirm Cancellation</button>
       {{else}}
-      <button class="rounded-full bg-red-buttons px-6 py-1 mr-3 text-white text-xs mt-5" {{action "confirmCancel"}}>Cancel Donation</button>
+        <button class="rounded-full bg-red-buttons px-6 py-1 mr-3 text-white text-xs mt-5" {{action "confirmCancel"}}>Cancel Donation</button>
       {{/if}}
-      <button class="rounded-full bg-yellow px-8 py-1 text-white text-xs mt-5" {{action "saveRecurring"}}>Save</button>
+        <button class="rounded-full bg-yellow px-8 py-1 text-white text-xs mt-5" {{action "saveRecurring"}}>Save</button>
     {{else}}
       {{#if updated}}
         <div class="rounded-full bg-green w-5 text-white px-4 py-1 text-xs font-thin mt-5">Updated!</div>
       {{else}}
-        <button class="rounded-full bg-purple-buttons w-5 text-white px-8 py-1 text-xs font-thin mt-5" {{action "toggleSave"}}>Edit</button>
+        <button class="rounded-full bg-purple-buttons w-5 text-white px-8 py-1 text-xs font-thin mt-5 block z-30" {{action "toggleSave"}}>Edit</button>
       {{/if}}
     {{/if}}
   </div>
