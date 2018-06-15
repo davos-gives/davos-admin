@@ -5,6 +5,11 @@
   @apply .bg-blue-dark;
 }
 
+.purple-header {
+  background: no-repeat;
+  background-image: url('/img/Dashboard_BG.svg');
+}
+
 .no-logo {
    background-image: url('/img/inactive_org_no_logo.svg');
    background-size: cover;

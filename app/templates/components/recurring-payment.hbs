@@ -18,20 +18,20 @@
   </section>
 {{/if}}
 
-<div class="w-3/4 mt-8 container z-20 {{if isEditing 'relative'}}">
-  <div class='w-full flex justify-end z-20 {{if isEditing 'relative'}}'>
+<div class="w-3/4 mt-8 container {{if isEditing 'relative z-20'}}">
+  <div class='w-full flex justify-end {{if isEditing 'relative z-20'}}'>
     {{#if isEditing}}
       {{#if confirmCancel}}
-        <button class="rounded-full bg-red-buttons px-6 py-1 mr-3 text-white text-xs mt-5" {{action "doubleConfirmCancel"}}>Confirm Cancellation</button>
+        <button class="rounded-full bg-red-buttons text-white font-thin py-2 px-4 rounded-full mr-4" {{action "doubleConfirmCancel"}}>Confirm Cancellation</button>
       {{else}}
-        <button class="rounded-full bg-red-buttons px-6 py-1 mr-3 text-white text-xs mt-5" {{action "confirmCancel"}}>Cancel Donation</button>
+        <button class="rounded-full bg-purple-buttons text-white font-thin py-2 px-4 rounded-full mr-4" {{action "confirmCancel"}}>Cancel Donation</button>
       {{/if}}
-        <button class="rounded-full bg-yellow px-8 py-1 text-white text-xs mt-5" {{action "saveRecurring"}}>Save</button>
+        <button class="rounded-full bg-yellow text-white font-thin py-2 px-4 rounded-full" {{action "saveRecurring"}}>Save</button>
     {{else}}
       {{#if updated}}
-        <div class="rounded-full bg-green w-5 text-white px-4 py-1 text-xs font-thin mt-5">Updated!</div>
+        <div class="rounded-full bg-green text-white font-thin py-2 px-4 rounded-full">Updated!</div>
       {{else}}
-        <button class="rounded-full bg-purple-buttons w-5 text-white px-8 py-1 text-xs font-thin mt-5 block z-30" {{action "toggleSave"}}>Edit</button>
+        <button class="rounded-full bg-purple-buttons text-white font-thin py-2 px-4 rounded-full block z-10" {{action "toggleSave"}}>Edit</button>
       {{/if}}
     {{/if}}
   </div>
