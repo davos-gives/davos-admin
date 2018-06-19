@@ -12,10 +12,10 @@
           <div class="w-full block flex-grow text-white">
             <div>
               <a class="inline-block mr-6 text-white no-underline align-middle" href="">
-                {{fa-icon "search"}}
+                <img src="/img/icons/Search.svg" class="w-4 align-middle" />
               </a>
-              <a class="inline-block mr-6 text-white no-underline pt-1 align-middle" href="">
-                {{fa-icon "bell"}}
+              <a class="inline-block mr-6 text-white no-underline align-middle" href="">
+                <img src="/img/icons/Bell.svg" class="w-4 align-middle" />
               </a>
               <a class="inline-block mr-1  no-underline" href="">
                 <img src="/img/icons/account-white.svg" class="w-4 align-middle" />
@@ -47,31 +47,7 @@
 
     {{#each model.relationships as |relationship|}}
       {{#each relationship.recurrings as |gift|}}
-        {{#link-to 'relationship' relationship.id class='no-underline text-black'}}
-          <div class="w-100 rounded-lg overflow-hidden shadow-md -mt-4 mx-2 mb-8 cursor-pointer">
-            <div class="image w-full h-48 bg-purple-card-background overflow-hidden">
-              <img src={{gift.campaign.image}} class="opacity-80" />
-            </div>
-            <div class="px-10 py-4">
-              <div class="pb-8 border-grey-light border-solid border-b">
-                <p class="font-bold text-grey-card mt-4 mb-2 capitalize text-lg" style="height: 45px;">
-                  {{gift.campaign.organization.name}}
-                </p>
-                <p class="font-light text-grey-card">
-                  {{gift.campaign.description}}
-                </p>
-              </div>
-              <div class="mt-4 flex">
-                <p class="text-2xl font-bold w-1/2 text-grey-card">
-                  {{format-currency gift.amount}} <span class="pl-4">{{fa-icon 'angle-down'}}</span>
-                </p>
-                <span class="w-1/2 text-right font-sm capitalize text-grey-card-2 pt-1">
-                  {{gift.frequency}}
-                </span>
-              </div>
-            </div>
-          </div>
-      {{/link-to}}
+        {{recurring-payment-mini gift=gift relationship=relationship}}
       {{/each}}
     {{/each}}
   </section>

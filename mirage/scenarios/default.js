@@ -69,7 +69,7 @@ export default function(server) {
 
   let coats = server.create('campaign', {
     description: "Warm beds for a cold winter",
-    image: 'img/dogs.jpg',
+    image: '/img/dogs.jpg',
     organization: spca,
   });
 

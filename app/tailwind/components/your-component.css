@@ -175,3 +175,16 @@
 .z-40 {
   z-index: 40;
 }
+
+.bg-new-chairs-for-the-emergency-waiting-room {
+  background-color: #BE1E2D;
+  background-image: url('/img/Active_donation_bg3.svg');
+  background-size: cover;
+}
+
+
+.bg-10-new-beds-for-the-maternity-ward {
+  background-color: #DBA41C;
+  background-image: url('/img/Active_donation_bg2.svg');
+  background-size: cover;
+}
