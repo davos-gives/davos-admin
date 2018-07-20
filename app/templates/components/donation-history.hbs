@@ -26,7 +26,7 @@
       <tr class="flex flex-wrap w-full">
         <td class="w-1/6 py-3 pl-8"><p class="text-center text-grey-card-2">{{moment-format payment.date 'YYYY/MM/DD'}}</p></td>
         <td class="w-1/6 py-3 pl-8"><p class="text-center text-purple-history-header">{{format-currency payment.amount}}</p></td>
-        <td class="w-1/2 item-center py-3 pl-8"><p class="text-left text-grey-card-2">{{payment.recurring.campaign.description}}</p></td>
+        <td class="w-1/2 item-center py-3 pl-8"><p class="text-left text-grey-card-2">{{payment.campaign.description}}</p></td>
         <td class='w-1/6 text-center py-3 pr-8'><img src="/img/icons/Download.svg" class="w-4"/></td>
       </tr>
     {{else}}

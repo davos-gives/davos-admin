@@ -22,7 +22,7 @@
                 <img src="/img/icons/account-white.svg" class="w-4 align-middle" />
               </a>
               <a class="inline-block no-underline text-grey font-hairline text-sm align-middle" href="">
-                {{model.donor.first}}
+                {{model.donor.fname}}
               </a>
             </div>
           </div>
@@ -96,7 +96,7 @@
     {{/each}}
   </section>
 
-  {{donation-history payments=model.payments}}
+  {{donation-history payments=model.donations}}
 
   <section class="flex flex-wrap w-4/5 mx-auto text-sm pt-8 pb-8 container">
     <div class="w-1/4 text-grey-dark border-grey-light border-solid border-t text-purple-footer py-8">

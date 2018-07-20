@@ -6,4 +6,5 @@ export default DS.Model.extend({
   expiry: DS.attr(),
   primary: DS.attr(),
   recurrings: DS.hasMany('recurring'),
+  donor: DS.belongsTo('donor'),
 });
