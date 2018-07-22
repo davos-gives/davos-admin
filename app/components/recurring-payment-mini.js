@@ -19,7 +19,7 @@ export default Component.extend({
   },
 
   resetRecurring() {
-    let amount = this.get('gift.amount');
+   let amount = this.get('amount');
 
     this.set('paymentAmount', amount);
     this.set('amountEdited', false);

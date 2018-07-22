@@ -9,27 +9,27 @@ export default DS.Model.extend(LoadableModel,{
   donor: DS.belongsTo('donor'),
   organization: DS.belongsTo('organization'),
   recurrings: DS.hasMany('recurring'),
-  payments: DS.hasMany('payments'),
+  donations: DS.hasMany('donations'),
 
   relationshipRecurringMonthlyTotal: computed('recurrings.@each.amount', function() {
     return this.get('recurrings').mapBy('amount').reduce((a, b) => a + b, 0);
   }),
 
-  totalDonations: computed('payments.@each.amount', function() {
-    return this.get('payments').mapBy('amount').reduce((a, b) => a + b, 0);
+  totalDonations: computed('donations.@each.amount', function() {
+    return this.get('donations').mapBy('amount').reduce((a, b) => a + b, 0);
   }),
 
-  yearlyPayments: computed('payments.@each.date', function() {
+  yearlyPayments: computed('donations.@each.timestamp', function() {
     let year = new Date().getFullYear();
-    return this.get('payments').filter(payment => payment.get('date') > new Date(2018, 1, 1));
+    return this.get('donations').filter(donation => donation.get('timestamp') > new Date(2018, 1, 1));
   }),
 
   totalYearlyPayments: computed('yearlyPayments', function() {
     return this.get('yearlyPayments').mapBy('amount').reduce((a, b) => a + b, 0);
   }),
 
-  allPaymentDates: computed('payments.@each.date', function() {
-    return this.get('payments').mapBy('date');
+  allPaymentDates: computed('donations.@each.timestamp', function() {
+    return this.get('donations').mapBy('timestamp');
   }),
 
   earliestPaymentDate: computed.min('allPaymentDates'),

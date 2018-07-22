@@ -21,7 +21,13 @@ module.exports = function(environment) {
 
       // Here you can pass flags/options to your application instance
       // when it is created
-    }
+    },
+
+    firebase: {
+    apiKey: 'AIzaSyASqUsKjZ6ZyUZg-yXRrf3ELx4JeeXjRdE',
+    authDomain: 'https://davos-giving.firebaseio.com/',
+    databaseURL: 'https://davos-giving.firebaseio.com/',
+  },
   };
 
   if (environment === 'development') {
@@ -32,11 +38,6 @@ module.exports = function(environment) {
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
   }
 
-  if (environment === 'production') {
-    ENV['ember-cli-mirage'] = {
-    enabled: true
-    };
-  }
 
   if (environment === 'test') {
     // Testem prefers this...

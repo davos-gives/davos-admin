@@ -4,9 +4,10 @@ import {computed} from '@ember/object';
 
 
 export default DS.Model.extend(LoadableModel,{
-  first: DS.attr(),
-  last: DS.attr(),
+  fname: DS.attr(),
+  lname: DS.attr(),
   relationships: DS.hasMany('relationship'),
+  campaign: DS.belongsTo('campaign'),
   addresses: DS.hasMany('address'),
   cards: DS.hasMany('card'),
   donorRecurringTotal: computed('relationships.@each.relationshipRecurringMonthlyTotal', function() {
