@@ -10,6 +10,8 @@ export default DS.Model.extend(LoadableModel,{
   campaign: DS.belongsTo('campaign'),
   addresses: DS.hasMany('address'),
   cards: DS.hasMany('card'),
+  recurrings: DS.hasMany('recurring'),
+  donations: DS.hasMany('donation'),
   donorRecurringTotal: computed('relationships.@each.relationshipRecurringMonthlyTotal', function() {
     return this.get('relationships').mapBy('relationshipRecurringMonthlyTotal').reduce((a, b) => a + b, 0);
   }),
