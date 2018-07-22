@@ -13,7 +13,7 @@ export default DS.Model.extend(LoadableModel,{
   relationship: DS.belongsTo('relationship'),
   campaign: DS.belongsTo('campaign'),
   donations: DS.hasMany('donation'),
-
+  donor: DS.belongsTo('donor'),
   totalPayments: computed('donations.@each.amount', function() {
     return this.get('donations').mapBy('amount').reduce((a, b) => a + b, 0);
   }),
