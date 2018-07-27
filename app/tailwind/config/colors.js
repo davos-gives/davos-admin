@@ -101,7 +101,7 @@ export default {
   'purple-light': '#a779e9',
   'purple-lighter': '#9A79FF',
   'purple-lightest': '#6F6582',
-  'purple-buttons': '#6B40F0',
+  'purple-buttons': '#6D3EFF',
   'purple-footer': '#3C2F54',
   'purple-card-background': '#634AB2',
   'purple-history-header': '#6E52C5',

@@ -188,3 +188,30 @@
   background-image: url('/img/Active_donation_bg2.svg');
   background-size: cover;
 }
+
+.left-icon {
+  background-color: #F0F0F0;
+}
+
+.icon-home {
+  background-image: url('/img/icons/Home.svg');
+  background-repeat: no-repeat;
+}
+
+.active .icon-home {
+  background-image: url('/img/icons/HomePurple.svg');
+  background-repeat: no-repeat;
+}
+
+.active .left-icon {
+  background-color: #6D3EFF;
+}
+
+.menu {
+  color: #86828e;
+}
+
+.active.menu {
+  color: #6D3EFF!important;
+  font-weight: 700;
+}
