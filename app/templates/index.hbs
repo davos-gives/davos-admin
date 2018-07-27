@@ -43,7 +43,7 @@
 
     {{#each model.relationships as |relationship|}}
       {{#each relationship.recurrings as |gift|}}
-        {{recurring-payment-mini gift=gift relationship=relationship amount=gift.amount}}
+        {{recurring-payment-mini gift=gift relationship=relationship amount=gift.amount on-save=(action "saveRecurring")}}
       {{/each}}
     {{/each}}
   </section>
