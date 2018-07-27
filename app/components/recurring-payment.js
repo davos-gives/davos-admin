@@ -20,13 +20,12 @@ export default Component.extend({
   confirmCancel: false,
   doubleConfirmCancel: false,
 
-  willRender() {
+  didInsertElement() {
     this._super(...arguments);
     this.resetRecurring();
   },
 
   resetRecurring() {
-    debugger;
     let amount = this.get('recurring.amount');
     let frequency = this.get('recurring.frequency');
     let card = this.get('recurring.card');
