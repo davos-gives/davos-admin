@@ -1,9 +1,9 @@
 <div class="w-6/7 min-h-screen">
   <section class="purple-header h-100">
     <div class="w-4/5 m-auto flex px-8 container">
-      <div class="flex-1 mt-8 pt-8">
-        <p class="p-1 text-sm text-white font-bold mt-8 pt-3">Welcome back, {{model.fname}}!</p>
-        <p class="text-2xl text-white font-light pl-1 tracking-wide">This month you're donating <span class='text-purple-light text-3xl'>{{format-currency model.donorRecurringTotal}}</span> <span class="uppercase text-xs">cad</span></p>
+      <div class="flex-1 mt-8">
+        <p class="p-1 text-sm text-white font-bold mt-8 pt-3 uppercase">Welcome back, {{model.fname}}!</p>
+        <p class="text-2xl text-white font-light pl-1 tracking-wide">This month you're donating <span class='text-white font-bold text-3xl'>{{format-currency model.donorRecurringTotal}}</span> <span class="uppercase text-xs">cad</span></p>
         <p class="pl-1 text-white font-black text-2xl mt-1">{{fa-icon 'angle-down'}}</p>
       </div>
 
@@ -20,8 +20,8 @@
               <a class="inline-block mr-1  no-underline" href="">
                 <img src="/img/icons/account-white.svg" class="w-4 align-middle" />
               </a>
-              <a class="inline-block no-underline text-grey font-hairline text-sm align-middle" href="">
-                {{model.fname}}
+              <a class="inline-block no-underline text-white font-semibold text-sm align-middle capitalize" href="">
+                {{model.fname}} {{model.lname}}
               </a>
             </div>
           </div>
@@ -39,7 +39,7 @@
     </div>
   </section>
 
-  <section class="flex flex-wrap content-start w-3/5 mx-auto mt-8 pt-2 container">
+  <section class="flex flex-wrap content-start w-3/5 mx-auto mt-4 pt-2 container">
 
     {{#each model.relationships as |relationship|}}
       {{#each relationship.recurrings as |gift|}}
