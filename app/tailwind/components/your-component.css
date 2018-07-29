@@ -215,3 +215,29 @@
   color: #6D3EFF!important;
   font-weight: 700;
 }
+
+
+
+.history-dropdown .ember-power-select-option[aria-current="true"] {
+    font-weight: bold;
+    color: #6E52C5;
+}
+
+.ember-basic-dropdown-trigger[aria-expanded="true"] {
+  border-radius: 15px;
+}
+
+.history-dropdown .ember-power-select-trigger:focus, .history-dropdown .ember-power-select-trigger--active {
+    border-top: 1px solid #6d3eff;
+    border-bottom: 1px solid #6d3eff;
+    border-right: 1px solid #6d3eff;
+    border-left: 1px solid #6d3eff;
+    box-shadow: none;
+}
+
+.history-dropdown .ember-power-select-dropdown, .history-dropdown .ember-power-select-trigger, #ember-power-select-options-ember480 {
+    border:  1px solid #6d3eff!important;
+    border-bottom: 1px solid #6d3eff!important;
+    border-right:  1px solid #6d3eff!important;
+    border-left:  1px solid #6d3eff!important;
+}
