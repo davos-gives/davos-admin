@@ -22,7 +22,7 @@ export default Component.extend({
       if(this.get('filter') == "All") {
         this.set('filteredPayments', payments);
       } else {
-        let filter = payments.filter(payment => payment.get('date') > new Date(this.get('filter'), 1, 1) && payment.get('date') <= new Date(this.get('filter'), 12, 31));
+        let filter = payments.filter(payment => payment.get('timestamp') > new Date(this.get('filter'), 1, 1, 0, 0, 0) && payment.get('timestamp') <= new Date(this.get('filter'), 12, 31, 0, 0, 0));
         this.set('filteredPayments', filter);
       }
     }
