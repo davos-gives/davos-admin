@@ -1,6 +1,6 @@
 # davos-admin
 
-This is the application that donors will use to manage their relationships with all charities on our platform, as well as their person info and payment info.
+This is the application that donors will use to manage their relationships with all charities on our platform, as well as their personal and payment info. This application is a SPA (single page application) that will be the interface to an API that we will be building.
 
 As an Ember application, this App is structured in a format common for MVC frameworks. We highly suggest reading through the guides for the [framework](https://emberjs.com/guides) before you start, as they'll give you a good understanding of how the application deals with models, components, and routing.
 
