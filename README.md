@@ -8,14 +8,14 @@ As an Ember application, this App is structured in a format common for MVC frame
 
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
-- [Running / Development](#running-/-development)
+- [Running / Development](#running--development)
 - [Libraries](#libraries)
   - [Tailwind](#tailwind)
   - [Mirage](#mirage)
   - [Emberfire](#emberfire)
 - [Running Tests](#running-tests)
 - [Deploying](#deploying)
-- [Further Reading / Useful Links](#Further-Reading-/-Useful-Links)
+- [Further Reading / Useful Links](#Further-Reading--Useful-Links)
 
 ## Prerequisites
 
