@@ -15,7 +15,7 @@ As an Ember application, this App is structured in a format common for MVC frame
   - [Emberfire](#emberfire)
 - [Running Tests](#running-tests)
 - [Deploying](#deploying)
-- [Further Reading / Useful Links](#Further-Reading--Useful-Links)
+- [Further Reading / Useful Links](#further-reading--useful-links)
 
 ## Prerequisites
 
