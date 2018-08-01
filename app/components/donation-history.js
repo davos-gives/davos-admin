@@ -1,5 +1,7 @@
 import Component from '@ember/component';
 import {inject} from '@ember/service';
+import { computed } from '@ember/object';
+
 
 export default Component.extend({
 
@@ -13,6 +15,12 @@ export default Component.extend({
   years: ["2018", "2017", "2016", "2015", "2014", "All"],
   filter: 'All',
   filteredPayments: [],
+
+  SortingDesc: Object.freeze(['timestamp:desc']),
+  orderedFilteredPayments: computed.sort('filteredPayments', 'SortingDesc'),
+
+
+
 
   actions: {
     filterByYear(year) {

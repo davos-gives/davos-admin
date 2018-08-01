@@ -41,7 +41,7 @@
         {{recurring.campaign.description}}
       </p>
       <p class="flex-1 text-right pr-4 text-grey-card">
-        Next donation: 01/05/18
+        Next donation: {{moment-format futurePayment 'MM/DD/YYYY'}}
       </p>
     </div>
     <div class="px-8 py-2 pb-6 z-15 {{if isEditing 'relative'}}">
@@ -77,7 +77,7 @@
         <p class="w-8">
         </p>
         <p class="text-sm w-1/4 text-center mt-3 text-grey-dark">
-          since {{moment-format recurring.timestamp 'YYYY/MM/DD'}}
+          since {{moment-format recurring.timestamp 'MM/DD/YYYY'}}
         </p>
         <p class="text-sm w-1/4 text-center {{if cardEdited 'text-yellow' 'text-grey-card'}} card">
           {{#power-select

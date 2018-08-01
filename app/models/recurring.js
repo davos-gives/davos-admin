@@ -9,6 +9,7 @@ export default DS.Model.extend(LoadableModel,{
   amount: DS.attr(),
   frequency: DS.attr(),
   startDate: DS.attr(),
+  timestamp: DS.attr(),
   card: DS.belongsTo('card'),
   relationship: DS.belongsTo('relationship'),
   campaign: DS.belongsTo('campaign'),

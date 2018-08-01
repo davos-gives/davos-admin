@@ -22,9 +22,9 @@
       <th class="w-1/6 pl-7">Receipt</th>
     </thead>
 
-    {{#each filteredPayments as |payment|}}
+    {{#each orderedFilteredPayments as |payment|}}
       <tr class="flex flex-wrap w-full">
-        <td class="w-1/6 py-3 pl-8"><p class="text-center text-grey-card-2">{{moment-format payment.date 'YYYY/MM/DD'}}</p></td>
+        <td class="w-1/6 py-3 pl-8"><p class="text-center text-grey-card-2">{{moment-format payment.timestamp 'MM/DD/YYYY'}}</p></td>
         <td class="w-1/6 py-3 pl-8"><p class="text-center text-purple-history-header">{{format-currency payment.amount}}</p></td>
         <td class="w-1/2 item-center py-3 pl-8"><p class="text-left text-grey-card-2">{{payment.campaign.description}}</p></td>
         <td class='w-1/6 text-center py-3 pr-8'><img src="/img/icons/Download.svg" class="w-4"/></td>

@@ -1,4 +1,6 @@
 import Component from '@ember/component';
+import { computed } from '@ember/object';
+
 
 export default Component.extend({
 
@@ -19,6 +21,27 @@ export default Component.extend({
   updated: false,
   confirmCancel: false,
   doubleConfirmCancel: false,
+
+  futurePayment: computed('recurring.frequency', function(){
+    let frequency = this.get('recurring.frequency');
+    let timestamp = this.get('recurring.timestamp');
+    let date = new Date(timestamp);
+
+    switch(frequency) {
+      case "Daily":
+        let newDateDailey = date.setDate(date.getDate()+1);
+        return newDateDailey;
+      case "Weekly":
+        let newDateWeekly = date.setDate(date.getDate()+7);
+        return newDateWeekly;
+      case "Bi-Weekly":
+        let newDateBiWeekly = date.setDate(date.getDate()+14);
+        return newDateBiWeekly;
+      case "Monthly":
+        let newDateMonthly = date.setMonth(date.getMonth()+1);
+        return newDateMonthly;
+    }
+  }),
 
   didInsertElement() {
     this._super(...arguments);
