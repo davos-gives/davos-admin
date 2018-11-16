@@ -17,12 +17,12 @@
 
 <div class="w-100 rounded-lg overflow-hidden shadow-md -mt-4 mx-2 mb-8 cursor-pointer bg-white {{if isEditing 'z-20 relative'}}">
   {{#link-to 'relationship' relationship.id class='no-underline text-black'}}
-  {{#if gift.campaign.image}}
+  {{#if campaign.image}}
     <div class="image w-full h-48 bg-purple-card-background {{if isEditing 'z-20 relative'}} overflow-hidden">
-      <img src={{gift.campaign.image}} class="opacity-80" />
+      <img src={{campaign.image}} class="opacity-80" />
     </div>
     {{else}}
-    <div class="image w-full h-48 bg-{{dasherize gift.campaign.description}} {{if isEditing 'z-20 relative'}} flex">
+    <div class="image w-full h-48 bg-{{dasherize campaign.description}} {{if isEditing 'z-20 relative'}} flex">
     </div>
     {{/if}}
 
@@ -32,10 +32,10 @@
     {{#link-to 'relationship' relationship.id class='no-underline text-black'}}
       <div class="pb-8 border-grey-light border-solid border-b bg-white">
         <p class="font-bold text-grey-card mt-4 capitalize text-lg" style="height: 30px;">
-          {{gift.campaign.organization.name}}
+          {{campaign.organization.name}}
         </p>
         <p class="font-light text-grey-card">
-          {{gift.campaign.description}}
+          {{campaign.name}}
         </p>
       </div>
     {{/link-to}}

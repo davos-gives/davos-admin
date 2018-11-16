@@ -6,13 +6,15 @@ import {computed} from '@ember/object';
 export default DS.Model.extend(LoadableModel,{
   fname: DS.attr(),
   lname: DS.attr(),
+  email: DS.attr(),
+  password: DS.attr(),
   relationships: DS.hasMany('relationship'),
   campaign: DS.belongsTo('campaign'),
   addresses: DS.hasMany('address'),
-  cards: DS.hasMany('card'),
-  recurrings: DS.hasMany('recurring'),
+  paymentMethods: DS.hasMany('payment-methods'),
+  ongoingDonations: DS.hasMany('ongoing-donations'),
   donations: DS.hasMany('donation'),
-  donorRecurringTotal: computed('relationships.@each.relationshipRecurringMonthlyTotal', function() {
-    return this.get('relationships').mapBy('relationshipRecurringMonthlyTotal').reduce((a, b) => a + b, 0);
+  totalDonations: computed('ongoingDonations.@each.amount', function() {
+    return this.get('ongoingDonations').mapBy('amount').reduce((a, b) => a + b, 0);
   }),
 });

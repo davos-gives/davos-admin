@@ -3,7 +3,7 @@
     <div class="w-4/5 m-auto flex px-8 container">
       <div class="flex-1 mt-8">
         <p class="p-1 text-sm text-white font-bold mt-8 pt-3 uppercase">Welcome back, {{model.fname}}!</p>
-        <p class="text-2xl text-white font-light pl-1 tracking-wide">This month you're donating <span class='text-white font-bold text-3xl'>{{format-currency model.donorRecurringTotal}}</span> <span class="uppercase text-xs">cad</span></p>
+        <p class="text-2xl text-white font-light pl-1 tracking-wide">This month you're donating <span class='text-white font-bold text-3xl'>{{format-currency model.totalDonations}}</span> <span class="uppercase text-xs">cad</span></p>
         <p class="pl-1 text-white font-black text-2xl mt-1">{{fa-icon 'angle-down'}}</p>
       </div>
 
@@ -41,10 +41,8 @@
 
   <section class="flex flex-wrap content-start w-3/5 mx-auto mt-4 pt-2 container">
 
-    {{#each model.relationships as |relationship|}}
-      {{#each relationship.recurrings as |gift|}}
-        {{recurring-payment-mini gift=gift relationship=relationship amount=gift.amount on-save=(action "saveRecurring")}}
-      {{/each}}
+    {{#each model.ongoingDonations as |ongoingDonation|}}
+      {{recurring-payment-mini gift=ongoingDonation campaign=ongoingDonation.campaign relationship=ongoingDonation.DonorOrganizationRelationship amount=ongoingDonation.amount on-save=(action "saveRecurring")}}
     {{/each}}
   </section>
 

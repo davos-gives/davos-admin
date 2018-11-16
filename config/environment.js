@@ -22,13 +22,16 @@ module.exports = function(environment) {
       // Here you can pass flags/options to your application instance
       // when it is created
     },
-
-    firebase: {
-    apiKey: 'AIzaSyASqUsKjZ6ZyUZg-yXRrf3ELx4JeeXjRdE',
-    authDomain: 'https://davos-giving.firebaseio.com/',
-    databaseURL: 'https://davos-giving.firebaseio.com/',
-  },
   };
+
+  ENV['ember-simple-auth-token'] = {
+  serverTokenEndpoint: 'http://localhost:4000/api/session',
+  refreshAccessTokens: false,
+  headers: {
+    "Content-Type": "application/vnd.api+json",
+    "Accept": "application/vnd.api+json",
+  }
+}
 
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;

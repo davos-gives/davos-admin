@@ -83,14 +83,14 @@
   <section class="flex flex-wrap w-3/5 mx-auto">
         <p class="text-xl mt-8 pt-8 text-grey-card">
           <span class="font-bold pr-2 capitalize text-grey-card">{{model.organization.name}}</span>
-          {{#if model.recurrings.length}}
+          {{#if model.ongoingDonations.length}}
             | My Ongoing Donations
           {{else}}
             | No Ongoing Donations
           {{/if}}
         </p>
-        {{#each model.recurrings as |recurring|}}
-          {{recurring-payment recurring=recurring cards=model.donor.cards on-save=(action "saveRecurring") organization=model.organization frequency=recurring.frequency}}
+        {{#each model.ongoingDonations as |recurring|}}
+          {{recurring-payment recurring=recurring cards=model.donor.paymentMethods on-save=(action "saveRecurring") organization=model.organization frequency=recurring.frequency}}
         {{/each}}
   </section>
 

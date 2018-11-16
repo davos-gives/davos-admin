@@ -51,7 +51,7 @@ export default Component.extend({
   resetRecurring() {
     let amount = this.get('recurring.amount');
     let frequency = this.get('recurring.frequency');
-    let card = this.get('recurring.card');
+    let card = this.get('recurring.paymentMethod');
 
     this.set('paymentAmount', amount);
     this.set('paymentFrequency', frequency);
