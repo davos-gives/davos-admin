@@ -24,7 +24,7 @@ export default Component.extend({
 
   futurePayment: computed('recurring.frequency', function(){
     let frequency = this.get('recurring.frequency');
-    let timestamp = this.get('recurring.timestamp');
+    let timestamp = this.get('recurring.createdAt');
     let date = new Date(timestamp);
 
     switch(frequency) {

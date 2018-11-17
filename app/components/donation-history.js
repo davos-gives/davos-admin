@@ -19,9 +19,6 @@ export default Component.extend({
   SortingDesc: Object.freeze(['timestamp:desc']),
   orderedFilteredPayments: computed.sort('filteredPayments', 'SortingDesc'),
 
-
-
-
   actions: {
     filterByYear(year) {
       this.set('filter', year);
@@ -30,7 +27,7 @@ export default Component.extend({
       if(this.get('filter') == "All") {
         this.set('filteredPayments', payments);
       } else {
-        let filter = payments.filter(payment => payment.get('timestamp') > new Date(this.get('filter'), 1, 1, 0, 0, 0) && payment.get('timestamp') <= new Date(this.get('filter'), 12, 31, 0, 0, 0));
+        let filter = payments.filter(payment =>  new Date(payment.get('createdAt')) > new Date(this.get('filter'), 1, 1, 0, 0, 0) && new Date(payment.get('createdAt')) <= new Date(this.get('filter'), 12, 31, 0, 0, 0));
         this.set('filteredPayments', filter);
       }
     }

@@ -7,12 +7,11 @@ export default DS.Model.extend(LoadableModel,{
   amount: DS.attr(),
   DonorOrganizationRelationship: DS.belongsTo('donor-organization-relationship'),
   frequency: DS.attr(),
-  startDate: DS.attr(),
-  timestamp: DS.attr(),
+  createdAt: DS.attr(),
   paymentMethod: DS.belongsTo('payment-method'),
   DonorOrganizationRelationship: DS.belongsTo('donor-organization-relationship'),
   campaign: DS.belongsTo('campaign'),
-  donations: DS.hasMany('donation'),
+  payments: DS.hasMany('payment'),
   donor: DS.belongsTo('donor'),
   totalPayments: computed('donations.@each.amount', function() {
     return this.get('donations').mapBy('amount').reduce((a, b) => a + b, 0);

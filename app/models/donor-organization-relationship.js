@@ -9,7 +9,10 @@ export default DS.Model.extend(LoadableModel,{
   donor: DS.belongsTo('donor'),
   organization: DS.belongsTo('organization'),
   ongoingDonations: DS.hasMany('ongoing-donation'),
-  donations: DS.hasMany('donations'),
+  payments: DS.hasMany('payment'),
+  yearlyDonations: DS.attr(),
+  lifetimeDonations: DS.attr(),
+  createdAt: DS.attr(),
   //
   // relationshipRecurringMonthlyTotal: computed('recurrings.@each.amount', function() {
   //   return this.get('recurrings').mapBy('amount').reduce((a, b) => a + b, 0);
@@ -28,10 +31,10 @@ export default DS.Model.extend(LoadableModel,{
   //   return this.get('yearlyPayments').mapBy('amount').reduce((a, b) => a + b, 0);
   // }),
   //
-  // allPaymentDates: computed('donations.@each.timestamp', function() {
-  //   return this.get('donations').mapBy('timestamp');
+  // allPaymentDates: computed('payments.@each.createdAt', function() {
+  //   return this.get('payments').mapBy('createdAt');
   // }),
-  //
+  // //
   // earliestPaymentDate: computed.min('allPaymentDates'),
   //
   // formattedPaymentDate: computed('earliestPaymentDate', function() {
