@@ -69,7 +69,7 @@ export default Component.extend({
         amount: this.get('paymentAmount'),
       });
       debugger;
-      
+
       return this.attrs['on-save'](recurring);
     },
 
@@ -87,7 +87,9 @@ export default Component.extend({
     },
 
     cancelRecurring() {
-      this.get('recurring').destroyRecord().then(() => {
+      this.set('status', "cancelled");
+
+      this.get('recurring').updateRecord().then(() => {
         this.set('isEditing', false);
       });
     },

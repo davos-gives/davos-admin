@@ -2,18 +2,20 @@
   {{#each errors as |error|}}
     <div class="error-alert">{{error.detail}}</div>
   {{/each}}
+  <div class="py-8">
+    <div class="email-field">
+      {{fl-input type="text" placeholder="Email address" value=email}}
+    </div>
 
-  <div class="field">
-    <label>Email:</label>
-    {{input type="text" placeholder="Email address" value=email}}
+    <div class="password-field">
+      {{fl-input type="password" placeholder="Password" value=password}}
+    </div>
   </div>
-
-  <div class="field">
-    <label>Password:</label>
-    {{input type="password" placeholder="Password" value=password}}
+  <div>
+    <button class="text-purple text-sm mb-8">Forgot your password?</button>
   </div>
-
-  <div class="form-footer">
-    <button type="submit" name="button" class="btn-submit">save</button>
+  <div class="form-footer flex justify-between content-center mb-8 pb-6">
+    <button class="text-purple text-sm">Create account</button>
+    <button type="submit" name="button" class="rounded-full bg-purple-buttons text-white font-thin py-2 px-4 rounded-full text-center pb-3">Log in <img src="/img/icons/ChevronWhite.svg" class="w-3 rotate-270"></button>
   </div>
 </form>

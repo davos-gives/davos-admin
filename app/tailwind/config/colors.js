@@ -30,6 +30,7 @@ export default {
   'grey-light': '#dae1e7',
   'grey-lighter': '#f1f5f8',
   'grey-lightest': '#F0F2F2',
+  'grey-background': '#F7F9FA',
   'grey-menu': "#86828E",
   'grey-card': '#5B6B77',
   'grey-card-2': '#869CAB',

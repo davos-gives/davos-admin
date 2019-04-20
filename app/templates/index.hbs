@@ -1,9 +1,36 @@
-<div class="w-6/7 min-h-screen">
+<div class="w-1/7 bg-grey-lightest min-h-screen">
+  <div class="logo text-center py-8 font-bold">
+    <img src="/img/davos_logo.svg" onclick={{action "logout"}} class="w-32"/>
+  </div>
+  <div class="menu text-left pt-1">
+    <ul class="list-reset">
+      <li class="py-2 pl-1">
+        {{#link-to "index" class="menu no-underline font-light"}}
+          <span class="left-icon rounded-full h-3 w-3 flex items-center justify-center float-left -ml-3 mt-1"></span>
+          <div class="w-48 m-auto pl-8">
+            <span class="icon-home w-4 h-4 inline-block mr-6"></span>
+            Donations
+          </div>
+        {{/link-to}}
+      </li>
+      <li class="py-2 pl-1">
+        {{#link-to "account" class="menu no-underline font-light"}}
+          <span class="left-icon rounded-full h-3 w-3 flex items-center justify-center float-left -ml-3 mt-1"></span>
+          <div class="w-48 m-auto pl-8">
+            <span class="icon-account w-4 h-4 inline-block mr-6"></span>
+            Account
+          </div>
+        {{/link-to}}
+      </li>
+    </ul>
+  </div>
+</div>
+<div class="w-6/7 min-h-screen flex flex-col">
   <section class="purple-header h-100">
     <div class="w-4/5 m-auto flex px-8 container">
       <div class="flex-1 mt-8">
         <p class="p-1 text-sm text-white font-bold mt-8 pt-3 uppercase">Welcome back, {{model.fname}}!</p>
-        <p class="text-2xl text-white font-light pl-1 tracking-wide">This month you're donating <span class='text-white font-bold text-3xl'>{{format-currency model.totalDonations}}</span> <span class="uppercase text-xs">cad</span></p>
+        <p class="text-2xl text-white font-light pl-1 tracking-wide">This month you're donating <span class='text-white font-bold text-3xl'>{{format-currency activeAmount}}</span> <span class="uppercase text-xs">cad</span></p>
         <p class="pl-1 text-white font-black text-2xl mt-1">{{fa-icon 'angle-down'}}</p>
       </div>
 
@@ -30,40 +57,55 @@
     </div>
   </section>
 
-  <section class="flex flex-wrap w-3/5 px-8 -mt-20 mx-auto container">
-    <div class="w-1/2 -mt-8 pl-1">
-      <p class='text-lg text-white font-thin'>Active Donations</p>
-    </div>
-    <div class="flex-1 text-right -mt-8">
-      <button class="bg-purple-buttons text-white font-thin py-2 px-4 rounded-full">View All</button>
-    </div>
-  </section>
 
-  <section class="flex flex-wrap content-start w-3/5 mx-auto mt-4 pt-2 container">
-
-    {{#each model.ongoingDonations as |ongoingDonation|}}
-      {{recurring-payment-mini gift=ongoingDonation campaign=ongoingDonation.campaign relationship=ongoingDonation.DonorOrganizationRelationship amount=ongoingDonation.amount on-save=(action "saveRecurring")}}
-    {{/each}}
-  </section>
-
-
-  <section class="flex flex-wrap content-start w-3/5 pt-8 mx-auto container">
-    <div class="w-44 h-5 h-44rounded-lg overflow-hidden -mt-4 mx-2 mb-8 mr-4">
-    </div>
-    <div class="w-44 h-5 rounded-lg overflow-hidden -mt-4 mx-2 mb-8 ml-4">
-    </div>
-    <div class="w-44 h-5 rounded-lg overflow-hidden -mt-4 mx-2 mb-8 ml-4 mr-4">
-    </div>
-    <div class="w-44 h-5 rounded-lg overflow-hidden -mt-4 mx-2 mb-8 ml-4">
-      <div class="w-2/5 pl-1 mx-auto">
-        <span class="rounded-full inline-block h-3 w-3  items-center mx-1 bg-purple"></span>
-        <span class="rounded-full inline-block h-3 w-3 items-center mx-1 bg-grey-lightest"></span>
-        <span class="rounded-full inline-block h-3 w-3 items-center mx-1 bg-grey-lightest"></span>
+  {{#if activeDonations}}
+    <section class="flex flex-wrap w-3/5 px-8 -mt-20 mx-auto container">
+      <div class="w-1/2 -mt-8 pl-1">
+        <p class='text-lg text-white font-thin'>Active Donations</p>
       </div>
-    </div>
-  </section>
+      <!-- <div class="flex-1 text-right -mt-8">
+        <button class="bg-purple-buttons text-white font-thin py-2 px-4 rounded-full">View All</button>
+      </div> -->
+    </section>
 
-  <section class="flex flex-wrap w-3/5 mx-auto mt-8 px-8 container">
+    <section class="flex flex-wrap content-start w-3/5 mx-auto mt-4 pt-2 container flex-grow">
+
+      {{#each activeDonations as |ongoingDonation|}}
+        {{recurring-payment-mini gift=ongoingDonation campaign=ongoingDonation.campaign relationship=ongoingDonation.DonorOrganizationRelationship amount=ongoingDonation.amount on-save=(action "saveRecurring")}}
+      {{/each}}
+
+    </section>
+    {{else}}
+
+    <section class="flex flex-wrap w-3/5 px-8 -mt-20 mx-auto container">
+      <div class="w-1/2 -mt-8 pl-1">
+        <p class='text-lg text-white font-thin'>No Active Donations</p>
+      </div>
+    </section>
+
+    <section class="flex flex-wrap content-start w-3/5 mx-auto mt-4 pt-2 container flex-grow">
+      <section class="flex flex-wrap w-3/5 mx-auto mt-8 px-8 container">
+        <div class="w-1/2 mt-8">
+          <p class='text-lg font-thin text-grey-card-2'>Past Donations</p>
+        </div>
+      </section>
+
+      <section class="flex flex-wrap content-start w-3/5 pt-8 mt-4 mx-auto container">
+        <div class="w-44 h-44 h-44rounded-lg overflow-hidden shadow-md -mt-4 mx-2 mb-8 mr-4">
+          <div class="image w-full h-44 bg-white flex items-center">
+            <img src="/img/chv.png" class="w-3/4 mx-auto"/>
+          </div>
+        </div>
+      </section>
+    </section>
+  {{/if}}
+
+
+
+
+
+
+  <!-- <section class="flex flex-wrap w-3/5 mx-auto mt-8 px-8 container">
     <div class="w-1/2 mt-8">
       <p class='text-lg font-thin text-grey-card-2'>Past Donations</p>
     </div>
@@ -109,11 +151,11 @@
         <span class="rounded-full inline-block h-3 w-3 items-center mx-1 bg-grey-lightest"></span>
       </div>
     </div>
-  </section>
+  </section> -->
 
   <section class="flex flex-wrap w-3/5 mx-auto text-sm pt-8 pb-8 container">
     <div class="w-1/3 text-grey-dark border-grey-light border-solid border-t text-purple-footer py-8">
-      <p><span class='font-bold'>©2018 Davos.gives</span> - All rights reserved.</p>
+      <p><span class='font-bold'>©2019 Davos.gives</span> - All rights reserved.</p>
     </div>
     <div class="w-1/3 text-grey-dark text-center border-grey-light border-solid border-t py-7 -py-1">
       <img src="/img/Davos_slogan.svg" class="w-40"/>

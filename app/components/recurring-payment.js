@@ -125,7 +125,15 @@ export default Component.extend({
     },
 
     cancelRecurring() {
-      this.get('recurring').destroyRecord().then(() => {
+
+      let recurring = this.get('recurring');
+
+      recurring.setProperties({
+        status: "cancelled"
+      });
+
+
+      recurring.save().then(() => {
         this.set('isEditing', false);
       });
     },

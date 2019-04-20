@@ -5,7 +5,7 @@ import { inject as service } from "@ember/service";
 export default DS.JSONAPIAdapter.extend({
   namespace: "api",
   session: service('session'),
-  host: 'http://localhost:4000',
+  host: 'https://localhost:4000',
 
   headers: computed(function() {
     let session = this.get('session');

@@ -11,9 +11,9 @@ export default DS.Model.extend(LoadableModel,{
   relationships: DS.hasMany('relationship'),
   campaign: DS.belongsTo('campaign'),
   addresses: DS.hasMany('address'),
-  paymentMethods: DS.hasMany('payment-methods'),
   ongoingDonations: DS.hasMany('ongoing-donations'),
   donations: DS.hasMany('donation'),
+  vaultCards: DS.hasMany('vault-card'),
   totalDonations: computed('ongoingDonations.@each.amount', function() {
     return this.get('ongoingDonations').mapBy('amount').reduce((a, b) => a + b, 0);
   }),

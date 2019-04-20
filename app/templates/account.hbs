@@ -1,1 +1,116 @@
-{{outlet}}
+<div class="w-1/7 bg-grey-lightest min-h-screen">
+  <div class="logo text-center py-8 font-bold">
+    <img src="/img/davos_logo.svg" onclick={{action "logout"}} class="w-32"/>
+  </div>
+  <div class="menu text-left pt-1">
+    <ul class="list-reset">
+      <li class="py-2 pl-1">
+        {{#link-to "index" class="menu no-underline font-light"}}
+          <span class="left-icon rounded-full h-3 w-3 flex items-center justify-center float-left -ml-3 mt-1"></span>
+          <div class="w-48 m-auto pl-8">
+            <span class="icon-home w-4 h-4 inline-block mr-6"></span>
+            Donations
+          </div>
+        {{/link-to}}
+      </li>
+      <li class="py-2 pl-1">
+        {{#link-to "account" class="menu no-underline font-light"}}
+          <span class="left-icon rounded-full h-3 w-3 flex items-center justify-center float-left -ml-3 mt-1"></span>
+          <div class="w-48 m-auto pl-8">
+            <span class="icon-account w-4 h-4 inline-block mr-6"></span>
+            Account
+          </div>
+        {{/link-to}}
+      </li>
+    </ul>
+  </div>
+</div>
+<div class="w-6/7 min-h-screen flex flex-col">
+  <section class="purple-header h-100">
+    <div class="w-4/5 m-auto flex px-8 container">
+
+      <div class="flex-1 pt-6">
+        {{#link-to 'index' class="no-underline"}}
+          <img src="/img/icons/ChevronWhite.svg" class="w-2 rotate-90 align-middle mr-1"/> <img src="/img/icons/HomeWhite.svg" class="w-4 align-middle"/>
+        {{/link-to}}
+      </div>
+
+      <div class="text-right">
+        <nav class="flex items-center justify-between flex-wrap p-6">
+          <div class="w-full block flex-grow text-white">
+            <div>
+              <a class="inline-block mr-6 text-white no-underline align-middle" href="">
+                <img src="/img/icons/Search.svg" class="w-4 align-middle" />
+              </a>
+              <a class="inline-block mr-6 text-white no-underline align-middle" href="">
+                <img src="/img/icons/Bell.svg" class="w-4 align-middle" />
+              </a>
+              <a class="inline-block mr-1  no-underline" href="">
+                <img src="/img/icons/account-white.svg" class="w-4 align-middle" />
+              </a>
+              <a class="inline-block no-underline text-white font-semibold text-sm align-middle capitalize" href="">
+                {{model.fname}} {{model.lname}}
+              </a>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </section>
+
+  <section class="-mt-30 flex-grow">
+    <div class="flex flex-wrap w-4/5 mx-auto">
+      <h1 class="ml-8 -mt-8 text-purple-light text-xl font-light">My Account Details</h1>
+    </div>
+    {{card-list cards=model.vaultCards}}
+
+    <section class=" w-3/5 mx-auto text-sm pt-8 pb-8 mt-8">
+      <div class="w-full pl-8 flex flex-wrap">
+        <div class="w-1/2">
+          <p class='text-lg text-grey-darker'>My Addresses</p>
+        </div>
+        <div class="mb-4 w-1/2">
+          <div class="font-bold text-purple history-dropdown float-right">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="flex w-3/5 w-1 mx-auto">
+      <table class="addresses-table w-full rounded-lg shadow-lg">
+        {{#each model.addresses as |address|}}
+          {{address-view address=address on-save=(action "saveAddress")}}
+        {{/each}}
+        <tr class="bg-purple flex justify-center rounded-b-lg">
+          <td class="">
+            <button class="text-white font-bold py-4">Add New</button>
+          </td>
+        </tr>
+      </table>
+    </section>
+  </section>
+
+
+  <section class="flex flex-wrap w-3/5 mx-auto text-sm pt-8 pb-8 container">
+    <div class="w-1/3 text-grey-dark border-grey-light border-solid border-t text-purple-footer py-8">
+      <p><span class='font-bold'>©2019 Davos.gives</span> - All rights reserved.</p>
+    </div>
+    <div class="w-1/3 text-grey-dark text-center border-grey-light border-solid border-t py-7 -py-1">
+      <img src="/img/Davos_slogan.svg" class="w-40"/>
+    </div>
+
+    <div class="w-1/3 text-right flex text-grey-dark border-grey-light border-solid border-t py-8 text-xs">
+      <p class="w-1/3">
+        Terms of Use
+      </p>
+      <p class="w-1/3">
+        Privacy Policy
+      </p>
+      <p class="w-1/3">
+        Cookie Policy
+      </p>
+    </div>
+    <div class="w-1/4">
+    </div>
+  </section>
+</div>

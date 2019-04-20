@@ -1,34 +1,4 @@
 <!-- Two columns -->
-<div class="flex mx-auto font-sans">
-  <div class="w-1/7 bg-grey-lightest min-h-screen">
-    <div class="logo text-center py-8 font-bold">
-      <img src="/img/davos_logo.svg" onclick={{action "logout"}} class="w-32"/>
-    </div>
-    <div class="menu text-left pt-1">
-      <ul class="list-reset">
-        <li class="py-2 pl-1">
-          {{#link-to "index" class="menu no-underline font-light"}}
-            <span class="left-icon rounded-full h-3 w-3 flex items-center justify-center float-left -ml-3 mt-1"></span>
-            <div class="w-48 m-auto pl-8">
-              <span class="icon-home w-4 h-4 inline-block mr-6"></span>
-              Donations
-            </div>
-          {{/link-to}}
-        </li>
-        <li class="py-2 text-grey-menu font-light w-48 m-auto pl-8">
-          <span class="w-4 text-center pr-6 text-sm"><img src="/img/icons/account.svg" class="w-4"/></span>
-          Account
-        </li>
-        <li class="py-2 pl-1 text-grey-menu font-light w-48 m-auto pl-8">
-          <span class="w-4 text-center pr-6 text-sm"><img src="/img/icons/receipts.svg" class="w-4"/> </span>
-          Receipts
-        </li>
-        <li class="py-2 pl-1 text-grey-menu font-light w-48 m-auto pl-8">
-          <span class="w-4 text-center pr-6 text-sm">  <img src="/img/icons/discover.svg" class="w-4"/> </span>
-          Discover
-        </li>
-      </ul>
-    </div>
-  </div>
+<div class="flex mx-auto font-sans min-h-screen">
   {{outlet}}
 </div>

@@ -25,7 +25,7 @@ module.exports = function(environment) {
   };
 
   ENV['ember-simple-auth-token'] = {
-  serverTokenEndpoint: 'http://localhost:4000/api/session',
+  serverTokenEndpoint: 'https://localhost:4000/api/session',
   refreshAccessTokens: false,
   headers: {
     "Content-Type": "application/vnd.api+json",

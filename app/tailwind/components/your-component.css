@@ -158,9 +158,17 @@
   transform: rotate(90deg);
 }
 
+.rotate-270 {
+  transform: rotate(270deg);
+}
+
 .border-bottom-green {
   border-bottom: 7px solid #36C972;
   margin-bottom: 0px!important;
+}
+.border-left-green {
+  border-left: 7px solid #36C972;
+  margin-left: 0px!important;
 }
 
 .border-bottom-red {
@@ -200,6 +208,16 @@
 
 .active .icon-home {
   background-image: url('/img/icons/HomePurple.svg');
+  background-repeat: no-repeat;
+}
+
+.icon-account {
+  background-image: url('/img/icons/account.svg');
+  background-repeat: no-repeat;
+}
+
+.active .icon-account {
+  background-image: url('/img/icons/account-purple.svg');
   background-repeat: no-repeat;
 }
 
