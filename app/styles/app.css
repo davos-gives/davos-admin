@@ -120,6 +120,18 @@ table.cards-table:first-child {
   outline: none;
 }
 
+.field input {
+  width: 100%;
+  border: 1px solid #dae1e7;
+  border-radius: 0.25rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
 .email-field input {
   width: 100%;
   border: 1px solid #dae1e7;
@@ -142,4 +154,59 @@ table.cards-table:first-child {
   padding-right: 1rem;
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
+}
+
+.errors .floating-label.has-focus .control-label {
+  color: #BE1E2D;
+}
+
+#toast-container > div {
+    position: relative;
+    pointer-events: auto;
+    overflow: hidden;
+    margin: 0 0 6px;
+    padding: 15px 15px 15px 50px;
+    width: 375px;
+    -moz-border-radius: 3px 3px 3px 3px;
+    -webkit-border-radius: 3px 3px 3px 3px;
+    border-radius: 3px 3px 3px 3px;
+    background-position: 15px center;
+    background-repeat: no-repeat;
+    box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
+    color: #000000;
+    opacity: 1;
+    -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+    filter: alpha(opacity=100);
+}
+
+.toast-top-right {
+  top: 55px
+}
+
+.toast-success {
+  background-color: #ffffff;
+  border-left: 7px solid #1EAD58;
+  color: #000000;
+}
+
+.toast-title {
+	color: #000000;
+  font-family: "Open Sans";
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 19px;
+  margin-bottom: 5px;
+}
+
+.toast-message {
+  color: #000000;
+  font-family: "Open Sans";
+  font-size: 14px;
+  line-height: 19px;
+}
+
+
+.errors .email-field input, .errors .password-field input {
+  border: 1px solid #BE1E2D;
+
 }

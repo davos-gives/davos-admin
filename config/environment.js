@@ -33,6 +33,30 @@ module.exports = function(environment) {
   }
 }
 
+ENV['ember-toastr'] = {
+  injectAs: 'toast',
+  toastrOptions: {
+    closeButton: true,
+    debug: false,
+    newestOnTop: true,
+    positionClass: 'toast-top-right',
+    preventDuplicates: true,
+    onclick: null,
+    showDuration: '1000',
+    hideDuration: '1000',
+    timeOut: '3000',
+    extendedTimeOut: '1000',
+    showEasing: 'swing',
+    hideEasing: 'linear',
+    showMethod: 'fadeIn',
+    hideMethod: 'fadeOut'
+  }
+};
+
+ENV['ember-simple-auth'] = {
+	authenticationRoute: '/login',
+};
+
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;

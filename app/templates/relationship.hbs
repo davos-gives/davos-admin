@@ -1,6 +1,6 @@
-<div class="w-1/7 bg-grey-lightest min-h-screen">
+<div class="w-1/7 bg-white min-h-screen">
   <div class="logo text-center py-8 font-bold">
-    <img src="/img/davos_logo.svg" onclick={{action "logout"}} class="w-32"/>
+    <img src="/img/Davos_logo_fullcolour.svg" onclick={{action "logout"}} class="w-32"/>
   </div>
   <div class="menu text-left pt-1">
     <ul class="list-reset">
@@ -25,7 +25,7 @@
     </ul>
   </div>
 </div>
-<div class="w-6/7 min-h-screen">
+<div class="w-6/7 min-h-screen bg-grey-lightest">
   <section class="purple-header h-100">
     <div class="w-4/5 m-auto flex px-8 container">
 
@@ -39,18 +39,24 @@
         <nav class="flex items-center justify-between flex-wrap p-6">
           <div class="w-full block flex-grow text-white">
             <div>
-              <a class="inline-block mr-6 text-white no-underline align-middle" href="">
+              <!-- <a class="inline-block mr-6 text-white no-underline align-middle" href="">
                 <img src="/img/icons/Search.svg" class="w-4 align-middle" />
-              </a>
-              <a class="inline-block mr-6 text-white no-underline align-middle" href="">
+              </a> -->
+              <button class="inline-block mr-6 text-white no-underline align-middle">
                 <img src="/img/icons/Bell.svg" class="w-4 align-middle" />
-              </a>
-              <a class="inline-block mr-1  no-underline" href="">
+              </button>
+              {{#link-to "account" class="inline-block mr-1 no-underline"}}
                 <img src="/img/icons/account-white.svg" class="w-4 align-middle" />
-              </a>
-              <a class="inline-block no-underline text-white font-semibold text-sm align-middle capitalize" href="">
-                {{model.donor.fname}} {{model.donor.lname}}
-              </a>
+              {{/link-to}}
+              {{#basic-dropdown as |dropdown|}}
+                {{#dropdown.trigger class="inline-block ml-2 logout"}}
+                  <button class="inline-block no-underline text-white font-semibold text-sm align-middle capitalize focus:outline-none active:outline-none">
+                    {{model.donor.fname}} {{model.donor.lname}}
+                  </button>{{/dropdown.trigger}}
+                {{#dropdown.content class="px-4 py-1 rounded w-32 mt-2"}}
+                  <a href="" class="no-underline text-sm text-purple-darkest" onclick={{action "logout"}}>Logout</a>
+                {{/dropdown.content}}
+              {{/basic-dropdown}}
             </div>
           </div>
         </nav>

@@ -1,0 +1,28 @@
+<form onsubmit={{action "login"}} class=" w-2/3 {{if hasError "errors"}}">
+  <div class="py-2 pt-8 flex justify-between">
+    <div class="field flex-grow mr-3">
+      {{fl-input type="text" placeholder="First Name" value=fname}}
+    </div>
+    <div class="field flex-grow ml-3">
+      {{fl-input type="text" placeholder="Last Name" value=lname}}
+    </div>
+  </div>
+  <div class="py-2 flex justify-between">
+    <div class="field flex-grow">
+      {{fl-input type="text" placeholder="Email" value=email}}
+    </div>
+  </div>
+  <div class="py-2 flex justify-between">
+    <div class="field flex-grow mr-3">
+      {{fl-input type="password" placeholder="Password" value=password}}
+    </div>
+    <div class="field flex-grow ml-3">
+      {{fl-input type="password" placeholder="Confirm Password" value=passwordConfirmation}}
+    </div>
+  </div>
+
+  <div class="form-footer flex justify-between content-center mb-8 pb-6 mt-8 pt-8">
+    <div></div>
+    <button type="submit" name="button" class="rounded-full bg-purple-buttons text-white font-thin py-2 px-4 rounded-full text-center pb-3 hover:shadow-lg">Create <img src="/img/icons/ChevronWhite.svg" class="w-3 rotate-270"></button>
+  </div>
+</form>

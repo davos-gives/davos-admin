@@ -1,21 +1,24 @@
-<form onsubmit={{action "login"}}>
-  {{#each errors as |error|}}
-    <div class="error-alert">{{error.detail}}</div>
-  {{/each}}
+<form onsubmit={{action "login"}} class="{{if hasError "errors"}}">
   <div class="py-8">
     <div class="email-field">
       {{fl-input type="text" placeholder="Email address" value=email}}
     </div>
-
-    <div class="password-field">
+    {{#if hasError}}
+      <p class="text-red-buttons text-xs ml-3">Wrong email or password. Try again or <a href="" class="text-purple">reset</a> it.</p>
+    {{/if}}
+    <div class="password-field mt-2">
       {{fl-input type="password" placeholder="Password" value=password}}
     </div>
   </div>
   <div>
-    <button class="text-purple text-sm mb-8">Forgot your password?</button>
+    {{#link-to "reset-password"}}
+      <button class="text-purple text-sm mb-8 px-6 py-4 font-bold hover:bg-grey-lightest rounded-lg">Forgot your password?</button>
+    {{/link-to}}
   </div>
   <div class="form-footer flex justify-between content-center mb-8 pb-6">
-    <button class="text-purple text-sm">Create account</button>
-    <button type="submit" name="button" class="rounded-full bg-purple-buttons text-white font-thin py-2 px-4 rounded-full text-center pb-3">Log in <img src="/img/icons/ChevronWhite.svg" class="w-3 rotate-270"></button>
+    {{#link-to "create-account"}}
+      <button class="text-purple text-sm px-6 py-4 font-bold hover:bg-grey-lightest rounded-lg">Create account</button>
+    {{/link-to}}
+    <button type="submit" name="button" class="rounded-full bg-purple-buttons text-white font-thin py-2 px-4 rounded-full text-center pb-3 hover:shadow-lg">Log in <img src="/img/icons/ChevronWhite.svg" class="w-3 rotate-270"></button>
   </div>
 </form>

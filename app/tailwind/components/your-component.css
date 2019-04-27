@@ -54,6 +54,14 @@
     border-bottom: 1px solid #E5AD23!important;
 }
 
+.logout.ember-basic-dropdown-trigger[aria-expanded="true"] {
+    border: none!important;
+}
+
+.logout button:focus {
+  outline: none;
+}
+
 .history-dropdown .ember-basic-dropdown-trigger[aria-expanded="true"] {
   border-bottom: none!important;
 }

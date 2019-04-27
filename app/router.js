@@ -11,6 +11,10 @@ Router.map(function() {
   this.route('account');
   this.route('relationship', {path: "/organization/:id"});
   this.route('login');
+  this.route('create-account');
+  this.route('verify-account');
+  this.route('password-reset');
+  this.route('reset-password');
 });
 
 export default Router;
