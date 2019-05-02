@@ -8,7 +8,7 @@ export default Route.extend(AuthenticatedRouteMixin,{
 
   model() {
     return this.store.loadRecord('donor', 'me', {
-     include: 'ongoing-donations,ongoing-donations.campaign,ongoing-donations.campaign.organization,ongoing-donations.donor-organization-relationship'
+     include: ''
     });
   }
 });

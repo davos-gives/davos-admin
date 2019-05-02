@@ -77,10 +77,6 @@ table.payments-table tr:nth-child(odd) td{
   background-color: #F7F9FA;
 }
 
-table.cards-table tr:nth-child(odd) td{
-  background-color: #F7F9FA;
-}
-
 
 table.cards-table:first-child {
   background-color: #F7F9FA;
