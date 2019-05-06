@@ -83,9 +83,9 @@
     </section>
 
     <section class="flex w-3/5 w-1 mx-auto">
-      <table class="addresses-table w-full rounded-lg shadow-lg">
+      <table class="addresses-table w-full">
         {{#each model.addresses as |address|}}
-          {{address-view address=address on-save=(action "saveAddress")}}
+          {{address-view address=address donor=model on-save=(action "saveAddress")}}
         {{/each}}
         <tr class="bg-purple flex justify-center rounded-b-lg">
           <td class="">
