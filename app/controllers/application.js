@@ -3,7 +3,7 @@ import {inject as service} from '@ember/service';
 
 export default Controller.extend({
   session: service('session'),
-  currentDonor: service('current-donor'),
+
 
   actions: {
     logout(ev) {

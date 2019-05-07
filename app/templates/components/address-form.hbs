@@ -1,0 +1,77 @@
+<div class="{{if doubleConfirmCancel 'editing-overlay z-30'}}">
+
+  {{#if doubleConfirmCancel}}
+    <section class="absolute z-40 flex justify-center">
+      {{delete-address
+        name=name
+        address_1=address_1
+        address_2=address_2
+        city=city
+        province=province
+        postal_code=postal_code
+        organization=organization
+        deleteAddress=(action "deleteAddress")
+        undoCancellation=(action "undoCancellation")
+        }}
+    </section>
+  {{/if}}
+
+<div class="{{if doubleConfirmCancel 'relative z-0 hidden'}}">
+<section class="flex flex-wrap w-3/5 w-1 mx-auto bg-white rounded-lg px-14 py-8 shadow ">
+  <div class="border-b border-grey pb-3 mt-6 w-full">
+    <label class="uppercase text-xs text-grey-darker block pl-4">Name</label>
+    {{input type="text" class="block mt-2 text-grey-darker font-semibold pl-4 outline-none w-full" placeholder="Home" value=name}}
+  </div>
+  <div class="border-b border-grey pb-3 mt-6 w-7/10">
+    <label class="uppercase text-xs text-grey-darker block pl-4">Address</label>
+    {{input type="text" class="block mt-2 text-grey-darker font-semibold pl-4 outline-none w-full" placeholder="123 Fake Street" value=address_1}}
+  </div>
+  <div class="w-1/10"></div>
+  <div class="border-b border-grey pb-3 mt-6 w-1/5">
+    <label class="uppercase text-xs text-grey-darker block pl-4">Apt #</label>
+    {{input type="text" class="block mt-2 text-grey-darker font-semibold pl-4 outline-none w-full" placeholder="103" value=address_2}}
+  </div>
+
+  <div class="border-b border-grey pb-3 mt-6 w-266">
+    <label class="uppercase text-xs text-grey-darker block pl-4">City</label>
+    {{input type="text" class="block mt-2 text-grey-darker font-semibold pl-4 outline-none w-full" placeholder="Vancouver" value=city}}
+  </div>
+  <div class="w-1/10"></div>
+  <div class="border-b border-grey mt-6 w-266">
+    <label class="uppercase text-xs text-grey-darker block pl-4">Province</label>
+    {{#power-select
+      options=provinces
+      selected=province
+      searchEnabled=false
+      dropdownClass="frequency-dropdown"
+      onchange=(action "updateProvince") as |province|}}
+      {{province}}
+    {{/power-select}}
+  </div>
+  <div class="w-1/10"></div>
+  <div class="border-b border-grey pb-3 mt-6 w-266">
+    <label class="uppercase text-xs text-grey-darker block pl-4">Postal Code</label>
+    {{input type="text" class="block mt-2 text-grey-darker font-semibold pl-4 outline-none w-full" placeholder="a0b 1c2" value=postal_code}}
+  </div>
+  <div class="pb-3 mt-6 w-full ml-2">
+    {{#checkbox-with-label
+      checked=primary
+      disabled=disabled
+      update=(action (mut primary))
+    }}
+      <span class="text-sm text-grey-darker ml-2">Make this my preferred address.</span>
+    {{/checkbox-with-label}}
+  </div>
+</section>
+  <section class="flex flex-wrap mx-auto w-3/5 justify-between mt-6 items-center">
+    <p class="pl-16 text-purple text-sm cursor-pointer" {{action "doubleConfirmCancel"}}>Delete this address</p>
+    <div class="flex flex-wrap">
+      <button class="rounded-full bg-purple-buttons text-white font-thin py-2 px-4 rounded-full block z-10 hover:shadow-lg capitalize mr-4" onclick={{action "saveAddress" model}}>
+        Save
+      </button>
+      <button class="rounded-full border border-purple-buttons text-purple-buttons font-thin py-2 px-4 rounded-full block z-10 hover:shadow-lg" onclick={{action "onCancel"}}>Cancel</button>
+  </div>
+</section>
+</div>
+
+</div>

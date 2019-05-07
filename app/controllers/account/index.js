@@ -4,12 +4,9 @@ import {inject as service} from '@ember/service';
 
 
 export default Controller.extend({
-  currentDonor: service('current-donor'),
-  session: service('session'),
 
-  activeDonations: computed('model.ongoingDonations.@each.status', function(){
-    return this.get('model.ongoingDonations').filter(ongoing => ongoing.get('status') == "active")
-  }),
+  session: service('session'),
+  currentDonor: service('current-donor'),
 
   actions: {
     saveAddress(model) {
@@ -19,6 +16,7 @@ export default Controller.extend({
     },
 
     logout(ev) {
+      console.log("clicking");
       ev.preventDefault();
       this.get('session').invalidate();
     }

@@ -1,0 +1,26 @@
+<div class="w-110 mx-auto rounded-lg shadow-md bg-white flex" style="position: relative; top: 35%; height: 290px;">
+  <p class="absolute text-white z-20 ml-8 pl-4 cursor-pointer block -mt-8" {{action undoCancellation}}>
+    <img src="/img/icons/ChevronWhite.svg" class="w-4 rotate-90"/>
+    Go Back
+  </p>
+  <div class="bg-grey-campaign bg-white rounded-lg p-10 w-full">
+    <div class="pb-8">
+      <p class="text-grey-darker capitalize text-lg">Remove Address</p>
+      <p class="text-grey-darker text-sm pt-1 leading-normal mt-8">{{name}}, {{address_2}} {{address_1}},</p>
+      <p class="text-grey-darker text-sm pt-1 leading-normal">{{city}}, {{province}}, Canada, {{postal_code}}</p>
+
+    </div>
+    <div class="mt-8 flex">
+      <p class="font-bold w-full text-grey-card">
+        Please confirm you wish to remove this address.
+      </p>
+    </div>
+  </div>
+  <div class="w-1/3 bg-grey-campaign rounded-lg relative">
+    <img src="/img/delete_Address.png" class="w-48 -mt-3.5 rounded-tr-lg absolute" style="top: -75px; left: -20px" />
+    <button class="rounded-full bg-red-buttons text-white font-thin py-2 px-4 rounded-full mr-4 absolute pin-b" style="bottom: -15px" {{action deleteAddress}}>
+      Delete Address
+    </button>
+  </div>
+
+</div>

@@ -24,7 +24,7 @@ export default Route.extend(ApplicationRouteMixin, {
 
   loadDonor() {
     if(this.get('session.isAuthenticated')) {
-      this.get('currentDonor').load();
+      return this.get('currentDonor').load();
     }
   },
 

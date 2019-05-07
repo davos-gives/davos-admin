@@ -1,60 +1,11 @@
 
-<div class="{{if isEditing 'editing-overlay'}} {{if doubleConfirmCancel 'cancel-overlay'}}"></div>
-{{#if isEditing}}
-  <p class="absolute text-white z-20 ml-8 pl-4 cursor-pointer block -mt-8" {{action 'focusOff'}}>
-    <img src="/img/icons/ChevronWhite.svg" class="w-4 rotate-90"/>
-    Go Back
-  </p>
-{{/if}}
-
-<div class="-mt-4 container group {{if isEditing 'relative z-20'}}">
-  <div class='w-full flex justify-end {{if isEditing 'relative z-20'}}'>
-    {{#if isEditing}}
-      {{#if confirmCancel}}
-        <button class="rounded-full bg-red-buttons tefxt-white font-thin py-2 px-4 rounded-full mr-4" {{action "doubleConfirmCancel"}}>Confirm Deletion</button>
-      {{else}}
-        <button class="rounded-full bg-purple-buttons text-white font-thin py-2 px-4 rounded-full mr-4" {{action "confirmCancel"}}>Delete Address</button>
-      {{/if}}
-        <button class="rounded-full bg-yellow text-white font-thin py-2 px-4 rounded-full" {{action "saveAddress"}}>Save</button>
-    {{else}}
-      {{#if updated}}
-        <div class="rounded-full bg-green text-white font-thin py-2 px-4 rounded-full">Updated!</div>
-      {{else}}
-        <button class="rounded-full bg-purple-buttons text-white font-thin py-2 px-4 rounded-full block z-10 hover:shadow-lg invisible group-hover:visible" {{action "toggleSave"}}>Edit</button>
-      {{/if}}
-    {{/if}}
+<div class="-mt-4 container group">
+  <div class='w-full flex justify-end'>
+    {{#link-to 'account.address.edit' address.id class="no-underline"}}
+      <button class="rounded-full bg-purple-buttons text-white font-thin py-2 px-4 rounded-full block z-10 hover:shadow-lg invisible group-hover:visible">Edit</button>
+    {{/link-to}}
   </div>
-  {{#if isEditing}}
-    <div class="w-full overflow-hidden -mt-3 bg-white rounded-lg">
-      <div class="flex justify-between w-4/5 mx-auto py-6">
-        <div class="">
-          <p class="text-purple-history-header pb-2 capitalize font-sm">name</p>
-          <p>{{input value=name}}</p>
-        </div>
-        <div>
-          <p class="text-purple-history-header pb-2 capitalize font-sm">phone number</p>
-          <p>604 469 1260</p>
-        </div>
-      </div>
-      <div class="flex w-4/5 mx-auto justify-between py-6 pb-8">
-        <div>
-          <p class="text-purple-history-header pb-2 capitalize font-sm">Address</p>
-          <p>{{input value=address_1}}, {{input value=city}}, {{input value=province}}, {{input value=country}}. {{input value=postal_code}}</p>
-        </div>
-        <div>
-          <p class="w-1/6 text-center {{if frequencyEdited 'text-yellow' 'text-grey-card'}} capitalize primary">
-            {{checkbox-with-label
-              checked=primary
-              text="Primary Address"
-              disabled=disabled
-              update=(action (mut primary))
-            }}
-          </p>
-        </div>
-      </div>
-    </div>
-  {{else}}
-    <div class="w-full overflow-hidden -mt-3 bg-white">
+    <div class="w-full overflow-hidden -mt-3 bg-white rounded-lg shadow">
       <div class="flex justify-between w-4/5 mx-auto py-6">
         <div class="">
           <p class="text-purple-history-header pb-2 capitalize font-sm">name</p>
@@ -74,58 +25,9 @@
         </div>
         <div>
           <p class="text-purple-history-header pb-2 capitalize font-sm">Email</p>
-          <p>{{donor.email}}</p>
+          <p>{{donor.donor.email}}</p>
         </div>
       </div>
     </div>
     </div>
-  {{/if}}
 </div>
-
-
-
-<!-- <p class="text-2xl font-bold w-1/6 text-center {{if amountEdited 'text-yellow' 'text-grey-card'}} align-top -mt-2 amount">
-  {{#power-select-with-create
-    options=paymentAmountOptions
-    selected=paymentAmount
-    dropdownClass="amount-dropdown"
-    onchange=(action "updatePayment")
-    oncreate=(action "createPayment")
-    onopen=(action "toggleFocus")
-    searchPlaceholder='Custom'
-    buildSuggestion=(action "customSuggestion") as |amount|
-  }}
-    {{format-currency amount}}
-  {{/power-select-with-create}}
-</p>
-<p class="w-20">
-
-</p>
-<p class="w-1/6 text-center {{if frequencyEdited 'text-yellow' 'text-grey-card'}} capitalize frequency">
-  {{#power-select
-    options=paymentFrequencyOptions
-    selected=paymentFrequency
-    searchEnabled=false
-    onopen=(action "toggleFocus")
-    dropdownClass="frequency-dropdown"
-    onchange=(action "updateFrequency") as |year|}}
-    {{year}}
-  {{/power-select}}
-</p>
-<p class="w-8">
-</p>
-<p class="text-sm w-1/4 text-center mt-3 text-grey-dark">
-  since {{moment-format recurring.createdAt 'MM/DD/YYYY'}}
-</p>
-<p class="text-sm w-1/4 text-center {{if cardEdited 'text-yellow' 'text-grey-card'}} card">
-  {{#power-select
-    options=cards
-    selected=card
-    searchEnabled=false
-    onopen=(action "toggleFocus")
-    dropdownClass="card-dropdown"
-    afterOptionsComponent=(component "new-card")
-    onchange=(action "updateCard") as |card|}}
-    {{fa-icon "credit-card" class="mr-4"}} ending in {{card.number}}
-  {{/power-select}}
-</p> -->

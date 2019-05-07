@@ -3,3 +3,6 @@
  *
  * You can rename this file whatever you like and also make other files.
 **/
+.bg-purple-gradient {
+  background: linear-gradient(180deg, #411E82 0%, #6D3EFF 100%);
+}

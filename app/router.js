@@ -8,7 +8,12 @@ const Router = EmberRouter.extend({
 
 Router.map(function() {
   this.route('ongoing-donation');
-  this.route('account');
+  this.route('account', function() {
+    this.route('address', {path: "/addresses"}, function() {
+      this.route('create');
+      this.route('edit', {path: '/:id/edit'});
+    })
+  });
   this.route('relationship', {path: "/organization/:id"});
   this.route('login');
   this.route('create-account');

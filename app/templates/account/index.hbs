@@ -1,0 +1,57 @@
+  <section class="-mt-30 flex-grow">
+    <div class="flex flex-wrap w-4/5 mx-auto">
+      <h1 class="ml-8 -mt-8 text-purple-light text-xl font-light">My Account Details</h1>
+    </div>
+    {{card-list cards=model.vaultCards}}
+
+    <section class=" w-3/5 mx-auto text-sm pt-8 pb-8 mt-8">
+      <div class="w-full pl-8 flex flex-wrap">
+        <div class="w-1/2">
+          <p class='text-lg text-grey-darker'>My Addresses</p>
+        </div>
+        <div class="mb-4 w-1/2">
+          <div class="font-bold text-purple history-dropdown float-right">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="flex w-3/5 w-1 mx-auto">
+      <table class="addresses-table w-full">
+        {{#each model.addresses as |address|}}
+          {{address-view address=address donor=currentDonor on-save=(action "saveAddress")}}
+        {{/each}}
+        <tr class="bg-purple flex justify-center rounded-b-lg">
+          <td class="">
+            {{#link-to "account.address.create"}}
+              <button class="text-white font-bold py-4">Add New</button>
+            {{/link-to}}
+          </td>
+        </tr>
+      </table>
+    </section>
+  </section>
+
+
+  <section class="flex flex-wrap w-3/5 mx-auto text-sm pt-8 pb-8 container">
+    <div class="w-1/3 text-grey-dark border-grey-light border-solid border-t text-purple-footer py-8">
+      <p><span class='font-bold'>©2019 Davos.gives</span> - All rights reserved.</p>
+    </div>
+    <div class="w-1/3 text-grey-dark text-center border-grey-light border-solid border-t py-7 -py-1">
+      <img src="/img/Davos_slogan.svg" class="w-40"/>
+    </div>
+
+    <div class="w-1/3 text-right flex text-grey-dark border-grey-light border-solid border-t py-8 text-xs">
+      <p class="w-1/3">
+        Terms of Use
+      </p>
+      <p class="w-1/3">
+        Privacy Policy
+      </p>
+      <p class="w-1/3">
+        Cookie Policy
+      </p>
+    </div>
+    <div class="w-1/4">
+    </div>
+  </section>

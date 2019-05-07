@@ -27,5 +27,6 @@ export default {
   '8': '2rem',
   '10': '4rem',
   '20': '6rem',
+  '24': '8rem',
   '30': '13rem',
 };
