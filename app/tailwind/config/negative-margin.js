@@ -29,4 +29,5 @@ export default {
   '20': '6rem',
   '24': '8rem',
   '30': '13rem',
+  '35': '15rem',
 };
