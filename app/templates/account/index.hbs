@@ -2,7 +2,34 @@
     <div class="flex flex-wrap w-4/5 mx-auto">
       <h1 class="ml-8 -mt-8 text-purple-light text-xl font-light">My Account Details</h1>
     </div>
-    {{card-list cards=model.vaultCards}}
+
+    <section class=" w-3/5 mx-auto text-sm pt-8 pb-8 mt-8">
+      <div class="w-full pl-8 flex flex-wrap">
+        <div class="w-1/2">
+          <p class='text-lg text-white'>My Cards</p>
+        </div>
+        <div class="mb-4 w-1/2">
+          <div class="font-bold text-purple history-dropdown float-right">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="flex w-3/5 w-1 mx-auto">
+      <table class="addresses-table w-full">
+        {{#each model.vaultCards as |vaultCard|}}
+          {{card-view card=vaultCard donor=currentDonor on-save=(action "saveVaultCard")}}
+        {{/each}}
+        <tr class="bg-purple flex justify-center rounded-b-lg">
+          <td class="">
+            {{#link-to "account.card.create"}}
+              <button class="text-white font-bold py-4">Add New</button>
+            {{/link-to}}
+          </td>
+        </tr>
+      </table>
+    </section>
+
 
     <section class=" w-3/5 mx-auto text-sm pt-8 pb-8 mt-8">
       <div class="w-full pl-8 flex flex-wrap">

@@ -12,7 +12,11 @@ export default Controller.extend({
     saveAddress(model) {
       model.save()
       .then(() => this.toast.success("You've successfully updated your mailing address",'Updated Successfully'))
+    },
 
+    saveVaultCard(model) {
+      model.save()
+      .then(() => this.toast.success("You've successfully updated your payment information",'Updated Successfully'))
     },
 
     logout(ev) {
