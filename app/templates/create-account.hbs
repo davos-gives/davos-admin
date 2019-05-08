@@ -1,11 +1,15 @@
 <div class="w-full py-8 bg-grey-background flex flex-col">
   <div class="flex justify-center flex-grow items-center">
+    <div class="w-1/4"></div>
     <div class="shadow p-14 rounded-lg flex justify-center flex-col bg-white w-1/2">
-      <img src="/img/Davos_logo_fullcolour.svg" class="w-48 pb-8" />
+      {{#link-to 'login'}}<img src="/img/Davos_logo_fullcolour.svg" class="w-48 pb-8" />{{/link-to}}
       <div class="w-1/4 bg-purple h-6px rounded-lg mb-8">
       </div>
       <h1 class="text-grey-darkest font-light">Create a Davos account</h1>
       {{registration-form errors=errors onsubmit=(action "createAccount") hasError=hasError}}
+    </div>
+    <div class="w-1/4">
+      <img src="/img/LoginB.png" class="-ml-35">
     </div>
   </div>
 </div>
