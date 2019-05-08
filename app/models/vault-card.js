@@ -9,4 +9,5 @@ export default DS.Model.extend(LoadableModel,{
   primary: DS.attr(),
   cardType: DS.attr(),
   donor: DS.belongsTo('donor'),
+  ongoingDonations: DS.hasMany('ongoing-donation'),
 });

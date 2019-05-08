@@ -79,17 +79,8 @@
         <p class="text-sm w-1/4 text-center mt-3 text-grey-dark">
           since {{moment-format recurring.createdAt 'MM/DD/YYYY'}}
         </p>
-        <p class="text-sm w-1/4 text-center {{if cardEdited 'text-yellow' 'text-grey-card'}} card">
-          {{#power-select
-            options=cards
-            selected=card
-            searchEnabled=false
-            onopen=(action "toggleFocus")
-            dropdownClass="card-dropdown"
-            afterOptionsComponent=(component "new-card")
-            onchange=(action "updateCard") as |card|}}
-            {{fa-icon "credit-card" class="mr-4"}} ending in {{card.number}}
-          {{/power-select}}
+        <p class="text-sm w-1/4 text-center mt-3 text-grey-card card">
+          card ending in {{recurring.vaultCard.lastFourDigits}}
         </p>
       </div>
     </div>

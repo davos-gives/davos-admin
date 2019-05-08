@@ -123,7 +123,7 @@
           {{/if}}
         </p>
         {{#each activeDonations as |recurring|}}
-          {{recurring-payment recurring=recurring cards=model.donor.paymentMethods on-save=(action "saveRecurring") organization=model.organization frequency=recurring.frequency}}
+          {{recurring-payment recurring=recurring on-save=(action "saveRecurring") organization=model.organization frequency=recurring.frequency}}
         {{/each}}
   </section>
 
