@@ -7,6 +7,7 @@ export default DS.Model.extend(LoadableModel,{
   lastFourDigits: DS.attr(),
   expiryMonth: DS.attr(),
   expiryYear: DS.attr(),
+  cryptogram: DS.attr(),
   primary: DS.attr(),
   cardType: DS.attr(),
   donor: DS.belongsTo('donor'),

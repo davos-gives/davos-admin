@@ -5,13 +5,8 @@ export default Route.extend(AuthenticatedRouteMixin, {
   model() {
     return {
       name: '',
-      address_1: '',
-      address_2: '',
-      postal_code: '',
-      city: '',
-      province: 'BC',
-      country: '',
-      primary: ''
+      cryptogram: '',
+      primary: false
     }
   }
 });
