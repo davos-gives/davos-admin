@@ -40,8 +40,9 @@ export default Component.extend({
   },
 
   handleFrameTasks(e) {
-    console.log(e)
-    this.set('cryptogram', e.data);
+    if(e.data != "") {
+      this.set('cryptogram', e.data);
+    }
   },
 
   actions: {

@@ -68,8 +68,6 @@ export default Component.extend({
       recurring.setProperties({
         amount: this.get('paymentAmount'),
       });
-      debugger;
-
       return this.attrs['on-save'](recurring);
     },
 

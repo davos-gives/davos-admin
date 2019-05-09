@@ -7,7 +7,7 @@ export default Component.extend({
   classNames: ["w-full"],
 
   paymentAmountOptions:  [1000, 2000, 3000],
-  paymentFrequencyOptions: ["Daily", "Weekly", "Bi-Weekly", "Monthly"],
+  paymentFrequencyOptions: ["daily", "weekly", "biweekly", "monthly"],
 
   paymentAmount: 0,
   paymentFrequency: '',
@@ -51,11 +51,9 @@ export default Component.extend({
   resetRecurring() {
     let amount = this.get('recurring.amount');
     let frequency = this.get('recurring.frequency');
-    let card = this.get('recurring.paymentMethod');
 
     this.set('paymentAmount', amount);
     this.set('paymentFrequency', frequency);
-    this.set('card', card);
     this.set('amountEdited', false);
     this.set('frequencyEdited', false);
     this.set('cardEdited', false);
