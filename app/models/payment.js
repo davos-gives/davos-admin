@@ -8,4 +8,5 @@ export default DS.Model.extend(LoadableModel,{
   ongoingDonation: DS.belongsTo('ongoing-donation'),
   relationship: DS.belongsTo('relationship'),
   createdAt: DS.attr(),
+  receipt: DS.belongsTo("receipt"),
 });

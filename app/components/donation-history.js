@@ -16,7 +16,7 @@ export default Component.extend({
   filter: 'All',
   filteredPayments: [],
 
-  SortingDesc: Object.freeze(['timestamp:desc']),
+  SortingDesc: Object.freeze(['timestamp:asc']),
   orderedFilteredPayments: computed.sort('filteredPayments', 'SortingDesc'),
 
   actions: {

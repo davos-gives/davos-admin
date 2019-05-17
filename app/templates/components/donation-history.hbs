@@ -27,7 +27,7 @@
         <td class="w-1/6 py-3 pl-8"><p class="text-center text-grey-card-2">{{moment-format payment.createdAt 'MM/DD/YYYY'}}</p></td>
         <td class="w-1/6 py-3 pl-8"><p class="text-center text-purple-history-header">{{format-currency payment.amount}}</p></td>
         <td class="w-1/2 item-center py-3 pl-8"><p class="text-left text-grey-card-2">{{payment.campaign.name}}</p></td>
-        <td class='w-1/6 text-center py-3 pr-8'><img src="/img/icons/Download.svg" class="w-4"/></td>
+        <td class='w-1/6 text-center py-3 pr-8'><a href="{{payment.receipt.url}}"><img src="/img/icons/Download.svg" class="w-4"/></a></td>
       </tr>
     {{else}}
       <tr class="flex flex-wrap w-full">
