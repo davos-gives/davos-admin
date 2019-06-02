@@ -89,6 +89,7 @@ table.cards-table:first-child {
   object-fit: cover;
   width: 100%;
   height: 250px;
+  object-position: top;
 }
 
 .floating-label.has-focus .control-label {

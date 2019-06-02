@@ -15,7 +15,6 @@ export default Controller.extend({
     saveAddress(model) {
       model.save()
       .then(() => this.toast.success("You've successfully updated your mailing address",'Updated Successfully'))
-
     },
 
     logout(ev) {
