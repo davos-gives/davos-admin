@@ -267,3 +267,11 @@
     border-right:  1px solid #6d3eff!important;
     border-left:  1px solid #6d3eff!important;
 }
+
+
+
+.expiry-label {
+  position: absolute;
+  top: 130px;
+  left: 110px;
+}

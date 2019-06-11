@@ -4,7 +4,9 @@
     {{input type="text" class="block mt-2 text-grey-darker font-semibold pl-4 outline-none w-full" placeholder="Home" value=name}}
   </div>
 
-  <div id="checkout-embed" class="h-24"></div>
+  <iframe class="w-full" id="firstpay-iframe" src="https://secure-v.goemerchant.com/secure/PaymentHostedForm/v3/CreditCard"
+        data-transcenter-id="209141" data-processor-id="201173" data-manual-submit="False"
+        data-transaction-type="Vault" data-cvv="True"></iframe>
 
   <div class="pb-3 mt-6 w-full ml-2">
     {{#checkbox-with-label
@@ -12,7 +14,7 @@
       disabled=disabled
       update=(action (mut primary))
     }}
-      <span class="text-sm text-grey-darker ml-2">Make this my preferred address.</span>
+      <span class="text-sm text-grey-darker ml-2">Make this my preferred payment method.</span>
     {{/checkbox-with-label}}
   </div>
 </section>

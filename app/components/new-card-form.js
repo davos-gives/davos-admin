@@ -7,13 +7,15 @@ export default Component.extend({
   init() {
     this._super(...arguments);
     const script = document.createElement("script");
-    script.src = "https://secure-v.goemerchant.com/restgw/cdn/cryptogram.min.js";
-    script.id = "checkout-js";
+    script.src = "https://secure-v.goemerchant.com/secure/PaymentHostedForm/Scripts/firstpay/firstpay.cryptogram.js";
+    script.id = "firstpay-script-cryptogram";
     script.setAttribute("data-transcenter", "209141");
     script.setAttribute("data-processor", "201173");
     script.setAttribute("data-cvv", "TRUE");
     script.setAttribute("data-type", "Vault");
     script.setAttribute("data-autosubmit", "TRUE");
+    script.setAttribute("data-styleEmbed", "FALSE");
+
 
     document.body.appendChild(script);
 
@@ -40,8 +42,8 @@ export default Component.extend({
   },
 
   handleFrameTasks(e) {
-    if(e.data != "") {
-      this.set('cryptogram', e.data);
+    if(e.data.code == 105) {
+      this.set('cryptogram', e.data.cryptogram);
     }
   },
 
