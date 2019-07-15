@@ -5,11 +5,8 @@ import {inject as service} from '@ember/service';
 export default Controller.extend({
   session: service('session'),
 
-
   activeDonations: computed('model.ongoingDonations.@each.status', function(){
-    console.log("testing");
     return this.get('model.ongoingDonations').filter(ongoing => ongoing.get('status') == "active")
-
   }),
 
   inactiveDonations: computed('model.ongoingDonations.@each.status', function(){

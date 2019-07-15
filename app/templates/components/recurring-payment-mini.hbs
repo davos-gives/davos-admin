@@ -31,10 +31,10 @@
   <div class="px-10 py-4 {{if isEditing 'relative z-20'}} bg-white {{if updated 'border-bottom-green' 'mb-7px'}}">
     {{#link-to 'relationship' relationship.id class='no-underline text-black'}}
       <div class="pb-8 border-grey-light border-solid border-b bg-white">
-        <p class="font-bold text-grey-card mt-4 capitalize text-lg" style="height: 30px;">
+        <p class="font-bold text-grey-card mt-4 capitalize text-lg" style="height: 30px;" data-test-id="organization-name">
           {{campaign.organization.name}}
         </p>
-        <p class="font-light text-grey-card">
+        <p class="font-light text-grey-card" data-test-id="campaign-name">
           {{campaign.name}}
         </p>
       </div>
