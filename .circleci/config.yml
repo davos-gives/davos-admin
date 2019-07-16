@@ -50,7 +50,7 @@ jobs:
       - run: echo 'export PATH=~/davos-admin/node_modules/.bin:$PATH' >> $BASH_ENV
       - run:
           name: Run Tests
-          command: yarn build-test && yarn test:parallel
+          command: yarn test
 
 workflows:
   test_and_deploy:
