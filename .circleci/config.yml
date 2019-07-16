@@ -3,6 +3,9 @@ defaults: &defaults
     - image: circleci/node:10-browsers
       environment:
         JOBS: 1
+  filters:
+    branches:
+      only: dev
   working_directory: ~/davos-admin
 
 version: 2
