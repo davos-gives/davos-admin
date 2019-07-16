@@ -1,8 +1,12 @@
 # davos-admin
 
+[![CircleCI](https://circleci.com/gh/davos-gives/davos-admin/tree/dev.svg?style=svg)](https://circleci.com/gh/davos-gives/davos-admin/tree/dev)
+[![This project is using Percy.io for visual regression testing.](https://percy.io/static/images/percy-badge.svg)](https://percy.io/Davos-Fundraising-Inc/Davos-Donor-Application)
+
 This is the application that donors will use to manage their relationships with all charities on our platform, as well as their personal and payment info. This application is a SPA (single page application) that will be the interface to an API that we will be building.
 
 As an Ember application, this App is structured in a format common for MVC frameworks. We highly suggest reading through the guides for the [framework](https://emberjs.com/guides) before you start, as they'll give you a good understanding of how the application deals with models, components, and routing.
+
 
 ## Table of Contents
 
