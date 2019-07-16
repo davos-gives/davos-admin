@@ -9,6 +9,9 @@ module.exports = {
   launch_in_dev: ["Chrome"],
   browser_args: {
     Chrome: {
+      all: [
+        "--window-size=1680,1050"
+      ],
       ci: [
         // --no-sandbox is needed when running Chrome inside a container
         process.env.CI ? "--no-sandbox" : null,

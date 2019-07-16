@@ -68,7 +68,7 @@ export default Component.extend({
       recurring.setProperties({
         amount: this.get('paymentAmount'),
       });
-      return this.onsave(recurring);
+      this.onSave(recurring);
     },
 
     toggleSave() {
@@ -100,7 +100,6 @@ export default Component.extend({
     toggleFocus() {
       this.set('isEditing', true);
       this.set('updated', false);
-
     },
 
     focusOff() {

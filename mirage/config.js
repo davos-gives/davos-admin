@@ -33,6 +33,7 @@ export default function() {
 
   this.get('/ongoing-donations');
   this.get('/ongoing-donations/:id');
+  this.patch('/ongoing-donations/:id');
 
 
 }
