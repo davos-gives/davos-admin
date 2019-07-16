@@ -4,9 +4,6 @@ defaults: &defaults
     - image: circleci/node:8-browsers
       environment:
         JOBS: 2
-  filters:
-    branches:
-      only: dev
   working_directory: ~/davos-admin
 
 orbs:
