@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { visit, currentURL } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
-import { currentSession, authenticateSession, invalidateSession} from 'ember-simple-auth/test-support';
+import {  authenticateSession } from 'ember-simple-auth/test-support';
 import { setupMirage } from 'ember-cli-mirage/test-support';
 
 
@@ -11,7 +11,7 @@ module('Acceptance | index', function(hooks) {
 
   test('visiting index when logged in takes you to directly to page', async function(assert) {
 
-    let donor = this.server.create('donor');
+    this.server.create('donor');
 
     await authenticateSession({
       donorId: this.server.db.donors[0].id,

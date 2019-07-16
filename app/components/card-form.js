@@ -20,7 +20,7 @@ export default Component.extend({
 
   actions: {
 
-    onCancel(ev) {
+    onCancel() {
       this.onCancel();
     },
 

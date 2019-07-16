@@ -1,8 +1,8 @@
 
-<div class="{{if isEditing 'editing-overlay'}} {{if doubleConfirmCancel 'cancel-overlay'}}"></div>
+<div class="{{if isEditing "editing-overlay"}} {{if doubleConfirmCancel "cancel-overlay"}}"></div>
 {{#if isEditing}}
-  <p class="absolute text-white z-20 ml-8 pl-4 cursor-pointer block" {{action 'focusOff'}}>
-    <img src="/img/icons/ChevronWhite.svg" class="w-4 rotate-90"/>
+  <p class="absolute text-white z-20 ml-8 pl-4 cursor-pointer block" {{action "focusOff"}}>
+    <img src="/img/icons/ChevronWhite.svg" class="w-4 rotate-90" alt="back">
     Go Back
   </p>
 {{/if}}
@@ -18,15 +18,15 @@
   </section>
 {{/if}}
 
-<div class="mt-8 container {{if isEditing 'relative z-20'}}">
-  <div class='w-full flex justify-end {{if isEditing 'relative z-20'}}'>
+<div class="mt-8 container {{if isEditing "relative z-20"}}">
+  <div class="w-full flex justify-end {{if isEditing "relative z-20"}}">
     {{#if isEditing}}
       {{#if confirmCancel}}
         <button class="rounded-full bg-red-buttons text-white font-thin py-2 px-4 rounded-full mr-4" {{action "doubleConfirmCancel"}}>Confirm Cancellation</button>
       {{else}}
         <button class="rounded-full bg-purple-buttons text-white font-thin py-2 px-4 rounded-full mr-4" {{action "confirmCancel"}}>Cancel Donation</button>
       {{/if}}
-        <button class="rounded-full bg-yellow text-white font-thin py-2 px-4 rounded-full" {{action "saveRecurring"}}>Save</button>
+      <button class="rounded-full bg-yellow text-white font-thin py-2 px-4 rounded-full" {{action "saveRecurring"}}>Save</button>
     {{else}}
       {{#if updated}}
         <div class="rounded-full bg-green text-white font-thin py-2 px-4 rounded-full">Updated!</div>
@@ -35,18 +35,18 @@
       {{/if}}
     {{/if}}
   </div>
-  <div class="w-full rounded-lg overflow-hidden shadow-md -mt-3 bg-white {{if updated 'border-bottom-green' 'mb-7px'}}">
+  <div class="w-full rounded-lg overflow-hidden shadow-md -mt-3 bg-white {{if updated "border-bottom-green" "mb-7px"}}">
     <div class="image w-full bg-grey-campaign px-8 py-6 text-sm flex">
       <p class="flex-1 pl-4 capitalize">
         {{recurring.campaign.name}}
       </p>
       <p class="flex-1 text-right pr-4 text-grey-card">
-        Next donation: {{moment-format futurePayment 'MM/DD/YYYY'}}
+        Next donation: {{moment-format futurePayment "MM/DD/YYYY"}}
       </p>
     </div>
-    <div class="px-8 py-2 pb-6 z-15 {{if isEditing 'relative'}}">
-      <div class="mt-4 flex z-15 {{if isEditing 'relative'}}">
-        <p class="text-2xl font-bold w-1/6 text-center {{if amountEdited 'text-yellow' 'text-grey-card'}} align-top -mt-2 amount">
+    <div class="px-8 py-2 pb-6 z-15 {{if isEditing "relative"}}">
+      <div class="mt-4 flex z-15 {{if isEditing "relative"}}">
+        <p class="text-2xl font-bold w-1/6 text-center {{if amountEdited "text-yellow" "text-grey-card"}} align-top -mt-2 amount">
           {{#power-select-with-create
             options=paymentAmountOptions
             selected=paymentAmount
@@ -54,7 +54,7 @@
             onchange=(action "updatePayment")
             oncreate=(action "createPayment")
             onopen=(action "toggleFocus")
-            searchPlaceholder='Custom'
+            searchPlaceholder="Custom"
             buildSuggestion=(action "customSuggestion") as |amount|
           }}
             {{format-currency amount}}
@@ -63,7 +63,7 @@
         <p class="w-20">
 
         </p>
-        <p class="w-1/6 text-center {{if frequencyEdited 'text-yellow' 'text-grey-card'}} capitalize frequency">
+        <p class="w-1/6 text-center {{if frequencyEdited "text-yellow" "text-grey-card"}} capitalize frequency">
           {{#power-select
             options=paymentFrequencyOptions
             selected=paymentFrequency
@@ -77,7 +77,7 @@
         <p class="w-8">
         </p>
         <p class="text-sm w-1/4 text-center mt-3 text-grey-dark">
-          since {{moment-format recurring.createdAt 'MM/DD/YYYY'}}
+          since {{moment-format recurring.createdAt "MM/DD/YYYY"}}
         </p>
         <p class="text-sm w-1/4 text-center mt-3 text-grey-card card">
           card ending in {{recurring.vaultCard.lastFourDigits}}

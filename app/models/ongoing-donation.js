@@ -1,7 +1,6 @@
 import DS from 'ember-data';
 import { computed } from '@ember/object';
 import LoadableModel from 'ember-data-storefront/mixins/loadable-model';
-import moment from 'moment';
 
 export default DS.Model.extend(LoadableModel, {
   amount: DS.attr(),

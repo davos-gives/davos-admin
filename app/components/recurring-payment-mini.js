@@ -4,7 +4,7 @@ export default Component.extend({
 
   classNames: [],
 
-  paymentAmountOptions:  [1000, 2000, 3000],
+  paymentAmountOptions:  Object.freeze([1000, 2000, 3000]),
 
   paymentAmount: 0,
   "on-save": null,
@@ -68,7 +68,7 @@ export default Component.extend({
       recurring.setProperties({
         amount: this.get('paymentAmount'),
       });
-      return this.attrs['on-save'](recurring);
+      return this.onsave(recurring);
     },
 
     toggleSave() {

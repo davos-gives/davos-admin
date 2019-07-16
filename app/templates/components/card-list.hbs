@@ -1,7 +1,7 @@
 <section class=" w-3/5 mx-auto text-sm pt-8 pb-8 mt-8">
   <div class="w-full pl-8 flex flex-wrap">
     <div class="w-1/2">
-      <p class='text-lg text-white'>My Cards</p>
+      <p class="text-lg text-white">My Cards</p>
     </div>
     <div class="mb-4 w-1/2">
       <div class="font-bold text-purple history-dropdown float-right">
@@ -12,22 +12,24 @@
 
 <section class="flex w-3/5 w-1 mx-auto">
   <table class="cards-table w-full rounded-lg shadow-lg">
-    {{#each cards as |card|}}
-      <tr class="flex flex-wrap w-full justify-between">
-        <td class="w-1/4 py-3 py-6"><p class="text-center text-grey-card-2">{{card.cardType}}</p></td>
-        <td class="w-1/4 py-3 py-6"><p class="text-center text-purple-history-header">ending in {{card.lastFourDigits}}</p></td>
-        <td class="w-1/4 item-center py-6"><p class="text-left text-purple-history-header">Expires 10 / 23</p></td>
-        <td class="w-1/4 item-center py-6">
-          {{#if card.primary}}
-          <p class="text-left text-purple-history-header font-bold">Primary</p>
-          {{/if}}
+    <tbody>
+      {{#each cards as |card|}}
+        <tr class="flex flex-wrap w-full justify-between">
+          <td class="w-1/4 py-3 py-6"><p class="text-center text-grey-card-2">{{card.cardType}}</p></td>
+          <td class="w-1/4 py-3 py-6"><p class="text-center text-purple-history-header">ending in {{card.lastFourDigits}}</p></td>
+          <td class="w-1/4 item-center py-6"><p class="text-left text-purple-history-header">Expires 10 / 23</p></td>
+          <td class="w-1/4 item-center py-6">
+            {{#if card.primary}}
+              <p class="text-left text-purple-history-header font-bold">Primary</p>
+            {{/if}}
+          </td>
+        </tr>
+      {{/each}}
+      <tr class="bg-purple flex justify-center rounded-b-lg">
+        <td class="">
+          <button class="text-white font-bold py-4">Add New</button>
         </td>
       </tr>
-    {{/each}}
-    <tr class="bg-purple flex justify-center rounded-b-lg">
-      <td class="">
-        <button class="text-white font-bold py-4">Add New</button>
-      </td>
-    </tr>
+    </tbody>
   </table>
 </section>

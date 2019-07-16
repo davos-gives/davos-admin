@@ -6,8 +6,8 @@ export default Component.extend({
 
   classNames: ["w-full"],
 
-  paymentAmountOptions:  [1000, 2000, 3000],
-  paymentFrequencyOptions: ["daily", "weekly", "biweekly", "monthly"],
+  paymentAmountOptions:  Object.freeze([1000, 2000, 3000]),
+  paymentFrequencyOptions: Object.freeze(["daily", "weekly", "biweekly", "monthly"]),
 
   paymentAmount: 0,
   paymentFrequency: '',
@@ -29,17 +29,13 @@ export default Component.extend({
 
     switch(frequency) {
       case "Daily":
-        let newDateDailey = date.setDate(date.getDate()+1);
-        return newDateDailey;
+        return date.setDate(date.getDate()+1);
       case "Weekly":
-        let newDateWeekly = date.setDate(date.getDate()+7);
-        return newDateWeekly;
+        return date.setDate(date.getDate()+7);
       case "Bi-Weekly":
-        let newDateBiWeekly = date.setDate(date.getDate()+14);
-        return newDateBiWeekly;
+        return date.setDate(date.getDate()+14);
       case "Monthly":
-        let newDateMonthly = date.setMonth(date.getMonth()+1);
-        return newDateMonthly;
+        return date.setMonth(date.getMonth()+1);
     }
   }),
 
@@ -106,7 +102,7 @@ export default Component.extend({
         frequency: this.get('paymentFrequency'),
         card: this.get('card')
       });
-      return this.attrs['on-save'](recurring);
+      return this.onsave(recurring);
     },
 
     toggleSave() {

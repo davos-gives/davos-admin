@@ -1,23 +1,23 @@
 
 <div class="-mt-4 container group">
-  <div class='w-full flex justify-end'>
-    {{#link-to 'account.address.edit' address.id class="no-underline"}}
+  <div class="w-full flex justify-end">
+    {{#link-to "account.address.edit" address.id class="no-underline"}}
       <button class="rounded-full bg-purple-buttons text-white font-thin py-2 px-4 rounded-full block z-10 hover:shadow-lg invisible group-hover:visible">Edit</button>
     {{/link-to}}
   </div>
-    <div class="w-full overflow-hidden -mt-3 bg-white rounded-lg shadow">
-      <div class="flex justify-between w-4/5 mx-auto py-6">
-        <div class="">
-          <p class="text-purple-history-header pb-2 capitalize font-sm">name</p>
-          <p class="capitalize">{{address.name}}</p>
-        </div>
-        <div class="">
-          {{#if address.primary}}
-            <p class="rounded-full border border-purple-buttons text-purple-buttons font-thin py-2 px-4 rounded-full block z-10 text-xs">Primary</p>
-          {{/if}}
-        </div>
+  <div class="w-full overflow-hidden -mt-3 bg-white rounded-lg shadow">
+    <div class="flex justify-between w-4/5 mx-auto py-6">
+      <div class="">
+        <p class="text-purple-history-header pb-2 capitalize font-sm">name</p>
+        <p class="capitalize">{{address.name}}</p>
       </div>
-      <div class="hidden group-hover:block">
+      <div class="">
+        {{#if address.primary}}
+          <p class="rounded-full border border-purple-buttons text-purple-buttons font-thin py-2 px-4 rounded-full block z-10 text-xs">Primary</p>
+        {{/if}}
+      </div>
+    </div>
+    <div class="hidden group-hover:block">
       <div class="w-4/5 mx-auto justify-between py-6 pb-8 flex">
         <div>
           <p class="text-purple-history-header pb-2 capitalize font-sm">Address</p>
@@ -29,5 +29,5 @@
         </div>
       </div>
     </div>
-    </div>
+  </div>
 </div>

@@ -1,12 +1,12 @@
 <div class="w-110 mx-auto rounded-lg shadow-md -mt-3 bg-white border-bottom-red flex container" style="position: fixed; top: 40%; height: 290px;">
-  <p class="absolute text-white z-20 ml-8 pl-4 cursor-pointer block -mt-8" {{action cancelRecurring}}>
-    <img src="/img/icons/Cancel.svg" class="w-4"/>
+  <button class="absolute text-white z-20 ml-8 pl-4 cursor-pointer block -mt-8" {{action cancelRecurring}}>
+    <img src="/img/icons/Cancel.svg" class="w-4" alt="cancel">
     Close
-  </p>
+  </button>
   <div class=" bg-grey-campaign bg-white rounded-tl-lg p-10 w-2/3">
     <div class="pb-8 border-grey-light border-solid border-b">
       <p class="text-purple font-bold">Thank you for the good times!</p>
-      <p class="text-purple text-sm pt-1 leading-normal">You just cancelled your recurring <br/> donation</p>
+      <p class="text-purple text-sm pt-1 leading-normal">You just cancelled your recurring <br> donation</p>
       <h3 class="pt-4 text-large text-grey-card">{{organization.name}}</h3>
       <p class="pt-2 text-grey-card">{{gift.campaign.name}}</p>
     </div>
@@ -20,10 +20,10 @@
     </div>
   </div>
   <div class="w-1/3">
-    <img src="/img/Cancellation_confirm.svg" class="w-goodbye -mt-3.5 rounded-tr-lg" />
+    <img src="/img/Cancellation_confirm.svg" class="w-goodbye -mt-3.5 rounded-tr-lg" alt="cancellation illustration">
   </div>
 
   <p class="absolute text-white z-20 mt-8 pt-8 pl-4 ml-8 cursor-pointer block" style="bottom: -40px;">
-    If this was a mistake, <a class="text-purple-undo underline" {{action undoCancellation}}>undo here</a>.
+    If this was a mistake, <button class="text-purple-undo underline" {{action undoCancellation}}>undo here</button>.
   </p>
 </div>

@@ -1,6 +1,6 @@
 <div class="w-1/7 bg-white min-h-screen">
   <div class="logo text-center py-8 font-bold">
-    <img src="/img/Davos_logo_fullcolour.svg" class="w-32"/>
+    <img src="/img/Davos_logo_fullcolour.svg" class="w-32" alt="Davos">
   </div>
   <div class="menu text-left pt-1">
     <ul class="list-reset">
@@ -31,8 +31,8 @@
     <div class="w-4/5 m-auto flex px-8 container">
 
       <div class="flex-1 pt-6">
-        {{#link-to 'index' class="no-underline"}}
-          <img src="/img/icons/ChevronWhite.svg" class="w-2 rotate-90 align-middle mr-1"/> <img src="/img/icons/HomeWhite.svg" class="w-4 align-middle"/>
+        {{#link-to "index" class="no-underline"}}
+          <img src="/img/icons/ChevronWhite.svg" class="w-2 rotate-90 align-middle mr-1" alt="back"> <img src="/img/icons/HomeWhite.svg" class="w-4 align-middle" alt="home">
         {{/link-to}}
       </div>
 
@@ -40,14 +40,11 @@
         <nav class="flex items-center justify-between flex-wrap p-6">
           <div class="w-full block flex-grow text-white">
             <div>
-              <!-- <a class="inline-block mr-6 text-white no-underline align-middle" href="">
-                <img src="/img/icons/Search.svg" class="w-4 align-middle" />
-              </a> -->
               <button class="inline-block mr-6 text-white no-underline align-middle">
-                <img src="/img/icons/Bell.svg" class="w-4 align-middle" />
+                <img src="/img/icons/Bell.svg" class="w-4 align-middle" alt="notifications">
               </button>
               {{#link-to "account" class="inline-block mr-1 no-underline"}}
-                <img src="/img/icons/account-white.svg" class="w-4 align-middle" />
+                <img src="/img/icons/account-white.svg" class="w-4 align-middle" alt="account">
               {{/link-to}}
               {{#basic-dropdown as |dropdown|}}
                 {{#dropdown.trigger class="inline-block ml-2 logout"}}
@@ -64,6 +61,5 @@
       </div>
     </div>
   </section>
-
-{{outlet}}
+  {{outlet}}
 </div>

@@ -1,7 +1,5 @@
 import Controller from '@ember/controller';
-import { inject as service } from '@ember/service';
 import fetch from 'fetch';
-import { resolve } from 'rsvp';
 import { getOwner } from "@ember/application";
 
 export default Controller.extend({

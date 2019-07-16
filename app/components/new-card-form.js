@@ -56,7 +56,7 @@ export default Component.extend({
       })
     },
 
-    onCancel(ev) {
+    onCancel() {
       this.onCancel();
     },
   }

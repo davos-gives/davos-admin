@@ -1,7 +1,4 @@
 import Component from '@ember/component';
-import { computed } from '@ember/object';
-
-
 export default Component.extend({
 
   classNames: ["w-full"],
@@ -50,7 +47,7 @@ export default Component.extend({
         country: this.get('country'),
         primary: this.get('primary'),
       });
-      return this.attrs['on-save'](address);
+      return this.onsave(address);
     },
 
     toggleSave() {
@@ -87,8 +84,6 @@ export default Component.extend({
     },
 
     focusOff() {
-      // this.resetRecurring();
-      console.log("focusing off");
       this.set('isEditing', false);
     },
   }

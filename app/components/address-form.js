@@ -2,7 +2,7 @@ import Component from '@ember/component';
 
 export default Component.extend({
 
-  provinces: ["AB", "BC", "MB", "NB", "NL", "NS", "NT", "NU", "ON", "QC", "SK", "PE"],
+  provinces: Object.freeze(["AB", "BC", "MB", "NB", "NL", "NS", "NT", "NU", "ON", "QC", "SK", "PE"]),
 
   doubleConfirmCancel: false,
 
@@ -25,7 +25,7 @@ export default Component.extend({
       this.set('province', province);
     },
 
-    onCancel(ev) {
+    onCancel() {
       this.onCancel();
     },
 

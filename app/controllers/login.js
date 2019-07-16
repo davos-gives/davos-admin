@@ -10,7 +10,7 @@ export default Controller.extend({
       this.get('session').authenticate('authenticator:jwt', {
         email: attrs.email,
         password: attrs.password
-      }).catch((e) => {
+      }).catch(() => {
         this.set('hasError', true);
       });
     }

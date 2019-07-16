@@ -12,9 +12,9 @@ export default Component.extend({
   },
 
   store: inject('store'),
-  years: ["2019", "2018", "2017", "All"],
+  years: Object.freeze(["2019", "2018", "2017", "All"]),
   filter: 'All',
-  filteredPayments: [],
+  filteredPayments: Object.freeze([]),
 
   SortingDesc: Object.freeze(['timestamp:desc']),
   orderedFilteredPayments: computed.sort('filteredPayments', 'SortingDesc'),

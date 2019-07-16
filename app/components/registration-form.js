@@ -15,7 +15,6 @@ export default Component.extend({
   ,
   actions: {
     login(ev) {
-      console.log("running?!")
       ev.preventDefault();
 
       this.onsubmit({

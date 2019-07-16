@@ -15,7 +15,6 @@ export default Controller.extend({
     },
 
     logout(ev) {
-      console.log("clicking");
       ev.preventDefault();
       this.get('session').invalidate();
     }

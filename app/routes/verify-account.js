@@ -1,7 +1,6 @@
 import Route from '@ember/routing/route';
 import UnauthenticatedRouteMixin from "ember-simple-auth/mixins/unauthenticated-route-mixin";
 import fetch from 'fetch';
-import { resolve } from 'rsvp';
 import { getOwner } from "@ember/application";
 
 export default Route.extend(UnauthenticatedRouteMixin, {
@@ -30,8 +29,7 @@ export default Route.extend(UnauthenticatedRouteMixin, {
     let token = params.queryParams.token;
 
     this.verifyToken(token)
-      .then(console.log("your account has been verified! this'll eventually be a notification"))
       .then(this.transitionToRoute('login'))
-      .catch(() => console.log("something has gone wrong"))
+      .catch(() => {})
  }
 })

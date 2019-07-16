@@ -1,6 +1,6 @@
 <div class="w-1/7 bg-white min-h-screen">
   <div class="logo text-center py-8 font-bold">
-    <img src="/img/Davos_logo_fullcolour.svg" class="w-32"/>
+    <img src="/img/Davos_logo_fullcolour.svg" class="w-32" alt="davos">
   </div>
   <div class="menu text-left pt-1">
     <ul class="list-reset">
@@ -28,10 +28,9 @@
 <div class="w-6/7 min-h-screen bg-grey-lightest">
   <section class="bg-purple-gradient h-100">
     <div class="w-4/5 m-auto flex px-8 container">
-
       <div class="flex-1 pt-6">
-        {{#link-to 'index' class="no-underline"}}
-          <img src="/img/icons/ChevronWhite.svg" class="w-2 rotate-90 align-middle mr-1"/> <img src="/img/icons/HomeWhite.svg" class="w-4 align-middle"/>
+        {{#link-to "index" class="no-underline"}}
+          <img src="/img/icons/ChevronWhite.svg" class="w-2 rotate-90 align-middle mr-1" alt="back"> <img src="/img/icons/HomeWhite.svg" class="w-4 align-middle" alt="home">
         {{/link-to}}
       </div>
 
@@ -39,14 +38,11 @@
         <nav class="flex items-center justify-between flex-wrap p-6">
           <div class="w-full block flex-grow text-white">
             <div>
-              <!-- <a class="inline-block mr-6 text-white no-underline align-middle" href="">
-                <img src="/img/icons/Search.svg" class="w-4 align-middle" />
-              </a> -->
               <button class="inline-block mr-6 text-white no-underline align-middle">
-                <img src="/img/icons/Bell.svg" class="w-4 align-middle" />
+                <img src="/img/icons/Bell.svg" class="w-4 align-middle" alt="notifications">
               </button>
               {{#link-to "account" class="inline-block mr-1 no-underline"}}
-                <img src="/img/icons/account-white.svg" class="w-4 align-middle" />
+                <img src="/img/icons/account-white.svg" class="w-4 align-middle" alt="account">
               {{/link-to}}
               {{#basic-dropdown as |dropdown|}}
                 {{#dropdown.trigger class="inline-block ml-2 logout"}}
@@ -70,17 +66,17 @@
         <div class="flex-1">
           <div class="w-44 h-44 rounded-lg overflow-hidden shadow-md -mt-4 mx-2 mb-8">
             <div class="image w-full h-44 bg-white flex items-center">
-                <img src="{{model.organization.logo}}" class="w-3/4 mx-auto"/>
+              <img src={{model.organization.logo}} class="w-3/4 mx-auto" alt={{model.organization.name}}>
             </div>
           </div>
         </div>
         <div class="flex-1 border-solid">
-          <p class="text-white uppercase text-sm pb-4 ml-8">You're amazing!</p>
+          <p class="text-white uppercase text-sm pb-4 ml-8">You"re amazing!</p>
           <p class="text-white mb-2 font-semibold text-lg ml-8">
             Donated this year
           </p>
           <p class="text-white font-semibold text-2xl mb-2 text-center text-white">
-          {{format-currency model.yearlyDonations}}
+            {{format-currency model.yearlyDonations}}
           </p>
           <p class="text-white text-center font-hairline text-sm">
             CAD
@@ -114,27 +110,27 @@
   </section>
 
   <section class="flex flex-wrap w-3/5 mx-auto">
-        <p class="text-xl mt-8 pt-8 text-grey-card">
-          <span class="font-bold pr-2 capitalize text-grey-card">{{model.organization.name}}</span>
-          {{#if model.ongoingDonations.length}}
-            | My Ongoing Donations
-          {{else}}
-            | No Ongoing Donations
-          {{/if}}
-        </p>
-        {{#each activeDonations as |recurring|}}
-          {{recurring-payment recurring=recurring on-save=(action "saveRecurring") organization=model.organization frequency=recurring.frequency}}
-        {{/each}}
+    <p class="text-xl mt-8 pt-8 text-grey-card">
+      <span class="font-bold pr-2 capitalize text-grey-card">{{model.organization.name}}</span>
+      {{#if model.ongoingDonations.length}}
+        | My Ongoing Donations
+      {{else}}
+        | No Ongoing Donations
+      {{/if}}
+    </p>
+    {{#each activeDonations as |recurring|}}
+      {{recurring-payment recurring=recurring on-save=(action "saveRecurring") organization=model.organization frequency=recurring.frequency}}
+    {{/each}}
   </section>
 
   {{donation-history payments=model.payments}}
 
   <section class="flex flex-wrap w-3/5 mx-auto text-sm pt-8 pb-8 container">
     <div class="w-1/3 text-grey-dark border-grey-light border-solid border-t text-purple-footer py-8">
-      <p><span class='font-bold'>©2019 Davos.gives</span> - All rights reserved.</p>
+      <p><span class="font-bold">©2019 Davos.gives</span> - All rights reserved.</p>
     </div>
     <div class="w-1/3 text-grey-dark text-center border-grey-light border-solid border-t py-7 -py-1">
-      <img src="/img/Davos_slogan.svg" class="w-40"/>
+      <img src="/img/Davos_slogan.svg" class="w-40" alt="davos">
     </div>
 
     <div class="w-1/3 text-right flex text-grey-dark border-grey-light border-solid border-t py-8 text-xs">

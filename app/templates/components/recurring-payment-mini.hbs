@@ -1,35 +1,34 @@
-<div class="{{if isEditing 'editing-overlay'}}"></div>
+<div class={{if isEditing "editing-overlay"}}></div>
 
-{{#if isEditing}}
-  <p class="absolute text-white z-30 ml-8 pl-4 cursor-pointer block -mt-10" style="" {{action 'focusOff'}}>
-    <img src="/img/icons/ChevronWhite.svg" class="w-4 rotate-90"/>
-    Go Back
-  </p>
-{{/if}}
-
-{{#if isEditing}}
-  <button class="rounded-full bg-yellow text-white font-thin py-2 px-4 rounded-full absolute z-30 block -mt-8" {{action "saveRecurring"}} style="margin-left: 346px;">Save</button>
-{{else}}
-  {{#if updated}}
-  <button class="rounded-full bg-green text-white font-thin py-2 px-4 rounded-full absolute block z-30 -mt-8" style="margin-left: 312px;">Updated!</button>
+  {{#if isEditing}}
+    <p class="absolute text-white z-30 ml-8 pl-4 cursor-pointer block -mt-10" {{action "focusOff"}}>
+      <img src="/img/icons/ChevronWhite.svg" class="w-4 rotate-90" alt="back">
+      Go Back
+    </p>
   {{/if}}
-{{/if}}
 
-<div class="w-100 rounded-lg overflow-hidden shadow-md -mt-4 mx-2 mb-8 cursor-pointer bg-white {{if isEditing 'z-20 relative'}}">
-  {{#link-to 'relationship' relationship.id class='no-underline text-black'}}
-  {{#if campaign.imageUrl}}
-    <div class="image w-full h-48 bg-purple-card-background {{if isEditing 'z-20 relative'}} overflow-hidden">
-      <img src={{campaign.imageUrl}} class="opacity-80 featured-image" />
-    </div>
-    {{else}}
-    <div class="image w-full h-48 bg-{{dasherize campaign.description}} {{if isEditing 'z-20 relative'}} flex">
-    </div>
+  {{#if isEditing}}
+    <button class="rounded-full bg-yellow text-white font-thin py-2 px-4 rounded-full absolute z-30 block -mt-8" {{action "saveRecurring"}} style="margin-left: 346px;">Save</button>
+  {{else}}
+    {{#if updated}}
+      <button class="rounded-full bg-green text-white font-thin py-2 px-4 rounded-full absolute block z-30 -mt-8" style="margin-left: 312px;">Updated!</button>
     {{/if}}
+  {{/if}}
 
+<div class="w-100 rounded-lg overflow-hidden shadow-md -mt-4 mx-2 mb-8 cursor-pointer bg-white {{if isEditing "z-20 relative"}}">
+  {{#link-to "relationship" relationship.id class="no-underline text-black"}}
+    {{#if campaign.imageUrl}}
+      <div class="image w-full h-48 bg-purple-card-background {{if isEditing "z-20 relative"}} overflow-hidden">
+        <img src={{campaign.imageUrl}} class="opacity-80 featured-image" alt={{campaign.name}}>
+      </div>
+    {{else}}
+      <div class="image w-full h-48 bg-{{dasherize campaign.description}} {{if isEditing "z-20 relative"}} flex">
+      </div>
+    {{/if}}
   {{/link-to}}
 
-  <div class="px-10 py-4 {{if isEditing 'relative z-20'}} bg-white {{if updated 'border-bottom-green' 'mb-7px'}}">
-    {{#link-to 'relationship' relationship.id class='no-underline text-black'}}
+  <div class="px-10 py-4 {{if isEditing "relative z-20"}} bg-white {{if updated "border-bottom-green" "mb-7px"}}">
+    {{#link-to "relationship" relationship.id class="no-underline text-black"}}
       <div class="pb-8 border-grey-light border-solid border-b bg-white">
         <p class="font-bold text-grey-card mt-4 capitalize text-lg" style="height: 30px;" data-test-id="organization-name">
           {{campaign.organization.name}}
@@ -40,7 +39,7 @@
       </div>
     {{/link-to}}
     <div class="mt-4 flex">
-      <p class="text-2xl font-bold w-34 text-center {{if amountEdited 'text-yellow' 'text-grey-card'}} align-top -mt-2 amount">
+      <p class="text-2xl font-bold w-34 text-center {{if amountEdited "text-yellow" "text-grey-card"}} align-top -mt-2 amount">
         {{#power-select-with-create
           options=paymentAmountOptions
           selected=paymentAmount
@@ -48,7 +47,7 @@
           onchange=(action "updatePayment")
           oncreate=(action "createPayment")
           onopen=(action "toggleFocus")
-          searchPlaceholder='Custom'
+          searchPlaceholder="Custom"
           buildSuggestion=(action "customSuggestion") as |amount|
         }}
           {{format-currency amount}}
