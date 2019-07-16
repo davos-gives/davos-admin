@@ -77,6 +77,6 @@ workflows:
       - test:
           requires:
             - install_dependencies
-      -  percy/finalize_all:
+      - percy/finalize_all:
           requires:
-            - install_dependencies
+            - test
