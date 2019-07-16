@@ -15,11 +15,11 @@ module.exports = {
         "--headless",
         "--disable-gpu",
         "--remote-debugging-port=0",
-        "--window-size=1440,900"
+        "--window-size=1680,1050"
       ].filter(Boolean)
     },
     Firefox: {
-      ci: ["-headless", "--window-size=1440,900"].filter(Boolean)
+      ci: ["-headless", "--window-size=1680,1050"].filter(Boolean)
     }
   }
 };
