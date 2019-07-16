@@ -1,8 +1,9 @@
 import { module, test } from 'qunit';
 import { visit, currentURL } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
-import {  authenticateSession } from 'ember-simple-auth/test-support';
+import { authenticateSession } from 'ember-simple-auth/test-support';
 import { setupMirage } from 'ember-cli-mirage/test-support';
+import { percySnapshot } from 'ember-percy';
 
 
 module('Acceptance | index', function(hooks) {
@@ -41,6 +42,8 @@ module('Acceptance | index', function(hooks) {
     });
 
     await visit('/');
+
+    await percySnapshot('index');
 
     assert.equal(currentURL(), '/');
   });

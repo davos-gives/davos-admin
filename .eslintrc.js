@@ -18,6 +18,7 @@ module.exports = {
     browser: true
   },
   rules: {
+    "globals": {"percySnapshot": true}
   },
   overrides: [
     // node files
