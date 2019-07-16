@@ -1,14 +1,18 @@
+# .circleci/config.yml
 defaults: &defaults
   docker:
-    - image: circleci/node:10-browsers
+    - image: circleci/node:8-browsers
       environment:
-        JOBS: 1
+        JOBS: 2
   filters:
     branches:
       only: dev
   working_directory: ~/davos-admin
 
-version: 2.0
+orbs:
+  percy: percy/agent@volatile
+
+version: 2.1
 jobs:
   checkout_code:
     <<: *defaults
@@ -26,51 +30,42 @@ jobs:
           at: .
       - restore_cache:
           keys:
-            - davos-admin-node10-v1-{{ checksum "yarn.lock" }}
+            - v1-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
+            - v1-deps-{{ .Branch }}-
+            - v1-deps-
       - run:
           name: Yarn Install
-          command: yarn install --non-interactive --pure-lockfile
+          command: yarn global add bower && yarn global add @percy/agent && yarn install --non-interactive
       - save_cache:
-          key: davos-admin-node10-v1-{{ checksum "yarn.lock" }}
+          key: v1-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
           paths:
-            - ~/davos-admin/node_modules
+            - ./node_modules
       - persist_to_workspace:
           root: .
           paths:
             - .
 
-  lint:
+  run_tests:
     <<: *defaults
+    parallelism: 2
     steps:
       - attach_workspace:
           at: .
-      - run:
-          name: Lint Handlebars
-          command: yarn lint:hbs
-      - run:
-          name: Lint JavaScript
-          command: yarn lint:js
-
-  test:
-    <<: *defaults
-    steps:
-      - attach_workspace:
-          at: .
+      - run: echo 'export PATH=~/davos-admin/node_modules/.bin:$PATH' >> $BASH_ENV
       - run:
           name: Run Tests
-          command: yarn test
+          command: yarn build-test && yarn test:parallel
 
 workflows:
-  version: 2
-  build_and_test:
+  test_and_deploy:
     jobs:
       - checkout_code
       - install_dependencies:
           requires:
             - checkout_code
-      - lint:
+      - run_tests:
           requires:
             - install_dependencies
-      - test:
+      - percy/finalize_all:
           requires:
-            - install_dependencies
+            - run_tests
