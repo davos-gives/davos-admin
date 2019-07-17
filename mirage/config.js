@@ -35,5 +35,5 @@ export default function() {
   this.get('/ongoing-donations/:id');
   this.patch('/ongoing-donations/:id');
 
-
+  this.get('donor-organization-relationships/:id');
 }

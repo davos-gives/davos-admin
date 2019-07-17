@@ -1,6 +1,9 @@
 import { helper } from '@ember/component/helper';
 
 export function formatCurrency([value]) {
+  if (value == null) {
+    return "$0.00"
+  }
   let dollars = Math.floor(value / 100);
   let cents = value % 100;
   let sign = '$';

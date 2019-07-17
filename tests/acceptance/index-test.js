@@ -79,7 +79,6 @@ module('Acceptance | index', function(hooks) {
 
     await visit('/');
 
-
     await click('.ember-power-select-trigger');
     await click('[data-option-index="1"]');
     await click('[data-test-id="go back"]');
