@@ -3653,6 +3653,13 @@ ember-cli-moment-shim@^3.7.1:
     moment "^2.19.3"
     moment-timezone "^0.5.13"
 
+ember-cli-netlify@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/ember-cli-netlify/-/ember-cli-netlify-0.2.0.tgz#1190bafd1acc88fbf37769428b7e2b10409dde12"
+  integrity sha512-BE1Ja06sqXh/et149MAMEGVnLafDG+c7mZUgd6g+h3/dJtZzqBzt72pnJmMWqUw/IlVGSUft1A6ItUTfllf6ig==
+  dependencies:
+    fs-extra "^5.0.0"
+
 ember-cli-normalize-entity-name@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/ember-cli-normalize-entity-name/-/ember-cli-normalize-entity-name-1.0.0.tgz#0b14f7bcbc599aa117b5fddc81e4fd03c4bad5b7"
@@ -6202,9 +6209,9 @@ lodash.defaults@~2.3.0:
     lodash.keys "~2.3.0"
 
 lodash.defaultsdeep@^4.6.0:
-  version "4.6.0"
-  resolved "https://registry.yarnpkg.com/lodash.defaultsdeep/-/lodash.defaultsdeep-4.6.0.tgz#bec1024f85b1bd96cbea405b23c14ad6443a6f81"
-  integrity sha1-vsECT4WxvZbL6kBbI8FK1kQ6b4E=
+  version "4.6.1"
+  resolved "https://registry.yarnpkg.com/lodash.defaultsdeep/-/lodash.defaultsdeep-4.6.1.tgz#512e9bd721d272d94e3d3a63653fa17516741ca6"
+  integrity sha512-3j8wdDzYuWO3lM3Reg03MuQR957t287Rpcxp1njpEa8oDrikb+FwGdW3n+FELh/A6qib6yPit0j/pv9G/yeAqA==
 
 lodash.escape@~2.3.0:
   version "2.3.0"
